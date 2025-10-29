@@ -588,6 +588,22 @@ footer {
   min-height: 120px;
 }
 
+/* Section Separators */
+section {
+  position: relative;
+}
+
+section:not(:last-of-type)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+}
+
 /* Problem Section */
 .problem-section {
   padding: 5rem 0;
@@ -605,11 +621,23 @@ footer {
   padding: 2rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
 }
 
 .problem-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.problem-card .feature-icon {
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+
+.problem-card-content {
+  flex: 1;
 }
 
 .problem-card h3 {
@@ -641,11 +669,23 @@ footer {
   padding: 2.5rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
 }
 
 .solution-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.solution-card .feature-icon {
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+
+.solution-card-content {
+  flex: 1;
 }
 
 .solution-card h3 {
@@ -686,11 +726,14 @@ footer {
 
 .step-card {
   background-color: var(--white);
-  padding: 2rem;
+  padding: 2.5rem 2rem 2rem;
   border-radius: 12px;
-  text-align: center;
+  text-align: left;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
 }
 
 .step-card:hover {
@@ -700,23 +743,28 @@ footer {
 
 .step-number {
   position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 40px;
+  top: 1.5rem;
+  left: 1.5rem;
+  min-width: 70px;
+  padding: 0.5rem 1rem;
   background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
   color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 .step-card .feature-icon {
-  margin: 2rem auto 1.5rem;
+  flex-shrink: 0;
+  margin: 3rem 0 0 0;
+}
+
+.step-card-content {
+  flex: 1;
+  margin-top: 3rem;
 }
 
 .step-card h3 {
@@ -778,6 +826,23 @@ footer {
   border-left: 4px solid var(--primary-blue);
 }
 
+.founder-quote > p:first-of-type {
+  font-family: 'Brush Script MT', 'Segoe Script', 'Lucida Handwriting', cursive;
+  font-size: 1.25rem;
+  font-weight: normal;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.founder-quote-intro {
+  font-family: 'Brush Script MT', 'Segoe Script', 'Lucida Handwriting', cursive;
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: var(--primary-text);
+  margin-bottom: 1.5rem !important;
+  font-style: italic;
+}
+
 .founder-quote p {
   margin-bottom: 1rem;
   color: var(--primary-text);
@@ -833,20 +898,22 @@ footer {
 
 .stage-badge {
   display: inline-block;
-  background-color: var(--white);
-  color: var(--primary-text);
-  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+  color: white;
+  padding: 1rem 2.5rem;
   border-radius: 50px;
-  font-weight: 600;
-  font-size: 1.125rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 2px solid var(--primary-blue);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+  border: 3px solid white;
+  outline: 2px solid var(--primary-blue);
 }
 
 .stage-description {
-  font-size: 1.125rem;
-  color: var(--secondary-text);
+  font-size: 1.25rem;
+  color: var(--primary-text);
+  font-weight: 500;
   line-height: 1.8;
   margin-bottom: 2rem;
 }
@@ -903,9 +970,12 @@ footer {
 
 .cta-choices {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-choice {
@@ -978,6 +1048,30 @@ footer {
 
   .stage-ctas {
     flex-direction: column;
+  }
+
+  .problem-card,
+  .solution-card,
+  .step-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .problem-card .feature-icon,
+  .solution-card .feature-icon {
+    margin: 0 auto 1rem;
+  }
+
+  .step-card .feature-icon {
+    margin: 3rem auto 0;
+  }
+
+  .step-card-content {
+    text-align: center;
+  }
+
+  .cta-choices {
+    gap: 2rem;
   }
 
   .container {
