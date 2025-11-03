@@ -114,6 +114,15 @@ nav {
 }
 
 .hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+/* Centered hero layout (for home page only) */
+.hero-content-centered {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,7 +130,7 @@ nav {
   text-align: center;
 }
 
-.hero-logo {
+.hero-content-centered .hero-logo {
   margin-bottom: 2rem;
 }
 
@@ -149,6 +158,9 @@ nav {
 .hero-buttons {
   display: flex;
   gap: 1rem;
+}
+
+.hero-content-centered .hero-buttons {
   justify-content: center;
 }
 
@@ -184,6 +196,22 @@ nav {
 .btn-secondary:hover {
   background-color: var(--primary-blue);
   color: white;
+}
+
+.hero-visual {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
+  border-radius: 16px;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+}
+
+.hero-visual-content {
+  color: white;
+  text-align: center;
 }
 
 /* Features Section */
@@ -1002,12 +1030,13 @@ section:not(:last-of-type)::after {
     gap: 1rem;
   }
 
+  .hero-content,
   .content-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .hero-logo img {
+  .hero-content-centered .hero-logo img {
     max-width: 200px !important;
   }
 
