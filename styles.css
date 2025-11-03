@@ -109,7 +109,7 @@ nav {
 
 /* Hero Section */
 .hero {
-  padding: 4rem 0;
+  padding: 2.5rem 0;
   background: linear-gradient(135deg, #F9FAFB 0%, #EFF6FF 100%);
 }
 
@@ -118,7 +118,7 @@ nav {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  padding: 2rem 0;
+  padding: 0.5rem 0;
 }
 
 /* Centered hero layout (for home page only) */
@@ -126,7 +126,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0;
+  padding: 0.5rem 0;
   text-align: center;
 }
 
