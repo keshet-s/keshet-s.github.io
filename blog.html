@@ -30,17 +30,19 @@
             <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
                 <div style="margin-bottom: 2rem;">
                     <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto;">
-                        <circle cx="60" cy="60" r="55" stroke="white" stroke-width="3" opacity="0.3"/>
-                        <path d="M60 25 L60 60 L85 85" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
-                        <circle cx="60" cy="60" r="5" fill="white"/>
-                        <rect x="30" y="90" width="10" height="4" rx="2" fill="white" opacity="0.6"/>
-                        <rect x="45" y="90" width="10" height="4" rx="2" fill="white" opacity="0.7"/>
-                        <rect x="60" y="90" width="10" height="4" rx="2" fill="white" opacity="0.8"/>
-                        <rect x="75" y="90" width="10" height="4" rx="2" fill="white" opacity="0.7"/>
+                        <circle cx="60" cy="60" r="55" stroke="#2563EB" stroke-width="3" opacity="0.3"/>
+                        <path d="M60 25 L60 60 L85 85" stroke="#2563EB" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+                        <circle cx="60" cy="60" r="5" fill="#2563EB"/>
+                        <rect x="30" y="90" width="10" height="4" rx="2" fill="#2563EB" opacity="0.6"/>
+                        <rect x="45" y="90" width="10" height="4" rx="2" fill="#2563EB" opacity="0.7"/>
+                        <rect x="60" y="90" width="10" height="4" rx="2" fill="#2563EB" opacity="0.8"/>
+                        <rect x="75" y="90" width="10" height="4" rx="2" fill="#2563EB" opacity="0.7"/>
                     </svg>
                 </div>
-                <h1>Our Blog is <span class="highlight">Coming Soon</span></h1>
-                <p style="font-size: 1.25rem; margin: 2rem 0; opacity: 0.9;">We're working on bringing you insights about adaptive learning, AI in education, and learning science. Stay tuned for exciting content!</p>
+                <div class="hero-text">
+                    <h1>Our Blog is <span class="highlight">Coming Soon</span></h1>
+                    <p style="font-size: 1.25rem; margin: 2rem 0; opacity: 0.9;">We're working on bringing you insights about adaptive learning, AI in education, and learning science. Stay tuned for exciting content!</p>
+                </div>
             </div>
         </div>
     </section>
@@ -91,13 +93,9 @@
                 <h2>Get Notified When We Launch</h2>
                 <p>Sign up to be the first to know when we publish new content</p>
             </div>
-            <form class="partnership-form" style="max-width: 500px;">
-                <div class="form-group">
-                    <label for="newsletter-email">Email Address</label>
-                    <input type="email" id="newsletter-email" name="email" placeholder="your@email.com" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Notify Me</button>
-            </form>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" onclick="openModal('waitlistModal'); return false;" class="btn btn-primary">Join the Waitlist</a>
+            </div>
         </div>
     </section>
 
@@ -135,5 +133,56 @@
             </div>
         </div>
     </footer>
+
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Join the Waitlist</h2>
+                <p>Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open modal function
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        // Close modal function
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModal(activeModal.id);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
