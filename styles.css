@@ -1144,18 +1144,21 @@ section:not(:last-of-type)::after {
   width: 90%;
   max-width: 600px;
   max-height: 90vh;
-  overflow-y: auto;
+  overflow: hidden;
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: slideUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
   background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 16px 16px 0 0;
   position: relative;
   color: white;
+  flex-shrink: 0;
 }
 
 .modal-header h2 {
@@ -1196,13 +1199,20 @@ section:not(:last-of-type)::after {
 
 .modal-body {
   padding: 0;
+  background: var(--white);
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
 }
 
 .modal-body iframe {
   width: 100%;
-  min-height: 500px;
+  height: 100%;
+  min-height: 600px;
   border: none;
   display: block;
+  margin: 0;
+  padding: 0;
 }
 
 /* Responsive Modal */
@@ -1213,7 +1223,7 @@ section:not(:last-of-type)::after {
   }
 
   .modal-header {
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem;
   }
 
   .modal-header h2 {
@@ -1225,5 +1235,9 @@ section:not(:last-of-type)::after {
     height: 32px;
     top: 1rem;
     right: 1rem;
+  }
+
+  .modal-body iframe {
+    min-height: 500px;
   }
 }

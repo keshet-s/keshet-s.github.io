@@ -373,7 +373,7 @@
                             Help shape what we build while using the platform with your learners.
                         </p>
                         <div style="margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <a href="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" target="_blank" class="btn btn-primary">Partner with Us</a>
+                            <a href="#" onclick="openModal('partnerModal'); return false;" class="btn btn-primary">Partner with Us</a>
                             <a href="designer-partnership.html" class="text-link" style="align-self: center;">Learn More →</a>
                         </div>
                         <p style="line-height: 1.8; color: var(--primary-text); margin-bottom: 1.5rem; font-weight: 600;">
@@ -393,7 +393,7 @@
                     <strong>For Everyone:</strong> Follow our journey and progress.
                 </p>
                 <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" target="_blank" class="btn btn-primary">Join the Waitlist</a>
+                    <a href="#" onclick="openModal('waitlistModal'); return false;" class="btn btn-primary">Join the Waitlist</a>
                     <a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" class="btn btn-secondary">LinkedIn</a>
                 </div>
             </div>
@@ -451,8 +451,8 @@
                 <h2>Ready to Shape the Future of Training?</h2>
                 <p>Let's build something better together.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" target="_blank" class="btn">Partner with Us</a>
-                    <a href="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" target="_blank" class="btn" style="background-color: white; color: var(--primary-blue);">Join the Waitlist</a>
+                    <a href="#" onclick="openModal('partnerModal'); return false;" class="btn">Partner with Us</a>
+                    <a href="#" onclick="openModal('waitlistModal'); return false;" class="btn" style="background-color: white; color: var(--primary-blue);">Join the Waitlist</a>
                 </div>
             </div>
         </div>
@@ -499,5 +499,70 @@
             </div>
         </div>
     </footer>
+
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Join the Waitlist</h2>
+                <p>Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partner Modal -->
+    <div id="partnerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Partner with Us</h2>
+                <p>We're building a better platform for professional training — and we need the right partner to build it with. Tell us about your training challenges and let's explore if we're a good fit.</p>
+                <button class="modal-close" onclick="closeModal('partnerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open modal function
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        // Close modal function
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModal(activeModal.id);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
