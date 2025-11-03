@@ -1135,7 +1135,8 @@ section:not(:last-of-type)::after {
   border-radius: 16px;
   width: 90%;
   max-width: 600px;
-  height: 90vh;
+  height: 85vh;
+  max-height: 700px;
   overflow: hidden;
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -1198,7 +1199,7 @@ section:not(:last-of-type)::after {
   overflow: hidden;
   flex: 1 1 auto;
   min-height: 0;
-  position: relative;
+  border-radius: 0 0 16px 16px;
 }
 
 .modal-body iframe {
@@ -1208,16 +1209,14 @@ section:not(:last-of-type)::after {
   display: block;
   margin: 0;
   padding: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 /* Responsive Modal */
 @media (max-width: 768px) {
   .modal-content {
     width: 95%;
-    height: 95vh;
+    height: 90vh;
+    max-height: none;
   }
 
   .modal-header {
