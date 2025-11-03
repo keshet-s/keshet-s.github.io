@@ -19,7 +19,7 @@
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="designer-partnership.html">Partners</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="#" class="nav-cta">Get Started</a></li>
+                <li><a href="#" onclick="openModal('waitlistModal'); return false;" class="nav-cta">Get Started</a></li>
             </ul>
         </div>
     </nav>
@@ -32,7 +32,7 @@
                     <h1>Training That <span class="highlight">Adapts</span> to Each Learner</h1>
                     <p>We're building a better way to create and deliver professional training.</p>
                     <div class="hero-buttons">
-                        <a href="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" target="_blank" class="btn btn-primary">Join the Waitlist</a>
+                        <a href="#" onclick="openModal('waitlistModal'); return false;" class="btn btn-primary">Join the Waitlist</a>
                         <a href="designer-partnership.html" class="btn btn-secondary">Explore Partnership</a>
                     </div>
                 </div>
@@ -228,8 +228,8 @@
                     </ul>
                 </div>
                 <div class="stage-ctas">
-                    <a href="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" target="_blank" class="btn btn-primary">Partner with Us</a>
-                    <a href="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" target="_blank" class="btn btn-secondary">Join the Waitlist</a>
+                    <a href="#" onclick="openModal('partnerModal'); return false;" class="btn btn-primary">Partner with Us</a>
+                    <a href="#" onclick="openModal('waitlistModal'); return false;" class="btn btn-secondary">Join the Waitlist</a>
                 </div>
             </div>
         </div>
@@ -245,12 +245,12 @@
                 <div class="cta-choice">
                     <h3>For Training Companies</h3>
                     <p>Help us build this platform while using it with your learners.</p>
-                    <a href="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" target="_blank" class="btn btn-primary">Partner with Us →</a>
+                    <a href="#" onclick="openModal('partnerModal'); return false;" class="btn btn-primary">Partner with Us →</a>
                 </div>
                 <div class="cta-choice">
                     <h3>For Everyone Else</h3>
                     <p>Join our waitlist for updates on our progress and launch.</p>
-                    <a href="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" target="_blank" class="btn btn-secondary">Join Waitlist →</a>
+                    <a href="#" onclick="openModal('waitlistModal'); return false;" class="btn btn-secondary">Join Waitlist →</a>
                 </div>
             </div>
         </div>
@@ -291,5 +291,70 @@
             </div>
         </div>
     </footer>
+
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Join the Waitlist</h2>
+                <p>Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partner Modal -->
+    <div id="partnerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Partner with Us</h2>
+                <p>Help us build the future of adaptive learning</p>
+                <button class="modal-close" onclick="closeModal('partnerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Open modal function
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+        }
+
+        // Close modal function
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+        }
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModal(activeModal.id);
+                }
+            }
+        });
+    </script>
 </body>
 </html>
