@@ -27,6 +27,11 @@ body {
   color: var(--primary-text);
   line-height: 1.6;
   background-color: var(--white);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+html {
+  overflow-x: hidden; /* Prevent horizontal scroll on html element too */
 }
 
 /* Navigation */
@@ -143,10 +148,18 @@ nav {
 }
 
 .hero-text .highlight {
+  color: var(--primary-blue); /* Fallback color */
   background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Ensure better visibility on mobile */
+@supports not (-webkit-background-clip: text) {
+  .hero-text .highlight {
+    color: var(--primary-blue);
+  }
 }
 
 .hero-text p {
@@ -249,11 +262,13 @@ nav {
   padding: 2rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .feature-icon {
@@ -477,11 +492,13 @@ footer {
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .blog-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .blog-image {
@@ -641,11 +658,13 @@ section:not(:last-of-type)::after {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .problem-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .problem-card .feature-icon {
@@ -689,11 +708,13 @@ section:not(:last-of-type)::after {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .solution-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .solution-card .feature-icon {
@@ -751,11 +772,13 @@ section:not(:last-of-type)::after {
   display: flex;
   gap: 1.5rem;
   align-items: flex-start;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .step-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .step-number {
@@ -1026,8 +1049,36 @@ section:not(:last-of-type)::after {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav-links {
+  .nav-container {
+    padding: 1rem;
+    flex-direction: column;
     gap: 1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .nav-links a {
+    padding: 0.625rem 1rem;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    min-width: 90px;
+    text-align: center;
+  }
+
+  .nav-cta {
+    min-width: 120px !important;
+  }
+
+  /* Make highlighted text more visible on mobile with solid color */
+  .hero-text .highlight {
+    -webkit-text-fill-color: var(--primary-blue);
+    color: var(--primary-blue);
+    font-weight: 800;
   }
 
   .hero-content,
@@ -1063,8 +1114,34 @@ section:not(:last-of-type)::after {
   }
 
   .founder-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     gap: 2rem;
+  }
+
+  /* Fix about page founder section specifically */
+  .founder-section .founder-content {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .founder-section .founder-text-left,
+  .founder-section .founder-right {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Improve personal note section on mobile */
+  .founder-section .founder-right > div {
+    padding: 2rem 1.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .founder-section .founder-right ul {
+    padding-left: 1.25rem !important;
+  }
+
+  .founder-section .founder-right li {
+    margin-bottom: 0.75rem !important;
   }
 
   .stage-ctas {
@@ -1098,17 +1175,17 @@ section:not(:last-of-type)::after {
   .container {
     padding: 0 1rem;
   }
-
-  .nav-container {
-    padding: 1rem;
-  }
 }
 
 @media (max-width: 480px) {
   .nav-links {
-    flex-wrap: wrap;
     gap: 0.5rem;
-    font-size: 0.875rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9375rem;
+    padding: 0.75rem 0.875rem;
+    min-width: 85px;
   }
 
   .hero-text h1 {
@@ -1117,6 +1194,38 @@ section:not(:last-of-type)::after {
 
   .btn {
     padding: 0.75rem 1.5rem;
+  }
+
+  /* Ensure no horizontal overflow on very small screens */
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .feature-card,
+  .problem-card,
+  .solution-card,
+  .step-card,
+  .blog-card {
+    padding: 1.5rem;
+  }
+
+  /* Make founder section text more readable on small screens */
+  .founder-section .founder-right > div {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .founder-section .founder-right p,
+  .founder-section .founder-right ul {
+    font-size: 1.125rem !important;
+  }
+
+  /* Reduce heading sizes on small screens */
+  .section-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.875rem;
   }
 }
 
