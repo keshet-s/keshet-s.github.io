@@ -227,17 +227,45 @@
     // =========================================================================
 
     /**
-     * Initialize cookie consent when DOM is ready
+     * Maximum number of retry attempts for loading the library
      */
-    function initCookieConsent() {
+    const MAX_RETRIES = 50;
+    const RETRY_INTERVAL = 100; // milliseconds
+
+    /**
+     * Track if Google Consent Mode has been initialized
+     */
+    let consentModeInitialized = false;
+
+    /**
+     * Initialize cookie consent when DOM is ready
+     * @param {number} retryCount - Current retry attempt
+     */
+    function initCookieConsent(retryCount) {
+        retryCount = retryCount || 0;
+
         // Initialize Google Consent Mode first (before any Google tags)
-        initializeGoogleConsentMode();
+        // Only do this once on first attempt
+        if (!consentModeInitialized) {
+            initializeGoogleConsentMode();
+            consentModeInitialized = true;
+        }
 
         // Wait for CookieConsent library to be available
         if (typeof CookieConsent === 'undefined') {
-            debugLog('CookieConsent library not loaded');
-            return;
+            if (retryCount < MAX_RETRIES) {
+                debugLog('CookieConsent library not loaded yet, retrying... (' + (retryCount + 1) + '/' + MAX_RETRIES + ')');
+                setTimeout(function() {
+                    initCookieConsent(retryCount + 1);
+                }, RETRY_INTERVAL);
+                return;
+            } else {
+                console.error('[Cookie Consent] Failed to load CookieConsent library after ' + MAX_RETRIES + ' attempts. Please check if the CDN is accessible.');
+                return;
+            }
         }
+
+        debugLog('CookieConsent library loaded successfully, initializing banner...');
 
         CookieConsent.run({
             // =====================================================================
