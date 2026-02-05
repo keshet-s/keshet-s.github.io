@@ -1,0 +1,628 @@
+/**
+ * Custom Cookie Consent Styles for Adaptly
+ *
+ * These styles override the default vanilla-cookieconsent theme
+ * to match Adaptly's design system.
+ *
+ * Design System Reference:
+ * - Primary Blue: #2563EB
+ * - Secondary Purple: #7C3AED
+ * - Primary Text: #1F2937
+ * - Secondary Text: #6B7280
+ * - Background Light: #F9FAFB
+ * - White: #FFFFFF
+ * - Border Color: #E5E7EB
+ */
+
+/* =========================================================================
+   CSS CUSTOM PROPERTIES - Match site's design system
+   ========================================================================= */
+
+:root {
+    /* Cookie consent specific colors using Adaptly palette */
+    --cc-bg: #FFFFFF;
+    --cc-primary-color: #1F2937;
+    --cc-secondary-color: #6B7280;
+    --cc-btn-primary-bg: #2563EB;
+    --cc-btn-primary-color: #FFFFFF;
+    --cc-btn-primary-hover-bg: #1D4ED8;
+    --cc-btn-secondary-bg: #FFFFFF;
+    --cc-btn-secondary-color: #2563EB;
+    --cc-btn-secondary-border-color: #2563EB;
+    --cc-btn-secondary-hover-bg: #2563EB;
+    --cc-btn-secondary-hover-color: #FFFFFF;
+    --cc-separator-border-color: #E5E7EB;
+    --cc-toggle-on-bg: #2563EB;
+    --cc-toggle-off-bg: #E5E7EB;
+    --cc-toggle-readonly-bg: #10B981;
+    --cc-overlay-bg: rgba(0, 0, 0, 0.6);
+    --cc-cookie-category-block-bg: #F9FAFB;
+    --cc-section-border: #E5E7EB;
+    --cc-link-color: #2563EB;
+    --cc-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* =========================================================================
+   CONSENT MODAL (Banner)
+   ========================================================================= */
+
+/* Main modal container */
+.cm {
+    font-family: var(--cc-font-family) !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+    border-radius: 16px 16px 0 0 !important;
+    border: none !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+/* Center the modal at the bottom */
+.cm--box.cm--wide {
+    max-width: 900px !important;
+}
+
+/* Modal positioned at bottom center */
+.cc--bottom .cm {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+}
+
+/* Modal wrapper - add z-index between nav and modals */
+#cc-main {
+    z-index: 1500 !important;
+}
+
+/* Modal body */
+.cm__body {
+    padding: 1.5rem 2rem !important;
+}
+
+/* Modal title */
+.cm__title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: var(--cc-primary-color) !important;
+    margin-bottom: 0.75rem !important;
+}
+
+/* Modal description text */
+.cm__desc {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+    color: var(--cc-secondary-color) !important;
+}
+
+/* Links in modal */
+.cm__desc .cc-link,
+.cm a.cc-link {
+    color: var(--cc-link-color) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: color 0.3s ease !important;
+}
+
+.cm__desc .cc-link:hover,
+.cm a.cc-link:hover {
+    color: #1D4ED8 !important;
+    text-decoration: underline !important;
+}
+
+/* Footer section */
+.cm__footer {
+    padding: 1rem 2rem !important;
+    background-color: var(--cc-cookie-category-block-bg) !important;
+    border-top: 1px solid var(--cc-separator-border-color) !important;
+}
+
+/* =========================================================================
+   BUTTONS
+   ========================================================================= */
+
+/* Button container */
+.cm__btns {
+    display: flex !important;
+    gap: 0.75rem !important;
+    flex-wrap: wrap !important;
+    margin-top: 1.25rem !important;
+}
+
+/* All buttons base styles */
+.cm__btn,
+.pm__btn {
+    font-family: var(--cc-font-family) !important;
+    font-size: 0.9375rem !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    min-width: 140px !important;
+    text-align: center !important;
+}
+
+/* Primary button (Accept All) */
+.cm__btn--accept-all,
+.pm__btn--accept-all {
+    background-color: var(--cc-btn-primary-bg) !important;
+    color: var(--cc-btn-primary-color) !important;
+    border: 2px solid var(--cc-btn-primary-bg) !important;
+}
+
+.cm__btn--accept-all:hover,
+.pm__btn--accept-all:hover {
+    background-color: var(--cc-btn-primary-hover-bg) !important;
+    border-color: var(--cc-btn-primary-hover-bg) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Secondary button (Reject All) */
+.cm__btn--accept-necessary,
+.pm__btn--accept-necessary {
+    background-color: var(--cc-btn-secondary-bg) !important;
+    color: var(--cc-btn-secondary-color) !important;
+    border: 2px solid var(--cc-btn-secondary-border-color) !important;
+}
+
+.cm__btn--accept-necessary:hover,
+.pm__btn--accept-necessary:hover {
+    background-color: var(--cc-btn-secondary-hover-bg) !important;
+    color: var(--cc-btn-secondary-hover-color) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Tertiary button (Manage Preferences / Save Preferences) */
+.cm__btn--settings,
+.pm__btn--save {
+    background-color: transparent !important;
+    color: var(--cc-secondary-color) !important;
+    border: 2px solid var(--cc-separator-border-color) !important;
+}
+
+.cm__btn--settings:hover,
+.pm__btn--save:hover {
+    background-color: var(--cc-cookie-category-block-bg) !important;
+    color: var(--cc-primary-color) !important;
+    border-color: var(--cc-secondary-color) !important;
+}
+
+/* =========================================================================
+   PREFERENCES MODAL
+   ========================================================================= */
+
+/* Preferences modal container */
+.pm {
+    font-family: var(--cc-font-family) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+    max-width: 700px !important;
+}
+
+/* Preferences modal header */
+.pm__header {
+    background: linear-gradient(135deg, #2563EB, #7C3AED) !important;
+    padding: 1.5rem 2rem !important;
+    border-radius: 16px 16px 0 0 !important;
+}
+
+.pm__title {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+}
+
+/* Close button */
+.pm__close-btn {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 36px !important;
+    height: 36px !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.pm__close-btn:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.pm__close-btn svg {
+    stroke: #FFFFFF !important;
+}
+
+/* Preferences modal body */
+.pm__body {
+    padding: 1.5rem 2rem !important;
+    max-height: 60vh !important;
+    overflow-y: auto !important;
+}
+
+/* Section styling */
+.pm__section {
+    border-bottom: 1px solid var(--cc-separator-border-color) !important;
+    padding: 1.25rem 0 !important;
+}
+
+.pm__section:last-child {
+    border-bottom: none !important;
+}
+
+.pm__section-title {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    color: var(--cc-primary-color) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.pm__section-desc {
+    font-size: 0.9375rem !important;
+    line-height: 1.7 !important;
+    color: var(--cc-secondary-color) !important;
+}
+
+/* Cookie category block */
+.pm__section--expandable {
+    background-color: var(--cc-cookie-category-block-bg) !important;
+    border-radius: 12px !important;
+    padding: 1.25rem !important;
+    margin: 0.5rem 0 !important;
+    border: 1px solid var(--cc-separator-border-color) !important;
+}
+
+/* Section title wrapper with toggle */
+.pm__section-title-wrapper {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+/* =========================================================================
+   TOGGLE SWITCHES
+   ========================================================================= */
+
+/* Toggle container */
+.pm__switch {
+    position: relative !important;
+}
+
+/* Toggle track */
+.pm__switch .pm__switch__slider {
+    width: 50px !important;
+    height: 26px !important;
+    border-radius: 26px !important;
+    background-color: var(--cc-toggle-off-bg) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Toggle knob */
+.pm__switch .pm__switch__slider::before {
+    content: '' !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    background-color: #FFFFFF !important;
+    position: absolute !important;
+    top: 3px !important;
+    left: 3px !important;
+    transition: transform 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Toggle checked state */
+.pm__switch input:checked + .pm__switch__slider {
+    background-color: var(--cc-toggle-on-bg) !important;
+}
+
+.pm__switch input:checked + .pm__switch__slider::before {
+    transform: translateX(24px) !important;
+}
+
+/* Toggle readonly (necessary cookies) */
+.pm__switch input:disabled + .pm__switch__slider {
+    background-color: var(--cc-toggle-readonly-bg) !important;
+    opacity: 1 !important;
+}
+
+/* Toggle focus state for accessibility */
+.pm__switch input:focus-visible + .pm__switch__slider {
+    outline: 2px solid var(--cc-btn-primary-bg) !important;
+    outline-offset: 2px !important;
+}
+
+/* =========================================================================
+   COOKIE TABLE
+   ========================================================================= */
+
+/* Table container */
+.pm__section-table {
+    margin-top: 1rem !important;
+    overflow-x: auto !important;
+}
+
+/* Table styling */
+.pm__table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 0.875rem !important;
+}
+
+.pm__table th {
+    background-color: var(--cc-cookie-category-block-bg) !important;
+    color: var(--cc-primary-color) !important;
+    font-weight: 600 !important;
+    padding: 0.75rem !important;
+    text-align: left !important;
+    border-bottom: 2px solid var(--cc-separator-border-color) !important;
+}
+
+.pm__table td {
+    padding: 0.75rem !important;
+    border-bottom: 1px solid var(--cc-separator-border-color) !important;
+    color: var(--cc-secondary-color) !important;
+    vertical-align: top !important;
+}
+
+.pm__table tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Cookie name styling */
+.pm__table td:first-child {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace !important;
+    font-size: 0.8125rem !important;
+    color: var(--cc-primary-color) !important;
+    background-color: rgba(37, 99, 235, 0.05) !important;
+    border-radius: 4px !important;
+}
+
+/* =========================================================================
+   PREFERENCES MODAL FOOTER
+   ========================================================================= */
+
+.pm__footer {
+    padding: 1rem 2rem !important;
+    background-color: var(--cc-cookie-category-block-bg) !important;
+    border-top: 1px solid var(--cc-separator-border-color) !important;
+    border-radius: 0 0 16px 16px !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    gap: 0.75rem !important;
+    flex-wrap: wrap !important;
+}
+
+/* =========================================================================
+   OVERLAY
+   ========================================================================= */
+
+.cc--overlay {
+    background-color: var(--cc-overlay-bg) !important;
+    backdrop-filter: blur(2px) !important;
+}
+
+/* =========================================================================
+   LINKS
+   ========================================================================= */
+
+.pm a.cc-link,
+.pm__section-desc .cc-link {
+    color: var(--cc-link-color) !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: color 0.3s ease !important;
+}
+
+.pm a.cc-link:hover,
+.pm__section-desc .cc-link:hover {
+    color: #1D4ED8 !important;
+    text-decoration: underline !important;
+}
+
+/* =========================================================================
+   ACCESSIBILITY - Focus States
+   ========================================================================= */
+
+.cm__btn:focus-visible,
+.pm__btn:focus-visible,
+.pm__close-btn:focus-visible {
+    outline: 2px solid var(--cc-btn-primary-bg) !important;
+    outline-offset: 2px !important;
+}
+
+/* Ensure keyboard focus is visible */
+*:focus-visible {
+    outline-color: var(--cc-btn-primary-bg) !important;
+}
+
+/* =========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================= */
+
+@media (max-width: 768px) {
+    /* Consent modal */
+    .cm {
+        border-radius: 16px 16px 0 0 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .cc--bottom .cm {
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+    }
+
+    .cm__body {
+        padding: 1.25rem 1.5rem !important;
+    }
+
+    .cm__title {
+        font-size: 1.25rem !important;
+    }
+
+    .cm__desc {
+        font-size: 0.9375rem !important;
+    }
+
+    .cm__btns {
+        flex-direction: column !important;
+    }
+
+    .cm__btn {
+        width: 100% !important;
+        min-width: auto !important;
+    }
+
+    /* Preferences modal */
+    .pm {
+        width: 95% !important;
+        max-width: 100% !important;
+        margin: 1rem !important;
+        max-height: 90vh !important;
+    }
+
+    .pm__header {
+        padding: 1.25rem 1.5rem !important;
+    }
+
+    .pm__title {
+        font-size: 1.25rem !important;
+    }
+
+    .pm__body {
+        padding: 1rem 1.5rem !important;
+        max-height: 50vh !important;
+    }
+
+    .pm__footer {
+        padding: 1rem 1.5rem !important;
+        flex-direction: column !important;
+    }
+
+    .pm__btn {
+        width: 100% !important;
+        min-width: auto !important;
+    }
+
+    /* Table responsive */
+    .pm__table {
+        font-size: 0.8125rem !important;
+    }
+
+    .pm__table th,
+    .pm__table td {
+        padding: 0.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .cm__body {
+        padding: 1rem !important;
+    }
+
+    .cm__footer {
+        padding: 0.75rem 1rem !important;
+    }
+
+    .pm__header,
+    .pm__footer {
+        padding: 1rem !important;
+    }
+
+    .pm__body {
+        padding: 0.75rem 1rem !important;
+    }
+
+    .pm__section--expandable {
+        padding: 1rem !important;
+    }
+}
+
+/* =========================================================================
+   ANIMATIONS
+   ========================================================================= */
+
+/* Smooth entrance animation */
+.cm {
+    animation: slideUp 0.3s ease-out !important;
+}
+
+.pm {
+    animation: fadeIn 0.3s ease-out !important;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateX(-50%) translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Mobile animation fix */
+@media (max-width: 768px) {
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
+
+/* =========================================================================
+   PRINT STYLES - Hide consent UI in print
+   ========================================================================= */
+
+@media print {
+    #cc-main {
+        display: none !important;
+    }
+}
+
+/* =========================================================================
+   HIGH CONTRAST MODE SUPPORT
+   ========================================================================= */
+
+@media (prefers-contrast: high) {
+    .cm__btn,
+    .pm__btn {
+        border-width: 3px !important;
+    }
+
+    .pm__switch .pm__switch__slider {
+        border: 2px solid var(--cc-primary-color) !important;
+    }
+}
+
+/* =========================================================================
+   REDUCED MOTION SUPPORT
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .cm,
+    .pm,
+    .cm__btn,
+    .pm__btn,
+    .pm__switch .pm__switch__slider,
+    .pm__switch .pm__switch__slider::before {
+        animation: none !important;
+        transition: none !important;
+    }
+}

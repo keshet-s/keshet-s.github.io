@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WE06X3C39F"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-WE06X3C39F');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Policy - Adaptly</title>
     <meta name="description" content="Learn about the cookies we use on the Adaptly website, how they work, and how you can manage them.">
     <link rel="stylesheet" href="styles.css">
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css" integrity="sha384-VLvLgzLIp0FOBNvyJbAE3E+iS3vByJJOBwPpDEVXPrPJqLFex0lcN0KUJ5yTt2vN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/cookie-consent-custom.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -83,10 +77,10 @@
                 <!-- Preference -->
                 <div style="background-color: var(--white); padding: 2rem; border-radius: 12px; margin-bottom: 1.25rem; border-left: 4px solid var(--primary-blue);">
                     <h3 style="font-size: 1.25rem; color: var(--primary-text); margin-bottom: 1rem;">Preference Cookies</h3>
-                    <p style="font-weight: 600; color: var(--primary-text); margin-bottom: 0.5rem;">Cookie Consent (<code style="background-color: var(--background-light); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9rem;">cookiebot-consent</code>)</p>
+                    <p style="font-weight: 600; color: var(--primary-text); margin-bottom: 0.5rem;">Cookie Consent (<code style="background-color: var(--background-light); padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.9rem;">cc_cookie</code>)</p>
                     <ul style="list-style: none; padding: 0; font-size: 1rem; line-height: 2; color: var(--primary-text);">
                         <li><strong>Purpose:</strong> Remember your cookie preferences</li>
-                        <li><strong>Duration:</strong> 12 months</li>
+                        <li><strong>Duration:</strong> 6 months</li>
                     </ul>
                 </div>
             </div>
@@ -106,6 +100,11 @@
                     <li>Your browser's built-in cookie settings</li>
                     <li><a href="https://tools.google.com/dlpage/gaoptout" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Google Analytics Opt-out →</a></li>
                 </ul>
+                <div style="margin-top: 1.5rem;">
+                    <button onclick="if(typeof AdaptlyCookieConsent !== 'undefined') AdaptlyCookieConsent.showPreferences();" class="btn btn-primary">
+                        Manage Cookie Preferences
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -116,7 +115,7 @@
             <div style="max-width: 750px; margin: 0 auto;">
                 <h2 style="font-size: 1.75rem; color: var(--primary-text); margin-bottom: 1rem;">More Information</h2>
                 <p style="font-size: 1.0625rem; line-height: 1.8; color: var(--primary-text); margin-bottom: 1.5rem;">
-                    For further details on how we handle your data, see our <a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Privacy Policy</a>.
+                    For further details on how we handle your data, see our <a href="privacy-policy.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">Privacy Policy</a>.
                 </p>
                 <div style="background-color: var(--white); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color);">
                     <p style="font-size: 1rem; color: var(--primary-text); line-height: 1.8;">
@@ -152,6 +151,7 @@
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
                         <li><a href="cookie-policy.html">Cookie Policy</a></li>
                     </ul>
                 </div>
@@ -215,5 +215,9 @@
             }
         });
     </script>
+
+    <!-- Cookie Consent Scripts (deferred for performance) -->
+    <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.umd.js" integrity="sha384-MYn08FUH9EtEpK8u4wDiewOBJT9HqaLwRW7VC0bZHbvkX/XtC0x/3aLuMaghb1u3" crossorigin="anonymous"></script>
+    <script defer src="js/cookie-consent.js"></script>
 </body>
 </html>
