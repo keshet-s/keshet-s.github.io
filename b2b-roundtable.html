@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future of Scaling Certification Prep — Private B2B Roundtable</title>
+    <meta name="description" content="A closed-door strategy roundtable for cybersecurity training leaders. Reduce instructor dependency in lab-heavy cohorts without sacrificing pass rates. 8–12 seats only.">
+    <meta name="keywords" content="Cybersecurity Training Roundtable, Scaling Lab-Heavy Certification, cybersecurity certification prep, lab-heavy cohorts, instructor dependency, certification training leaders, B2B roundtable">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Future of Scaling Certification Prep — Private Roundtable">
+    <meta property="og:description" content="Reduce Instructor Dependency in Lab-Heavy Cohorts — Without Sacrificing Pass Rates. 8–12 operators max. Wednesday, 11 Mar.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nas.io/keshet/events/the-future-of-scaling-certification-prep">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Future of Scaling Certification Prep — Private Roundtable">
+    <meta name="twitter:description" content="Reduce Instructor Dependency in Lab-Heavy Cohorts — Without Sacrificing Pass Rates. 8–12 seats. $295.">
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="css/cookie-consent-custom.css">
+
+    <style>
+        /* ===== EVENT PAGE CUSTOM STYLES ===== */
+
+        /* CSS Variables */
+        :root {
+            --event-dark: #0F172A;
+            --event-dark-secondary: #1E293B;
+            --event-dark-border: #334155;
+            --event-amber: #F59E0B;
+            --event-amber-light: #FEF3C7;
+            --event-amber-dark: #D97706;
+            --event-red: #EF4444;
+            --event-green: #10B981;
+            --event-slate: #64748B;
+        }
+
+        /* ===== HERO ===== */
+        .event-hero {
+            background: var(--event-dark);
+            color: white;
+            padding: 4rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 60% 0%, rgba(37,99,235,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 50% at 10% 100%, rgba(124,58,237,0.14) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .event-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245,158,11,0.15);
+            border: 1px solid rgba(245,158,11,0.4);
+            color: var(--event-amber);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.75rem;
+        }
+
+        .event-badge-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--event-amber);
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.75); }
+        }
+
+        .event-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-weight: 800;
+            line-height: 1.15;
+            color: white;
+            margin-bottom: 1.25rem;
+            max-width: 780px;
+        }
+
+        .event-hero h1 .highlight-amber {
+            color: var(--event-amber);
+        }
+
+        .event-hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: #94A3B8;
+            max-width: 620px;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .event-hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            align-items: center;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #CBD5E1;
+            font-size: 0.95rem;
+        }
+
+        .hero-meta-item svg {
+            color: var(--event-amber);
+            flex-shrink: 0;
+        }
+
+        .hero-meta-item strong {
+            color: white;
+        }
+
+        .seats-bar {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            max-width: 380px;
+            width: 100%;
+        }
+
+        .seats-bar-text {
+            font-size: 0.85rem;
+            color: #94A3B8;
+            line-height: 1.4;
+        }
+
+        .seats-bar-text strong {
+            color: var(--event-red);
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .seats-progress {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            position: relative;
+        }
+
+        .seats-progress svg {
+            transform: rotate(-90deg);
+        }
+
+        .seats-progress-label {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--event-red);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-event-primary {
+            background: var(--event-amber);
+            color: #0F172A;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(245,158,11,0.35);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-event-primary:hover,
+        .btn-event-primary:focus {
+            background: var(--event-amber-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(245,158,11,0.45);
+        }
+
+        .btn-event-ghost {
+            color: #94A3B8;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+
+        .btn-event-ghost:hover {
+            color: white;
+        }
+
+        /* ===== SECTION SHARED ===== */
+        .event-section {
+            padding: 5rem 0;
+        }
+
+        .event-section-alt {
+            background: var(--background-light);
+        }
+
+        .event-section-dark {
+            background: var(--event-dark);
+            color: white;
+        }
+
+        .event-section-dark .section-label {
+            color: var(--event-amber);
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .event-section h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+        }
+
+        .event-section-dark h2 {
+            color: white;
+        }
+
+        .event-section-dark p {
+            color: #94A3B8;
+        }
+
+        .event-lead {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            max-width: 680px;
+            line-height: 1.75;
+            margin-bottom: 0;
+        }
+
+        /* ===== PROBLEM SECTION ===== */
+        .problem-intro {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .constraint-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 3rem;
+        }
+
+        .constraint-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+
+        .constraint-card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.09);
+            transform: translateY(-2px);
+        }
+
+        .constraint-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            background: #FEF3C7;
+            color: var(--event-amber-dark);
+        }
+
+        .constraint-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 0.4rem;
+        }
+
+        .constraint-card p {
+            font-size: 0.875rem;
+            color: var(--secondary-text);
+            line-height: 1.6;
+        }
+
+        .uncomfortable-box {
+            background: var(--event-dark-secondary);
+            border-left: 4px solid var(--event-amber);
+            border-radius: 0 12px 12px 0;
+            padding: 1.75rem 2rem;
+            margin-top: 3rem;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .uncomfortable-box p {
+            color: #CBD5E1;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .uncomfortable-box strong {
+            color: white;
+        }
+
+        /* ===== WHY ROUNDTABLE ===== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .why-text p {
+            font-size: 1rem;
+            color: var(--secondary-text);
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .why-criteria {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        .why-criteria h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .criteria-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .criteria-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            line-height: 1.5;
+        }
+
+        .criteria-list li .check-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            background: #D1FAE5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1px;
+            color: var(--event-green);
+        }
+
+        /* ===== AGENDA SECTION ===== */
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .agenda-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 1.75rem;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .agenda-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(245,158,11,0.3);
+        }
+
+        .agenda-card-num {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--event-amber);
+            margin-bottom: 0.75rem;
+        }
+
+        .agenda-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.6rem;
+        }
+
+        .agenda-card p {
+            font-size: 0.875rem;
+            color: #94A3B8;
+            line-height: 1.65;
+        }
+
+        .agenda-change-list {
+            margin-top: 3rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .agenda-change-list h3 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .change-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .change-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: #CBD5E1;
+        }
+
+        .change-item::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--event-amber);
+            flex-shrink: 0;
+        }
+
+        .outcomes-box {
+            margin-top: 2rem;
+            background: linear-gradient(135deg, rgba(37,99,235,0.15) 0%, rgba(124,58,237,0.1) 100%);
+            border: 1px solid rgba(37,99,235,0.25);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .outcomes-box h3 {
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .outcomes-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .outcomes-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            font-size: 0.9rem;
+            color: #CBD5E1;
+        }
+
+        .outcomes-list li svg {
+            flex-shrink: 0;
+            color: var(--primary-blue);
+            margin-top: 1px;
+        }
+
+        /* ===== WHY SMALL ===== */
+        .small-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .small-reason {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .small-reason-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .small-reason-num {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--event-amber-light);
+            color: var(--event-amber-dark);
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .small-reason-item p {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            line-height: 1.65;
+            padding-top: 0.4rem;
+        }
+
+        .partner-callout {
+            background: linear-gradient(135deg, #EFF6FF 0%, #F5F3FF 100%);
+            border: 1px solid #DBEAFE;
+            border-radius: 16px;
+            padding: 2rem;
+            height: fit-content;
+        }
+
+        .partner-callout h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 0.75rem;
+        }
+
+        .partner-callout p {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .partner-callout p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .partner-note {
+            font-size: 0.85rem;
+            color: var(--event-slate);
+            font-style: italic;
+        }
+
+        /* ===== BENEFITS ===== */
+        .benefits-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: var(--background-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.1rem 1.25rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .benefit-item:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(37,99,235,0.08);
+        }
+
+        .benefit-check {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--primary-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-top: 1px;
+        }
+
+        .benefit-text {
+            font-size: 0.95rem;
+            color: var(--primary-text);
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .not-sales-card {
+            background: var(--event-dark);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .not-sales-card .label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--event-amber);
+            margin-bottom: 1rem;
+        }
+
+        .not-sales-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .not-sales-card p {
+            font-size: 0.95rem;
+            color: #94A3B8;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* ===== WHO IS IT FOR ===== */
+        .who-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .who-card {
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid;
+        }
+
+        .who-card-yes {
+            background: #F0FDF4;
+            border-color: #BBF7D0;
+        }
+
+        .who-card-no {
+            background: #FFF1F2;
+            border-color: #FECDD3;
+        }
+
+        .who-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .who-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+        }
+
+        .who-badge-yes {
+            background: #DCFCE7;
+            color: #15803D;
+        }
+
+        .who-badge-no {
+            background: #FFE4E6;
+            color: #BE123C;
+        }
+
+        .who-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .who-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .who-card-yes .who-list li {
+            color: #166534;
+        }
+
+        .who-card-no .who-list li {
+            color: #9F1239;
+        }
+
+        .who-list li::before {
+            content: '';
+            flex-shrink: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-top: 0.5rem;
+        }
+
+        .who-card-yes .who-list li::before { background: #16A34A; }
+        .who-card-no .who-list li::before { background: #E11D48; }
+
+        /* ===== PRICING ===== */
+        .pricing-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--event-dark);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid var(--event-dark-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--event-amber));
+        }
+
+        .pricing-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--event-amber);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-amount {
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-currency {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #94A3B8;
+            vertical-align: top;
+            line-height: 2.8;
+        }
+
+        .pricing-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1;
+        }
+
+        .pricing-per {
+            font-size: 0.9rem;
+            color: #94A3B8;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.875rem;
+            color: #CBD5E1;
+        }
+
+        .pricing-features li svg {
+            flex-shrink: 0;
+            color: var(--event-green);
+        }
+
+        .pricing-cta {
+            display: block;
+            width: 100%;
+            background: var(--event-amber);
+            color: #0F172A;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .pricing-cta:hover,
+        .pricing-cta:focus {
+            background: var(--event-amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .pricing-guarantee {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #475569;
+        }
+
+        .pricing-text h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .pricing-text p {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-text p:last-of-type { margin-bottom: 0; }
+
+        /* ===== FINAL CTA ===== */
+        .final-cta-section {
+            background: var(--event-dark);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .final-cta-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            max-width: 660px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta-section p {
+            font-size: 1.05rem;
+            color: #94A3B8;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .final-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .final-urgency {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #475569;
+        }
+
+        .final-urgency strong {
+            color: var(--event-red);
+        }
+
+        /* ===== EVENT FOOTER ===== */
+        .event-footer {
+            background: #060F1E;
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+
+        .event-footer p {
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-footer a {
+            color: #64748B;
+            text-decoration: none;
+        }
+
+        .event-footer a:hover {
+            color: #94A3B8;
+        }
+
+        /* ===== DIVIDER ===== */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 0;
+        }
+
+        .section-divider-dark {
+            border-color: var(--event-dark-border);
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .event-hero {
+                padding: 3rem 0 4rem;
+            }
+
+            .event-hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .event-hero-meta {
+                gap: 1rem;
+            }
+
+            .why-grid,
+            .small-grid,
+            .benefits-wrap,
+            .who-grid,
+            .pricing-wrap {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .agenda-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .change-items {
+                grid-template-columns: 1fr;
+            }
+
+            .not-sales-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .pricing-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .final-cta-section {
+                padding: 4rem 0;
+            }
+
+            .seats-bar {
+                max-width: 100%;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-event-primary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .event-section {
+                padding: 3.5rem 0;
+            }
+
+            .constraint-list {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .who-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Adaptly Logo" style="height: 50px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="designer-partnership.html">Partners</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li>
+                    <a href="https://nas.io/keshet/events/the-future-of-scaling-certification-prep"
+                       target="_blank" rel="noopener noreferrer"
+                       class="nav-cta">
+                        Request a Seat
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+        <!-- ===== HERO ===== -->
+        <section class="event-hero" aria-labelledby="event-hero-heading">
+            <div class="container">
+                <div class="event-badge" role="status" aria-label="Event status: Limited seats available">
+                    <span class="event-badge-dot" aria-hidden="true"></span>
+                    Private Roundtable &mdash; 8–12 Seats Only
+                </div>
+
+                <h1 id="event-hero-heading">
+                    The Future of Scaling<br>
+                    <span class="highlight-amber">Certification Prep</span>
+                </h1>
+
+                <p class="event-hero-subtitle">
+                    Reduce Instructor Dependency in Lab-Heavy Cohorts&nbsp;&mdash; Without Sacrificing Pass Rates.
+                    A closed-door strategy session for cybersecurity training leaders ready to rethink how cohorts scale.
+                </p>
+
+                <div class="event-hero-meta" role="list" aria-label="Event details">
+                    <div class="hero-meta-item" role="listitem">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        <span><strong>Wednesday, 11 March 2026</strong></span>
+                    </div>
+                    <div class="hero-meta-item" role="listitem">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <span><strong>8:00 PM</strong> GMT+2 &nbsp;&bull;&nbsp; 90 Minutes</span>
+                    </div>
+                    <div class="hero-meta-item" role="listitem">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.82v6.36a1 1 0 0 1-1.447.89L15 14"/>
+                            <rect x="1" y="6" width="14" height="12" rx="2"/>
+                        </svg>
+                        <span>Private Zoom</span>
+                    </div>
+                    <div class="hero-meta-item" role="listitem">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                        <span><strong>$295</strong> per seat</span>
+                    </div>
+                </div>
+
+                <div class="seats-bar" role="status" aria-label="Seat availability">
+                    <div class="seats-progress" aria-hidden="true">
+                        <svg width="48" height="48" viewBox="0 0 48 48">
+                            <circle cx="24" cy="24" r="20" stroke="#334155" stroke-width="4" fill="none"/>
+                            <circle cx="24" cy="24" r="20" stroke="#EF4444" stroke-width="4" fill="none"
+                                    stroke-dasharray="125.66" stroke-dashoffset="37.7"
+                                    stroke-linecap="round"/>
+                        </svg>
+                        <span class="seats-progress-label">70%</span>
+                    </div>
+                    <div class="seats-bar-text">
+                        <strong>Filling Fast</strong>
+                        Max 12 seats &mdash; spots are limited by design. No exceptions.
+                    </div>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="https://nas.io/keshet/events/the-future-of-scaling-certification-prep"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-event-primary"
+                       aria-label="Request your seat at the roundtable (opens in new tab)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                        Request Your Seat
+                    </a>
+                    <a href="#agenda" class="btn-event-ghost" aria-label="Scroll down to see the agenda">
+                        See the Agenda
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path d="M12 5v14M5 12l7 7 7-7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROBLEM: THE CEILING ===== -->
+        <section class="event-section event-section-alt" aria-labelledby="problem-heading">
+            <div class="container">
+                <div class="problem-intro">
+                    <span class="section-label">The Bottleneck</span>
+                    <h2 id="problem-heading">You've Built a Program That Works.<br>Now It's Hitting a Ceiling.</h2>
+                    <p class="event-lead" style="margin: 0 auto; text-align: center;">
+                        Your cohorts run at 25–50 students. Your labs are rigorous. Your pass rates matter. Your reputation is everything.
+                        But growth keeps running into the same constraint: <strong>instructor dependency.</strong>
+                    </p>
+                </div>
+
+                <div class="constraint-list" role="list" aria-label="Growth constraints">
+                    <div class="constraint-card" role="listitem">
+                        <div class="constraint-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>More Live Lab Troubleshooting</h3>
+                        <p>Every new cohort demands more real-time hands-on support from your senior team.</p>
+                    </div>
+                    <div class="constraint-card" role="listitem">
+                        <div class="constraint-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h3>More Senior Instructor Hours</h3>
+                        <p>Your most valuable people are stretched thin — and hiring more is expensive and slow.</p>
+                    </div>
+                    <div class="constraint-card" role="listitem">
+                        <div class="constraint-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                        </div>
+                        <h3>More Operational Complexity</h3>
+                        <p>Coordinating labs, feedback loops, and troubleshooting at scale creates compounding overhead.</p>
+                    </div>
+                    <div class="constraint-card" role="listitem">
+                        <div class="constraint-icon" aria-hidden="true">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h3>More Fixed Costs</h3>
+                        <p>Adding cohorts means adding headcount. Margins don't improve — they flatten.</p>
+                    </div>
+                </div>
+
+                <div class="uncomfortable-box" role="note" aria-label="Key question">
+                    <p>
+                        <strong>The uncomfortable question:</strong><br>
+                        Is your delivery model built for outcomes — or built for scale?
+                        Because right now, it's hard to optimize for both.
+                        Scaling this way doesn't compound. <strong>It stretches.</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ===== WHY THIS ROUNDTABLE ===== -->
+        <section class="event-section" aria-labelledby="why-heading">
+            <div class="container">
+                <span class="section-label">Why This Roundtable Exists</span>
+                <div class="why-grid">
+                    <div class="why-text">
+                        <h2 id="why-heading">A Small, Closed-Door Strategy Discussion</h2>
+                        <p>
+                            We're hosting a private session — <strong>8–12 operators max</strong> — to explore one central question:
+                            what would need to change in lab-heavy certification prep to scale without increasing instructor headcount?
+                        </p>
+                        <p>
+                            This isn't a webinar. It's a working session with founders and Heads of Training who already run structured
+                            cybersecurity certification programs, care deeply about pass rates, feel instructor bandwidth as their
+                            primary growth bottleneck, and want a smarter delivery model.
+                        </p>
+                        <p>
+                            We're not discussing theory. <strong>We're exploring structural redesign.</strong>
+                        </p>
+                    </div>
+                    <div class="why-criteria">
+                        <h3>This room is for people who:</h3>
+                        <ul class="criteria-list" role="list">
+                            <li>
+                                <span class="check-icon" aria-hidden="true">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                </span>
+                                Already run structured cybersecurity certification programs
+                            </li>
+                            <li>
+                                <span class="check-icon" aria-hidden="true">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                </span>
+                                Care deeply about pass rates and program outcomes
+                            </li>
+                            <li>
+                                <span class="check-icon" aria-hidden="true">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                </span>
+                                Feel instructor bandwidth as their primary growth bottleneck
+                            </li>
+                            <li>
+                                <span class="check-icon" aria-hidden="true">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                </span>
+                                Want a smarter, more scalable delivery model
+                            </li>
+                            <li>
+                                <span class="check-icon" aria-hidden="true">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                </span>
+                                Are open to rethinking how their program is structured
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ===== AGENDA ===== -->
+        <section class="event-section event-section-dark" id="agenda" aria-labelledby="agenda-heading">
+            <div class="container">
+                <span class="section-label">What We'll Dive Into</span>
+                <h2 id="agenda-heading">Session Agenda</h2>
+
+                <div class="agenda-grid" role="list" aria-label="Agenda topics">
+                    <div class="agenda-card" role="listitem">
+                        <div class="agenda-card-num">Topic 01</div>
+                        <h3>Growth Bottlenecks</h3>
+                        <p>Where instructor time is actually consumed — and where it doesn't need to be. An honest audit of your delivery model's true constraints.</p>
+                    </div>
+                    <div class="agenda-card" role="listitem">
+                        <div class="agenda-card-num">Topic 02</div>
+                        <h3>Instructor Scalability</h3>
+                        <p>What truly requires senior expertise vs. what is a system design problem. Separating the irreplaceable from the automatable.</p>
+                    </div>
+                    <div class="agenda-card" role="listitem">
+                        <div class="agenda-card-num">Topic 03</div>
+                        <h3>Lab-Heavy Delivery Models</h3>
+                        <p>Why labs create scaling friction — and how that friction can be restructured without compromising the rigor your reputation depends on.</p>
+                    </div>
+                    <div class="agenda-card" role="listitem">
+                        <div class="agenda-card-num">Topic 04</div>
+                        <h3>What Would Need to Change</h3>
+                        <p>A working discussion on the specific levers available to operators willing to redesign their delivery model for scale.</p>
+                    </div>
+                </div>
+
+                <div class="agenda-change-list" aria-label="Areas to redesign">
+                    <h3>We'll map what would need to change across:</h3>
+                    <div class="change-items" role="list">
+                        <span class="change-item" role="listitem">Curriculum flow</span>
+                        <span class="change-item" role="listitem">Lab support architecture</span>
+                        <span class="change-item" role="listitem">Cohort structure</span>
+                        <span class="change-item" role="listitem">Feedback systems</span>
+                        <span class="change-item" role="listitem">Student troubleshooting pathways</span>
+                    </div>
+                </div>
+
+                <div class="outcomes-box">
+                    <h3>You'll leave with clarity on:</h3>
+                    <ul class="outcomes-list" role="list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Your real scalability ceiling and what's actually driving it
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            Where dependency is structural vs. optional in your current model
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            What redesign could unlock — in margin, growth, and operational capacity
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== WHY SMALL ===== -->
+        <section class="event-section" aria-labelledby="small-heading">
+            <div class="container">
+                <span class="section-label">Why This Is Small</span>
+                <h2 id="small-heading">And Why That Matters</h2>
+                <p class="event-lead">We are limiting this to 8–12 participants deliberately — not as a marketing tactic, but because of how the session is designed.</p>
+
+                <div class="small-grid">
+                    <div class="small-reason" role="list" aria-label="Reasons for small group">
+                        <div class="small-reason-item" role="listitem">
+                            <div class="small-reason-num" aria-hidden="true">1</div>
+                            <p>The conversation will go deep. Real numbers and real constraints will be discussed. That requires a room small enough for honesty.</p>
+                        </div>
+                        <div class="small-reason-item" role="listitem">
+                            <div class="small-reason-num" aria-hidden="true">2</div>
+                            <p>This is for decision-makers only. Every seat needs to be occupied by someone with the authority — and the context — to actually change how their program operates.</p>
+                        </div>
+                        <div class="small-reason-item" role="listitem">
+                            <div class="small-reason-num" aria-hidden="true">3</div>
+                            <p>The format doesn't work at scale. A working session with 40 people becomes a panel. We're not running a panel.</p>
+                        </div>
+                    </div>
+
+                    <div class="partner-callout" role="complementary" aria-label="Design partner opportunity">
+                        <h3>More importantly: this session is also exploratory.</h3>
+                        <p>
+                            We are actively working on new ways to reduce instructor dependency in lab-heavy environments —
+                            and we want to build it alongside a small group of serious operators.
+                        </p>
+                        <p>
+                            Some participants may be invited to collaborate further as <strong>early design partners</strong>.
+                        </p>
+                        <p class="partner-note">
+                            Not everyone. Only those aligned.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ===== BENEFITS ===== -->
+        <section class="event-section event-section-alt" aria-labelledby="benefits-heading">
+            <div class="container">
+                <span class="section-label">What You Get</span>
+                <h2 id="benefits-heading">What's Included</h2>
+
+                <div class="benefits-wrap">
+                    <div class="benefits-list" role="list" aria-label="Event benefits">
+                        <div class="benefit-item" role="listitem">
+                            <div class="benefit-check" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span class="benefit-text">90-minute private Zoom strategy session</span>
+                        </div>
+                        <div class="benefit-item" role="listitem">
+                            <div class="benefit-check" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span class="benefit-text">Peer discussion with other cybersecurity training leaders</span>
+                        </div>
+                        <div class="benefit-item" role="listitem">
+                            <div class="benefit-check" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span class="benefit-text">Live breakdown of delivery model constraints and scaling levers</span>
+                        </div>
+                        <div class="benefit-item" role="listitem">
+                            <div class="benefit-check" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span class="benefit-text">Strategic summary delivered after the session</span>
+                        </div>
+                        <div class="benefit-item" role="listitem">
+                            <div class="benefit-check" aria-hidden="true">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </div>
+                            <span class="benefit-text">Priority access to future pilot opportunities</span>
+                        </div>
+                    </div>
+
+                    <div class="not-sales-card" role="note" aria-label="Important note about this event">
+                        <div class="label">Important</div>
+                        <h3>This is not a sales event.</h3>
+                        <p>
+                            It's a room of operators pressure-testing the future model together. You will not sit through a product pitch.
+                            You will have a working conversation with people facing the same constraints you are — and leave with a clearer picture
+                            of what structural change actually looks like.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ===== WHO IS IT FOR ===== -->
+        <section class="event-section" aria-labelledby="who-heading">
+            <div class="container">
+                <span class="section-label">Who This Is For</span>
+                <h2 id="who-heading">Is This The Right Room For You?</h2>
+                <p class="event-lead">This roundtable is designed for a specific profile. Be honest with yourself — it should only be worth your time if you fit.</p>
+
+                <div class="who-grid">
+                    <div class="who-card who-card-yes" role="region" aria-label="Who should attend">
+                        <div class="who-card-header">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5" aria-hidden="true">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span class="who-badge who-badge-yes">This is for you</span>
+                        </div>
+                        <ul class="who-list" role="list">
+                            <li>Founders of private cybersecurity certification prep providers</li>
+                            <li>Heads of Training running 25–50 student lab-heavy cohorts</li>
+                            <li>Programs where labs are central to student outcomes</li>
+                            <li>Teams serious about scaling profitably — not just growing headcount</li>
+                            <li>Leaders building long-term institutions, not ad-hoc bootcamps</li>
+                        </ul>
+                    </div>
+
+                    <div class="who-card who-card-no" role="region" aria-label="Who should not attend">
+                        <div class="who-card-header">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2.5" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="15" y1="9" x2="9" y2="15"/>
+                                <line x1="9" y1="9" x2="15" y2="15"/>
+                            </svg>
+                            <span class="who-badge who-badge-no">This is not for you</span>
+                        </div>
+                        <ul class="who-list" role="list">
+                            <li>Early-stage course creators still validating their first cohort</li>
+                            <li>Small, ad-hoc bootcamps without structured lab delivery</li>
+                            <li>Programs where labs are optional or supplementary</li>
+                            <li>Anyone looking for a product demo or sales conversation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- ===== PRICING ===== -->
+        <section class="event-section event-section-alt" aria-labelledby="pricing-heading">
+            <div class="container">
+                <span class="section-label">Investment</span>
+                <h2 id="pricing-heading">Secure Your Seat</h2>
+
+                <div class="pricing-wrap">
+                    <div class="pricing-card" role="region" aria-label="Pricing details">
+                        <div class="pricing-label">Per Seat</div>
+                        <div class="pricing-amount">
+                            <span class="pricing-currency" aria-hidden="true">$</span>
+                            <span class="pricing-number" aria-label="295 dollars">295</span>
+                        </div>
+                        <p class="pricing-per">One-time &bull; Includes all session materials</p>
+                        <ul class="pricing-features" role="list" aria-label="What's included">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                90-min private roundtable session
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                Session strategic summary
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                Peer operator discussion
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                Priority pilot access
+                            </li>
+                        </ul>
+                        <a href="https://nas.io/keshet/events/the-future-of-scaling-certification-prep"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="pricing-cta"
+                           aria-label="Request your seat — opens registration page">
+                            Request Your Seat &rarr;
+                        </a>
+                        <p class="pricing-guarantee">If selected, full event details sent after registration.</p>
+                    </div>
+
+                    <div class="pricing-text">
+                        <h3>Why $295?</h3>
+                        <p>
+                            The price is not there to generate revenue. It's there to filter the room.
+                            A $295 commitment tells us — and the other participants — that you're serious enough
+                            to invest in the conversation, not just observe it.
+                        </p>
+                        <p>
+                            This ensures high-quality participants, serious operators only, and a focused, productive discussion.
+                            Everyone in the room has skin in the game.
+                        </p>
+                        <p>
+                            The providers who dominate the next 5 years of certification prep won't just market better.
+                            <strong>They'll operate differently.</strong> If you're open to rethinking how lab-heavy cohorts
+                            are structured — and possibly shaping what comes next — this roundtable is for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FINAL CTA ===== -->
+        <section class="final-cta-section" aria-labelledby="final-cta-heading">
+            <div class="container">
+                <h2 id="final-cta-heading">Spots Are Capped at 12.<br>No Exceptions.</h2>
+                <p>
+                    If you're thinking long-term about how your program scales, this is the conversation to be part of.
+                    Request your seat before it fills.
+                </p>
+                <div class="final-cta-buttons">
+                    <a href="https://nas.io/keshet/events/the-future-of-scaling-certification-prep"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn-event-primary"
+                       style="font-size: 1.05rem; padding: 1rem 2.25rem;"
+                       aria-label="Request your seat at the roundtable (opens in new tab)">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                        Request Your Seat &mdash; $295
+                    </a>
+                </div>
+                <p class="final-urgency" role="status">
+                    <strong>Wednesday, 11 March &bull; 8:00 PM GMT+2 &bull; Private Zoom</strong>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="event-footer" role="contentinfo">
+        <div class="container">
+            <p>
+                <a href="index.html">Adaptly</a> &bull;
+                <a href="privacy-policy.html">Privacy Policy</a> &bull;
+                <a href="terms-of-service.html">Terms of Service</a>
+            </p>
+            <p>
+                Questions? Reach out before registering.
+                Event details sent to confirmed participants only.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent JS -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.esm.js"></script>
+    <script type="module">
+        import 'https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.esm.js';
+        window.addEventListener('load', function () {
+            if (typeof CookieConsent !== 'undefined') {
+                CookieConsent.run({
+                    categories: { necessary: { enabled: true, readOnly: true }, analytics: {} },
+                    language: {
+                        default: 'en',
+                        translations: {
+                            en: {
+                                consentModal: {
+                                    title: 'We use cookies',
+                                    description: 'We use cookies to improve your experience.',
+                                    acceptAllBtn: 'Accept all',
+                                    acceptNecessaryBtn: 'Reject all',
+                                    showPreferencesBtn: 'Manage preferences'
+                                },
+                                preferencesModal: {
+                                    title: 'Cookie preferences',
+                                    acceptAllBtn: 'Accept all',
+                                    acceptNecessaryBtn: 'Reject all',
+                                    savePreferencesBtn: 'Save preferences',
+                                    sections: [
+                                        { title: 'Strictly Necessary', description: 'Required for the site to function.', linkedCategory: 'necessary' },
+                                        { title: 'Analytics', description: 'Help us understand how visitors use the site.', linkedCategory: 'analytics' }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Smooth scroll for anchor links -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
