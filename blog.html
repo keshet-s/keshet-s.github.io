@@ -11,8 +11,11 @@
     <link rel="stylesheet" href="css/cookie-consent-custom.css">
 </head>
 <body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="Adaptly Logo" style="height: 40px;">
@@ -21,18 +24,21 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="designer-partnership.html">Partners</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="#" onclick="openModal('waitlistModal'); return false;" class="nav-cta">Get Started</a></li>
+                <li><a href="blog.html" aria-current="page">Blog</a></li>
+                <li><button type="button" onclick="openModal('waitlistModal')" class="nav-cta">Get Started</button></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main id="main-content">
+
     <!-- Hero Section - Coming Soon -->
-    <section class="hero" style="min-height: 60vh; display: flex; align-items: center;">
+    <section class="hero" style="min-height: 60vh; display: flex; align-items: center;" aria-labelledby="hero-heading">
         <div class="container">
             <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
                 <div style="margin-bottom: 2rem;">
-                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto;">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto;" aria-hidden="true">
                         <circle cx="60" cy="60" r="55" stroke="#2563EB" stroke-width="3" opacity="0.3"/>
                         <path d="M60 25 L60 60 L85 85" stroke="#2563EB" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
                         <circle cx="60" cy="60" r="5" fill="#2563EB"/>
@@ -43,7 +49,7 @@
                     </svg>
                 </div>
                 <div class="hero-text">
-                    <h1>Our Blog is <span class="highlight">Coming Soon</span></h1>
+                    <h1 id="hero-heading">Our Blog is <span class="highlight">Coming Soon</span></h1>
                     <p style="font-size: 1.25rem; margin: 2rem 0; opacity: 0.9;">We're working on bringing you insights about adaptive learning, AI in education, and learning science. Stay tuned for exciting content!</p>
                 </div>
             </div>
@@ -97,13 +103,15 @@
                 <p>Sign up to be the first to know when we publish new content</p>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="#" onclick="openModal('waitlistModal'); return false;" class="btn btn-primary">Join the Waitlist</a>
+                <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Join the Waitlist</button>
             </div>
         </div>
     </section>
 
+    </main><!-- End Main Content -->
+
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -130,13 +138,14 @@
                         <li><a href="cookie-policy.html">Cookie Policy</a></li>
                         <li><a href="terms-of-service.html">Terms of Service</a></li>
                         <li><a href="do-not-sell.html">Do Not Sell My Info</a></li>
+                        <li><a href="accessibility.html">Accessibility</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact Us</h4>
                     <ul>
-                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank">LinkedIn</a></li>
-                        <li><a href="mailto:hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
+                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+                        <li><a href="mailto:hello@adaptlyhq.com" aria-label="Email hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
                     </ul>
                 </div>
             </div>
@@ -147,36 +156,74 @@
     </footer>
 
     <!-- Waitlist Modal -->
-    <div id="waitlistModal" class="modal">
+    <div id="waitlistModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle" aria-describedby="waitlistModalDesc">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Join the Waitlist</h2>
-                <p>Be the first to know when we launch</p>
-                <button class="modal-close" onclick="closeModal('waitlistModal')">&times;</button>
+                <h2 id="waitlistModalTitle">Join the Waitlist</h2>
+                <p id="waitlistModalDesc">Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')" aria-label="Close modal" type="button">&times;</button>
             </div>
             <div class="modal-body">
-                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" frameborder="0"></iframe>
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" title="Waitlist signup form"></iframe>
             </div>
         </div>
     </div>
 
     <script>
-        // Open modal function
+        // Store the element that triggered the modal for focus restoration
+        let lastFocusedElement = null;
+
+        // Open modal function with focus management
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
+                lastFocusedElement = document.activeElement;
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    setTimeout(() => closeButton.focus(), 100);
+                }
+                trapFocus(modal);
             }
         }
 
-        // Close modal function
+        // Close modal function with focus restoration
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
+                document.body.style.overflow = '';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                    lastFocusedElement = null;
+                }
             }
+        }
+
+        // Focus trap for modals
+        function trapFocus(modal) {
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            });
         }
 
         // Close modal when clicking outside the modal content

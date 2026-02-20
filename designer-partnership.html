@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="css/cookie-consent-custom.css">
 </head>
 <body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="Adaptly Logo" style="height: 50px;">
@@ -23,23 +26,26 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="designer-partnership.html">Partners</a></li>
+                <li><a href="designer-partnership.html" aria-current="page">Partners</a></li>
                 <li><a href="blog.html">Blog</a></li>
-                <li><a href="#" onclick="openModal('partnerModal'); return false;" class="nav-cta">Get Started</a></li>
+                <li><button type="button" onclick="openModal('partnerModal')" class="nav-cta">Get Started</button></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main id="main-content">
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-heading">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Help Build the Future of <span class="highlight">Training</span></h1>
+                    <h1 id="hero-heading">Help Build the Future of <span class="highlight">Training</span></h1>
                     <p>We're looking for one training company to partner with us in developing a better platform for professional learning.</p>
                     <div class="hero-buttons">
-                        <a href="https://calendly.com/keshet-adaptlyhq/30min" target="_blank" class="btn btn-primary">Schedule a Call</a>
-                        <a href="#" onclick="openModal('partnerModal'); return false;" class="btn btn-secondary">Apply for Partnership</a>
+                        <a href="https://calendly.com/keshet-adaptlyhq/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Schedule a Call (opens in new tab)">Schedule a Call</a>
+                        <button type="button" onclick="openModal('partnerModal')" class="btn btn-secondary">Apply for Partnership</button>
                     </div>
                     <div class="hero-buttons" style="margin-top: 1rem;">
                         <a href="partnership-details.pdf" download class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
@@ -394,8 +400,8 @@
                         <h3>Quick Call (30 minutes)</h3>
                         <p>Let's talk about your training challenges and see if we're aligned.</p>
                         <p style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
-                            <a href="https://calendly.com/keshet-adaptlyhq/30min" target="_blank" class="btn btn-primary">Book a Call</a>
-                            <a href="#" onclick="openModal('partnerModal'); return false;" class="btn btn-secondary">Fill Out Partnership Form</a>
+                            <a href="https://calendly.com/keshet-adaptlyhq/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Book a Call (opens in new tab)">Book a Call</a>
+                            <button type="button" onclick="openModal('partnerModal')" class="btn btn-secondary">Fill Out Partnership Form</button>
                         </p>
                         <p style="margin-top: 0.75rem; font-size: 0.875rem; color: var(--secondary-text);">
                             or email <a href="mailto:keshet@adaptlyhq.com" style="color: var(--primary-blue);">keshet@adaptlyhq.com</a>
@@ -494,7 +500,7 @@
                 <p style="font-size: 1.25rem; font-weight: 600; color: var(--primary-text); line-height: 1.8;">
                     The companies that shape this technology will dominate their markets. The ones that wait will be buying from them.
                 </p>
-                <a href="#" onclick="openModal('partnerModal'); return false;" class="btn btn-primary" style="margin-top: 2rem;">Partner with Us →</a>
+                <button type="button" onclick="openModal('partnerModal')" class="btn btn-primary" style="margin-top: 2rem;">Partner with Us</button>
             </div>
         </div>
     </section>
@@ -505,10 +511,10 @@
             <div style="text-align: center; max-width: 600px; margin: 0 auto;">
                 <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Questions?</h2>
                 <p style="font-size: 1.25rem; color: var(--secondary-text); margin-bottom: 2rem;">
-                    📧 <a href="mailto:keshet@adaptlyhq.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">keshet@adaptlyhq.com</a>
+                    <span aria-hidden="true">📧</span> <a href="mailto:keshet@adaptlyhq.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;" aria-label="Email keshet@adaptlyhq.com">keshet@adaptlyhq.com</a>
                 </p>
                 <p style="font-size: 1.25rem; color: var(--secondary-text);">
-                    💼 <a href="https://www.linkedin.com/in/keshet-shiri-a10265211/" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;">LinkedIn</a>
+                    <span aria-hidden="true">💼</span> <a href="https://www.linkedin.com/in/keshet-shiri-a10265211/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-blue); text-decoration: none; font-weight: 600;" aria-label="Keshet Shiri on LinkedIn (opens in new tab)">LinkedIn</a>
                 </p>
             </div>
         </div>
@@ -520,13 +526,15 @@
             <div class="cta-content">
                 <h2>Ready to Shape the Future?</h2>
                 <p>Let's build something better together.</p>
-                <a href="#" onclick="openModal('partnerModal'); return false;" class="btn">Partner with Us</a>
+                <button type="button" onclick="openModal('partnerModal')" class="btn">Partner with Us</button>
             </div>
         </div>
     </section>
 
+    </main><!-- End Main Content -->
+
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -553,13 +561,14 @@
                         <li><a href="cookie-policy.html">Cookie Policy</a></li>
                         <li><a href="terms-of-service.html">Terms of Service</a></li>
                         <li><a href="do-not-sell.html">Do Not Sell My Info</a></li>
+                        <li><a href="accessibility.html">Accessibility</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact Us</h4>
                     <ul>
-                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank">LinkedIn</a></li>
-                        <li><a href="mailto:hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
+                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+                        <li><a href="mailto:hello@adaptlyhq.com" aria-label="Email hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
                     </ul>
                 </div>
             </div>
@@ -570,50 +579,88 @@
     </footer>
 
     <!-- Waitlist Modal -->
-    <div id="waitlistModal" class="modal">
+    <div id="waitlistModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle" aria-describedby="waitlistModalDesc">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Join the Waitlist</h2>
-                <p>Be the first to know when we launch</p>
-                <button class="modal-close" onclick="closeModal('waitlistModal')">&times;</button>
+                <h2 id="waitlistModalTitle">Join the Waitlist</h2>
+                <p id="waitlistModalDesc">Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')" aria-label="Close modal" type="button">&times;</button>
             </div>
             <div class="modal-body">
-                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" frameborder="0"></iframe>
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" title="Waitlist signup form"></iframe>
             </div>
         </div>
     </div>
 
     <!-- Partner Modal -->
-    <div id="partnerModal" class="modal">
+    <div id="partnerModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="partnerModalTitle" aria-describedby="partnerModalDesc">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Partner with Us</h2>
-                <p>We're building a better platform for professional training. Tell us about your training challenges and let's explore if we're a good fit.</p>
-                <button class="modal-close" onclick="closeModal('partnerModal')">&times;</button>
+                <h2 id="partnerModalTitle">Partner with Us</h2>
+                <p id="partnerModalDesc">We're building a better platform for professional training. Tell us about your training challenges and let's explore if we're a good fit.</p>
+                <button class="modal-close" onclick="closeModal('partnerModal')" aria-label="Close modal" type="button">&times;</button>
             </div>
             <div class="modal-body">
-                <iframe src="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" frameborder="0"></iframe>
+                <iframe src="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" title="Partner inquiry form"></iframe>
             </div>
         </div>
     </div>
 
     <script>
-        // Open modal function
+        // Store the element that triggered the modal for focus restoration
+        let lastFocusedElement = null;
+
+        // Open modal function with focus management
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
+                lastFocusedElement = document.activeElement;
                 modal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    setTimeout(() => closeButton.focus(), 100);
+                }
+                trapFocus(modal);
             }
         }
 
-        // Close modal function
+        // Close modal function with focus restoration
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
+                document.body.style.overflow = '';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                    lastFocusedElement = null;
+                }
             }
+        }
+
+        // Focus trap for modals
+        function trapFocus(modal) {
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            });
         }
 
         // Close modal when clicking outside the modal content

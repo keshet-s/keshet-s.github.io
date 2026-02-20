@@ -14,15 +14,18 @@
     <link rel="stylesheet" href="css/cookie-consent-custom.css">
 </head>
 <body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="logo.png" alt="Adaptly Logo" style="height: 50px;">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="about.html" aria-current="page">About Us</a></li>
                 <li><a href="designer-partnership.html">Partners</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
@@ -30,12 +33,15 @@
         </div>
     </nav>
 
+    <!-- Main Content -->
+    <main id="main-content">
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-heading">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Building the Training Platform <span class="highlight">That Should Have Always Existed</span></h1>
+                    <h1 id="hero-heading">Building the Training Platform <span class="highlight">That Should Have Always Existed</span></h1>
                     <p>We're solving professional training's biggest challenges</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary">Get in Touch</a>
@@ -81,7 +87,8 @@
             <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
                 <div class="feature-card">
                     <div class="feature-icon blue">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Team icon">
+                            <title>Built by Trainers</title>
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -93,7 +100,8 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon purple">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Partnership icon">
+                            <title>Partnership</title>
                             <circle cx="12" cy="12" r="10"/>
                             <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
                             <line x1="9" y1="9" x2="9.01" y2="9"/>
@@ -288,8 +296,8 @@
                     <div>
                         <p style="font-weight: 600; color: var(--primary-text); margin-bottom: 0.75rem;">Connect:</p>
                         <p>
-                            <a href="https://www.linkedin.com/in/keshet-shiri-a10265211/" target="_blank" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: block; margin-bottom: 0.5rem;">LinkedIn →</a>
-                            <a href="mailto:keshet@adaptlyhq.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: block;">keshet@adaptlyhq.com</a>
+                            <a href="https://www.linkedin.com/in/keshet-shiri-a10265211/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: block; margin-bottom: 0.5rem;" aria-label="Keshet Shiri on LinkedIn (opens in new tab)">LinkedIn <span aria-hidden="true">→</span></a>
+                            <a href="mailto:keshet@adaptlyhq.com" style="color: var(--primary-blue); text-decoration: none; font-weight: 600; display: block;" aria-label="Email Keshet at keshet@adaptlyhq.com">keshet@adaptlyhq.com</a>
                         </p>
                     </div>
                 </div>
@@ -379,8 +387,8 @@
                             Help shape what we build while using the platform with your learners.
                         </p>
                         <div style="margin-bottom: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <a href="#" onclick="openModal('partnerModal'); return false;" class="btn btn-primary">Partner with Us</a>
-                            <a href="designer-partnership.html" class="text-link" style="align-self: center;">Learn More →</a>
+                            <button type="button" onclick="openModal('partnerModal')" class="btn btn-primary">Partner with Us</button>
+                            <a href="designer-partnership.html" class="text-link" style="align-self: center;">Learn More <span aria-hidden="true">→</span></a>
                         </div>
                         <p style="line-height: 1.8; color: var(--primary-text); margin-bottom: 1.5rem; font-weight: 600;">
                             For Advisors/Experts:
@@ -402,8 +410,8 @@
                     <strong>For Everyone:</strong> Follow our journey and progress.
                 </p>
                 <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="#" onclick="openModal('waitlistModal'); return false;" class="btn btn-primary">Join the Waitlist</a>
-                    <a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" class="btn btn-secondary">LinkedIn</a>
+                    <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Join the Waitlist</button>
+                    <a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="Adaptly on LinkedIn (opens in new tab)">LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -468,15 +476,17 @@
                 <h2>Ready to Shape the Future of Training?</h2>
                 <p>Let's build something better together.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="#" onclick="openModal('partnerModal'); return false;" class="btn">Partner with Us</a>
-                    <a href="#" onclick="openModal('waitlistModal'); return false;" class="btn" style="background-color: white; color: var(--primary-blue);">Join the Waitlist</a>
+                    <button type="button" onclick="openModal('partnerModal')" class="btn">Partner with Us</button>
+                    <button type="button" onclick="openModal('waitlistModal')" class="btn" style="background-color: white; color: var(--primary-blue);">Join the Waitlist</button>
                 </div>
             </div>
         </div>
     </section>
 
+    </main><!-- End Main Content -->
+
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -503,13 +513,14 @@
                         <li><a href="cookie-policy.html">Cookie Policy</a></li>
                         <li><a href="terms-of-service.html">Terms of Service</a></li>
                         <li><a href="do-not-sell.html">Do Not Sell My Info</a></li>
+                        <li><a href="accessibility.html">Accessibility</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact Us</h4>
                     <ul>
-                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank">LinkedIn</a></li>
-                        <li><a href="mailto:hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
+                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+                        <li><a href="mailto:hello@adaptlyhq.com" aria-label="Email hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
                     </ul>
                 </div>
             </div>
@@ -520,50 +531,98 @@
     </footer>
 
     <!-- Waitlist Modal -->
-    <div id="waitlistModal" class="modal">
+    <div id="waitlistModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle" aria-describedby="waitlistModalDesc">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Join the Waitlist</h2>
-                <p>Be the first to know when we launch</p>
-                <button class="modal-close" onclick="closeModal('waitlistModal')">&times;</button>
+                <h2 id="waitlistModalTitle">Join the Waitlist</h2>
+                <p id="waitlistModalDesc">Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')" aria-label="Close modal" type="button">&times;</button>
             </div>
             <div class="modal-body">
-                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" frameborder="0"></iframe>
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" title="Waitlist signup form"></iframe>
             </div>
         </div>
     </div>
 
     <!-- Partner Modal -->
-    <div id="partnerModal" class="modal">
+    <div id="partnerModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="partnerModalTitle" aria-describedby="partnerModalDesc">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Partner with Us</h2>
-                <p>We're building a better platform for professional training. Tell us about your training challenges and let's explore if we're a good fit.</p>
-                <button class="modal-close" onclick="closeModal('partnerModal')">&times;</button>
+                <h2 id="partnerModalTitle">Partner with Us</h2>
+                <p id="partnerModalDesc">We're building a better platform for professional training. Tell us about your training challenges and let's explore if we're a good fit.</p>
+                <button class="modal-close" onclick="closeModal('partnerModal')" aria-label="Close modal" type="button">&times;</button>
             </div>
             <div class="modal-body">
-                <iframe src="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" frameborder="0"></iframe>
+                <iframe src="https://preview.mailerlite.io/forms/1863674/169963552613860560/share" title="Partner inquiry form"></iframe>
             </div>
         </div>
     </div>
 
     <script>
-        // Open modal function
+        // Store the element that triggered the modal for focus restoration
+        let lastFocusedElement = null;
+
+        // Open modal function with focus management
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
+                // Store the currently focused element
+                lastFocusedElement = document.activeElement;
+
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+                // Focus the close button for accessibility
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    setTimeout(() => closeButton.focus(), 100);
+                }
+
+                // Set up focus trap
+                trapFocus(modal);
             }
         }
 
-        // Close modal function
+        // Close modal function with focus restoration
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             if (modal) {
                 modal.classList.remove('active');
                 document.body.style.overflow = ''; // Restore scrolling
+
+                // Restore focus to the element that triggered the modal
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                    lastFocusedElement = null;
+                }
             }
+        }
+
+        // Focus trap for modals
+        function trapFocus(modal) {
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        // Shift + Tab
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        // Tab
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            });
         }
 
         // Close modal when clicking outside the modal content
