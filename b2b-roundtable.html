@@ -43,7 +43,7 @@
         .event-hero {
             background: var(--event-dark);
             color: white;
-            padding: 4rem 0 5rem;
+            padding: 1.75rem 0 2.25rem;
             position: relative;
             overflow: hidden;
         }
@@ -76,7 +76,7 @@
             text-transform: uppercase;
             padding: 0.4rem 1rem;
             border-radius: 100px;
-            margin-bottom: 1.75rem;
+            margin-bottom: 0.9rem;
         }
 
         .event-badge-dot {
@@ -93,11 +93,11 @@
         }
 
         .event-hero h1 {
-            font-size: clamp(2rem, 5vw, 3.25rem);
+            font-size: clamp(1.8rem, 4vw, 2.9rem);
             font-weight: 800;
             line-height: 1.15;
             color: white;
-            margin-bottom: 1.25rem;
+            margin-bottom: 0.75rem;
             max-width: 780px;
         }
 
@@ -106,18 +106,18 @@
         }
 
         .event-hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
             color: #94A3B8;
             max-width: 620px;
-            margin-bottom: 2.5rem;
-            line-height: 1.7;
+            margin-bottom: 1.1rem;
+            line-height: 1.65;
         }
 
         .event-hero-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            gap: 0.75rem 1.5rem;
+            margin-bottom: 1.1rem;
             align-items: center;
         }
 
@@ -142,11 +142,11 @@
             background: rgba(255,255,255,0.08);
             border: 1px solid rgba(255,255,255,0.12);
             border-radius: 12px;
-            padding: 1rem 1.25rem;
+            padding: 0.65rem 1rem;
             display: inline-flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
+            gap: 0.75rem;
+            margin-bottom: 1.1rem;
             max-width: 380px;
             width: 100%;
         }
@@ -1054,90 +1054,14 @@
             justify-content: center;
         }
 
-        .hero-image-placeholder {
-            background: rgba(255,255,255,0.04);
-            border: 1px dashed rgba(255,255,255,0.18);
+        .hero-roundtable-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 20px;
-            width: 100%;
-            min-height: 340px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1.25rem;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-image-placeholder::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 80% 70% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-img-icon {
-            width: 72px;
-            height: 72px;
-            border-radius: 50%;
-            background: rgba(245,158,11,0.12);
-            border: 1px solid rgba(245,158,11,0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--event-amber);
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-img-label {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-img-label strong {
             display: block;
-            color: #CBD5E1;
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .hero-img-label p {
-            color: #475569;
-            font-size: 0.8rem;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .hero-img-tags {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-img-tag {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
-            padding: 0.6rem 1rem;
-            font-size: 0.8rem;
-            color: #94A3B8;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-align: left;
-        }
-
-        .hero-img-tag svg {
-            flex-shrink: 0;
-            color: var(--event-amber);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.08);
         }
 
         /* ===== VERTICAL TIMELINE ===== */
@@ -1307,20 +1231,20 @@
         /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
             .event-hero {
-                padding: 3rem 0 4rem;
+                padding: 1.5rem 0 2rem;
             }
 
             .event-hero h1 {
-                font-size: 1.9rem;
+                font-size: 1.75rem;
             }
 
             .event-hero-meta {
-                gap: 1rem;
+                gap: 0.6rem 1rem;
             }
 
             .event-hero-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
 
             .event-hero-right {
@@ -1449,7 +1373,7 @@
                     <span class="scarcity-bar-divider" aria-hidden="true">|</span>
                     <span class="scarcity-bar-text">No Recordings</span>
                     <span class="scarcity-bar-divider" aria-hidden="true">|</span>
-                    <span class="scarcity-bar-text">Wednesday, 11 March &bull; 8:00 PM GMT+2</span>
+                    <span class="scarcity-bar-text">Wednesday, 11 March &bull; 8:00 PM GMT+2 / 1:00 PM EST</span>
                     <a href="https://nas.io/checkout-global?communityId=698598908e07db77c27c5c9e&amp;communityCode=KESHET&amp;requestor=signupRequestor&amp;linkClicked=https%3A%2F%2Fnas.io%2Fportal%2Fproducts&amp;sourceInfoType=event&amp;sourceInfoOrigin=69984643969272285a20ef58"
                        target="_blank" rel="noopener noreferrer"
                        aria-label="Reserve your seat now (opens checkout)">
@@ -1496,7 +1420,7 @@
                                     <circle cx="12" cy="12" r="10"/>
                                     <polyline points="12 6 12 12 16 14"/>
                                 </svg>
-                                <span><strong>8:00 PM</strong> GMT+2 &nbsp;&bull;&nbsp; 90 Minutes</span>
+                                <span><strong>8:00 PM</strong> GMT+2 &nbsp;/&nbsp; <strong>1:00 PM</strong> EST &nbsp;&bull;&nbsp; 90 Minutes</span>
                             </div>
                             <div class="hero-meta-item" role="listitem">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -1545,51 +1469,16 @@
                         </div>
                     </div>
 
-                    <!-- RIGHT: Event Visual -->
-                    <div class="event-hero-right" aria-hidden="true">
-                        <div class="hero-image-placeholder">
-                            <div class="hero-img-icon">
-                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                </svg>
-                            </div>
-                            <div class="hero-img-label">
-                                <strong>Professional Roundtable</strong>
-                                <p>8–12 Cybersecurity Training Leaders<br>in a closed-door working session</p>
-                            </div>
-                            <div class="hero-img-tags">
-                                <div class="hero-img-tag">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <rect x="3" y="4" width="18" height="18" rx="2"/>
-                                        <line x1="3" y1="10" x2="21" y2="10"/>
-                                    </svg>
-                                    Wednesday, 11 March 2026
-                                </div>
-                                <div class="hero-img-tag">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <circle cx="12" cy="12" r="10"/>
-                                        <polyline points="12 6 12 12 16 14"/>
-                                    </svg>
-                                    8:00 PM GMT+2 &bull; 90 Minutes
-                                </div>
-                                <div class="hero-img-tag">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                    </svg>
-                                    Strictly No Recordings
-                                </div>
-                                <div class="hero-img-tag">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <line x1="12" y1="1" x2="12" y2="23"/>
-                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                                    </svg>
-                                    $295 per seat &bull; Decision-makers only
-                                </div>
-                            </div>
-                        </div>
+                    <!-- RIGHT: Event Image -->
+                    <div class="event-hero-right">
+                        <img
+                            src="Roundtable_image.png"
+                            alt="Professionals gathered around a table in a closed-door strategy roundtable session"
+                            class="hero-roundtable-img"
+                            width="800"
+                            height="600"
+                            loading="eager"
+                        >
                     </div>
 
                 </div><!-- end .event-hero-grid -->
@@ -2132,7 +2021,7 @@
                     </a>
                 </div>
                 <p class="final-urgency" role="status">
-                    <strong>Wednesday, 11 March &bull; 8:00 PM GMT+2 &bull; Private Zoom</strong>
+                    <strong>Wednesday, 11 March &bull; 8:00 PM GMT+2 / 1:00 PM EST &bull; Private Zoom</strong>
                 </p>
             </div>
         </section>
