@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Registered — March Roundtable | Adaptly</title>
+    <meta name="description" content="Thank you for registering for The Future of Scaling Certification Prep roundtable. Check your email for confirmation details.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="css/cookie-consent-custom.css">
+
+    <style>
+        :root {
+            --event-dark: #0F172A;
+            --event-dark-secondary: #1E293B;
+            --event-dark-border: #334155;
+            --event-amber: #F59E0B;
+            --event-amber-light: #FEF3C7;
+            --event-amber-dark: #D97706;
+            --event-green: #10B981;
+        }
+
+        .ty-page {
+            min-height: 100vh;
+            background: var(--event-dark);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ty-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ty-main::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 60% at 50% 40%, rgba(16,185,129,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(37,99,235,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .ty-card {
+            background: #1E293B;
+            border: 1px solid #334155;
+            border-radius: 24px;
+            padding: 3.5rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+        }
+
+        .ty-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(16,185,129,0.12);
+            border: 2px solid rgba(16,185,129,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.75rem;
+            color: var(--event-green);
+        }
+
+        .ty-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--event-amber);
+            margin-bottom: 0.75rem;
+        }
+
+        .ty-card h1 {
+            font-size: clamp(1.6rem, 4vw, 2.25rem);
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .ty-card p {
+            font-size: 1rem;
+            color: #94A3B8;
+            line-height: 1.75;
+            margin-bottom: 0;
+        }
+
+        .ty-divider {
+            border: none;
+            border-top: 1px solid #334155;
+            margin: 2rem 0;
+        }
+
+        .ty-details {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .ty-detail-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+            color: #CBD5E1;
+            padding: 0.5rem 0;
+        }
+
+        .ty-detail-row:not(:last-child) {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .ty-detail-row svg {
+            flex-shrink: 0;
+            color: var(--event-amber);
+        }
+
+        .ty-next-steps {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .ty-next-steps h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .ty-step-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .ty-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: #94A3B8;
+            line-height: 1.55;
+        }
+
+        .ty-step-num {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: rgba(245,158,11,0.15);
+            border: 1px solid rgba(245,158,11,0.3);
+            color: var(--event-amber);
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ty-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--event-amber);
+            color: #0F172A;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.85rem 1.75rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+            box-shadow: 0 4px 14px rgba(245,158,11,0.25);
+        }
+
+        .ty-btn-primary:hover,
+        .ty-btn-primary:focus {
+            background: var(--event-amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .ty-btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #64748B;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.2s;
+            margin-top: 1rem;
+        }
+
+        .ty-btn-ghost:hover {
+            color: #94A3B8;
+        }
+
+        .ty-footer {
+            background: #060F1E;
+            padding: 1.75rem 2rem;
+            text-align: center;
+        }
+
+        .ty-footer p {
+            font-size: 0.82rem;
+            color: #475569;
+            margin: 0;
+        }
+
+        .ty-footer a {
+            color: #64748B;
+            text-decoration: none;
+        }
+
+        .ty-footer a:hover {
+            color: #94A3B8;
+        }
+
+        @media (max-width: 600px) {
+            .ty-card {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="ty-page">
+
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Minimal Nav -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Adaptly Logo" style="height: 50px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="b2b-roundtable.html" style="color: #F59E0B; font-weight: 700;">March Roundtable</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content" class="ty-main">
+        <div class="ty-card" role="region" aria-label="Registration confirmation">
+
+            <div class="ty-icon" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+            </div>
+
+            <div class="ty-label">Registration Received</div>
+            <h1>You're In. We'll Be In Touch.</h1>
+            <p>Your seat request for the March Roundtable has been received. Check your email for confirmation — event details will be sent to registered participants only.</p>
+
+            <hr class="ty-divider">
+
+            <div class="ty-details" aria-label="Event details">
+                <div class="ty-detail-row">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="18" rx="2"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    <span><strong style="color: white;">Wednesday, 11 March 2026</strong></span>
+                </div>
+                <div class="ty-detail-row">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>8:00 PM GMT+2 &bull; 90 Minutes</span>
+                </div>
+                <div class="ty-detail-row">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.82v6.36a1 1 0 0 1-1.447.89L15 14"/>
+                        <rect x="1" y="6" width="14" height="12" rx="2"/>
+                    </svg>
+                    <span>Private Zoom &bull; Link sent to confirmed participants</span>
+                </div>
+                <div class="ty-detail-row">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span>Strictly no recordings. This conversation stays in the room.</span>
+                </div>
+            </div>
+
+            <div class="ty-next-steps">
+                <h2>What happens next</h2>
+                <ol class="ty-step-list" role="list">
+                    <li class="ty-step" role="listitem">
+                        <span class="ty-step-num" aria-hidden="true">1</span>
+                        You'll receive a confirmation email with your registration details.
+                    </li>
+                    <li class="ty-step" role="listitem">
+                        <span class="ty-step-num" aria-hidden="true">2</span>
+                        We'll review your application and confirm your seat. Due to the small size, not all applicants are guaranteed a spot.
+                    </li>
+                    <li class="ty-step" role="listitem">
+                        <span class="ty-step-num" aria-hidden="true">3</span>
+                        If confirmed, you'll receive the Zoom link and any pre-session materials closer to the date.
+                    </li>
+                </ol>
+            </div>
+
+            <a href="b2b-roundtable.html" class="ty-btn-primary" aria-label="Return to the roundtable event page">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M19 12H5M12 5l-7 7 7 7"/>
+                </svg>
+                Back to Event Page
+            </a>
+            <br>
+            <a href="index.html" class="ty-btn-ghost">
+                ← Back to Adaptly home
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="ty-footer" role="contentinfo">
+        <p>
+            <a href="index.html">Adaptly</a> &bull;
+            <a href="privacy-policy.html">Privacy Policy</a> &bull;
+            <a href="terms-of-service.html">Terms of Service</a>
+        </p>
+    </footer>
+
+    <!-- Cookie Consent Scripts (deferred for performance) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="js/cookie-consent.js"></script>
+
+</body>
+</html>
