@@ -1,0 +1,120 @@
+name: Update Sitemap
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'blog/**/*.html'
+      - '*.html'
+
+jobs:
+  update-sitemap:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate sitemap.xml
+        run: |
+          BASE_URL="https://adaptlyhq.com"
+          TODAY=$(date -u +"%Y-%m-%d")
+
+          cat > sitemap.xml <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+            <!-- Main pages -->
+            <url>
+              <loc>${BASE_URL}/</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>weekly</changefreq>
+              <priority>1.0</priority>
+            </url>
+            <url>
+              <loc>${BASE_URL}/blog.html</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>weekly</changefreq>
+              <priority>0.9</priority>
+            </url>
+            <url>
+              <loc>${BASE_URL}/about.html</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>monthly</changefreq>
+              <priority>0.7</priority>
+            </url>
+            <url>
+              <loc>${BASE_URL}/designer-partnership.html</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>monthly</changefreq>
+              <priority>0.6</priority>
+            </url>
+            <url>
+              <loc>${BASE_URL}/b2b-roundtable.html</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>monthly</changefreq>
+              <priority>0.6</priority>
+            </url>
+
+            <!-- Legal / policy pages -->
+            <url>
+              <loc>${BASE_URL}/accessibility.html</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>yearly</changefreq>
+              <priority>0.3</priority>
+            </url>
+            <url>
+              <loc>${BASE_URL}/cookie-policy.html</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>yearly</changefreq>
+              <priority>0.3</priority>
+            </url>
+            <url>
+              <loc>${BASE_URL}/terms-of-service.html</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>yearly</changefreq>
+              <priority>0.3</priority>
+            </url>
+            <url>
+              <loc>${BASE_URL}/do-not-sell.html</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>yearly</changefreq>
+              <priority>0.3</priority>
+            </url>
+            <url>
+              <loc>${BASE_URL}/privacy-policy.html</loc>
+              <lastmod>${TODAY}</lastmod>
+              <changefreq>yearly</changefreq>
+              <priority>0.3</priority>
+            </url>
+
+            <!-- Blog posts (auto-discovered) -->
+          EOF
+
+          # Find all HTML files in blog/ subdirectories and append them
+          find blog -name "*.html" | sort | while read -r file; do
+            # Extract datetime from the file if present, otherwise use today
+            LASTMOD=$(grep -oP '(?<=datetime=")[0-9]{4}-[0-9]{2}-[0-9]{2}' "$file" | head -1)
+            LASTMOD="${LASTMOD:-$TODAY}"
+            cat >> sitemap.xml <<EOF
+            <url>
+              <loc>${BASE_URL}/${file}</loc>
+              <lastmod>${LASTMOD}</lastmod>
+              <changefreq>yearly</changefreq>
+              <priority>0.8</priority>
+            </url>
+          EOF
+          done
+
+          echo "</urlset>" >> sitemap.xml
+
+      - name: Commit updated sitemap
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git diff --cached --quiet || git commit -m "chore: auto-update sitemap.xml"
+          git push
