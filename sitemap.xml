@@ -65,13 +65,11 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- Blog posts -->
-  <!-- ADD NEW BLOG POSTS BELOW THIS LINE -->
+  <!-- Blog posts (auto-discovered) -->
   <url>
     <loc>https://adaptlyhq.com/blog/training-and-instruction/running-blind-what-we-lost-when-training-moved-online.html</loc>
     <lastmod>2026-02-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
-
 </urlset>
