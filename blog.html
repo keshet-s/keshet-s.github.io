@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Adaptly</title>
-    <meta name="description" content="Read the latest insights on adaptive learning, AI in education, and learning science from the Adaptly team.">
+    <meta name="description" content="Insights on training design, learning science, and building Adaptly — written by practitioners who've run the sessions.">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Blog listing: collapse card to single column on mobile */
+        @media (max-width: 680px) {
+            .blog-card[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+            .blog-card .blog-image {
+                min-height: 160px !important;
+            }
+        }
+    </style>
     <!-- Cookie Consent CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
     <link rel="stylesheet" href="css/cookie-consent-custom.css">
@@ -65,65 +76,74 @@
         </div>
     </section>
 
-    <!-- Hero Section - Coming Soon -->
-    <section class="hero" style="min-height: 60vh; display: flex; align-items: center;" aria-labelledby="hero-heading">
+    <!-- Blog Hero -->
+    <section class="hero" style="min-height: 38vh; display: flex; align-items: center; padding: 4rem 0 3rem;" aria-labelledby="blog-hero-heading">
         <div class="container">
-            <div class="hero-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <div style="margin-bottom: 2rem;">
-                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto;" aria-hidden="true">
-                        <circle cx="60" cy="60" r="55" stroke="#2563EB" stroke-width="3" opacity="0.3"/>
-                        <path d="M60 25 L60 60 L85 85" stroke="#2563EB" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
-                        <circle cx="60" cy="60" r="5" fill="#2563EB"/>
-                        <rect x="30" y="90" width="10" height="4" rx="2" fill="#2563EB" opacity="0.6"/>
-                        <rect x="45" y="90" width="10" height="4" rx="2" fill="#2563EB" opacity="0.7"/>
-                        <rect x="60" y="90" width="10" height="4" rx="2" fill="#2563EB" opacity="0.8"/>
-                        <rect x="75" y="90" width="10" height="4" rx="2" fill="#2563EB" opacity="0.7"/>
-                    </svg>
-                </div>
-                <div class="hero-text">
-                    <h1 id="hero-heading">Our Blog is <span class="highlight">Coming Soon</span></h1>
-                    <p style="font-size: 1.25rem; margin: 2rem 0; opacity: 0.9;">We're working on bringing you insights about adaptive learning, AI in education, and learning science. Stay tuned for exciting content!</p>
-                </div>
+            <div style="max-width: 720px;">
+                <h1 id="blog-hero-heading" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.15;">The Adaptly <span class="highlight">Blog</span></h1>
+                <p style="font-size: 1.125rem; opacity: 0.88; line-height: 1.7; max-width: 580px;">Insights on training design, instructor visibility, and building Adaptly — written by practitioners who've run the sessions.</p>
             </div>
         </div>
     </section>
 
-    <!-- What to Expect Section -->
-    <section class="content-section">
+    <!-- Training & Instruction Category -->
+    <section class="content-section" aria-labelledby="cat-training-heading">
         <div class="container">
-            <div class="section-header">
-                <h2>What to Expect</h2>
-                <p>Our upcoming blog will feature articles on:</p>
+
+            <!-- Category Header -->
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border-color);">
+                <h2 id="cat-training-heading" style="font-size: 1.375rem; font-weight: 700; color: var(--primary-text); margin: 0;">Training &amp; Instruction</h2>
+                <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary-blue); background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.2); padding: 0.2rem 0.65rem; border-radius: 100px; white-space: nowrap;">1 post</span>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                <div style="background-color: var(--background-light); padding: 2rem; border-radius: 12px; text-align: center;">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 1rem;">
-                        <circle cx="30" cy="30" r="25" stroke="#2563EB" stroke-width="2" opacity="0.5"/>
-                        <path d="M30 15 L30 30 L40 40" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
-                    </svg>
-                    <h3 style="margin-bottom: 0.5rem;">Learning Science</h3>
-                    <p style="opacity: 0.8;">Evidence-based approaches to effective learning and retention</p>
-                </div>
-                <div style="background-color: var(--background-light); padding: 2rem; border-radius: 12px; text-align: center;">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 1rem;">
-                        <rect x="15" y="15" width="30" height="30" rx="4" stroke="#2563EB" stroke-width="2" opacity="0.5"/>
-                        <circle cx="30" cy="30" r="8" fill="#2563EB" opacity="0.8"/>
-                    </svg>
-                    <h3 style="margin-bottom: 0.5rem;">AI in Education</h3>
-                    <p style="opacity: 0.8;">How artificial intelligence is transforming professional training</p>
-                </div>
-                <div style="background-color: var(--background-light); padding: 2rem; border-radius: 12px; text-align: center;">
-                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 0 auto 1rem;">
-                        <path d="M15 40 L25 25 L35 30 L45 15" stroke="#2563EB" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <circle cx="15" cy="40" r="3" fill="#2563EB"/>
-                        <circle cx="25" cy="25" r="3" fill="#2563EB"/>
-                        <circle cx="35" cy="30" r="3" fill="#2563EB"/>
-                        <circle cx="45" cy="15" r="3" fill="#2563EB"/>
-                    </svg>
-                    <h3 style="margin-bottom: 0.5rem;">Industry Insights</h3>
-                    <p style="opacity: 0.8;">Trends and best practices in corporate training and development</p>
-                </div>
+
+            <!-- Blog Card -->
+            <div class="blog-grid" style="grid-template-columns: 1fr;">
+                <article class="blog-card" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 860px;">
+                    <!-- Card visual strip -->
+                    <div class="blog-image" style="min-height: 240px; background: linear-gradient(135deg, #1E3A5F 0%, #2563EB 60%, #7C3AED 100%); display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 1.75rem;">
+                        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 0.5rem;">Training &amp; Instruction</span>
+                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <rect width="44" height="44" rx="10" fill="rgba(255,255,255,0.12)"/>
+                            <path d="M10 14h24M10 22h18M10 30h22" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- Card content -->
+                    <div class="blog-content" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="blog-meta" style="margin-bottom: 0.75rem;">
+                                <time datetime="2026-02-24">Feb 24, 2026</time>
+                                <span aria-hidden="true">&bull;</span>
+                                <span>Keshet Shiri</span>
+                                <span aria-hidden="true">&bull;</span>
+                                <span>5 min read</span>
+                            </div>
+
+                            <h3 style="font-size: 1.25rem; font-weight: 700; line-height: 1.35; margin-bottom: 1rem;">Running Blind: What We Lost When Training Moved Online</h3>
+
+                            <p style="font-size: 0.925rem; line-height: 1.65; color: var(--secondary-text); margin-bottom: 1.25rem;">When you're running a training session in a physical classroom, the real signal isn't in the lecture room — it's in the exercise room. And that one only works because you're physically in it.</p>
+
+                            <!-- Tags -->
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem;" role="list" aria-label="Article tags">
+                                <span role="listitem" style="font-size: 0.75rem; font-weight: 600; color: #4B5563; background: #F3F4F6; border: 1px solid #E5E7EB; padding: 0.2rem 0.6rem; border-radius: 100px;">Online Learning / Remote Labs</span>
+                                <span role="listitem" style="font-size: 0.75rem; font-weight: 600; color: #4B5563; background: #F3F4F6; border: 1px solid #E5E7EB; padding: 0.2rem 0.6rem; border-radius: 100px;">Instructor Visibility</span>
+                                <span role="listitem" style="font-size: 0.75rem; font-weight: 600; color: #4B5563; background: #F3F4F6; border: 1px solid #E5E7EB; padding: 0.2rem 0.6rem; border-radius: 100px;">Cybersecurity Training</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <a href="blog/training-and-instruction/running-blind-what-we-lost-when-training-moved-online.html"
+                               class="btn btn-primary"
+                               style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.25rem; font-size: 0.9rem;"
+                               aria-label="Read: Running Blind: What We Lost When Training Moved Online">
+                                Read Article
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
             </div>
+
         </div>
     </section>
 
@@ -131,11 +151,11 @@
     <section class="content-section" style="background-color: var(--background-light);">
         <div class="container">
             <div class="section-header">
-                <h2>Get Notified When We Launch</h2>
-                <p>Sign up to be the first to know when we publish new content</p>
+                <h2>Stay in the Loop</h2>
+                <p>Get notified when we publish new articles on training design, learning science, and what we're building</p>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
-                <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Join the Waitlist</button>
+                <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Subscribe</button>
             </div>
         </div>
     </section>
