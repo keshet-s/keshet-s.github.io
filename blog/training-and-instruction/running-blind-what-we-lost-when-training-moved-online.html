@@ -128,16 +128,13 @@
             margin-bottom: 0;
         }
 
-        /* Closing question callout */
-        .article-callout {
-            background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(124,58,237,0.06));
-            border-left: 3px solid var(--primary-blue);
-            border-radius: 0 8px 8px 0;
-            padding: 1.25rem 1.5rem;
-            margin: 2.5rem 0;
-            font-size: 1.05rem;
-            font-style: italic;
-            color: var(--primary-text);
+        /* Fix: global nav{} styles bleed into the breadcrumb <nav> inside the dark hero.
+           Override back to transparent/static so no white bar appears. */
+        .article-hero nav.breadcrumb {
+            background: transparent;
+            box-shadow: none;
+            position: static;
+            z-index: auto;
         }
 
         /* Back to blog + share row */
@@ -337,9 +334,7 @@
             <p>Most LMS platforms give you nothing between "assigned" and "submitted." That gap - everything that happens in the middle, the actual process of learning - is invisible unless you deliberately build something to see it.</p>
 
             <h2>What Are You Actually Measuring?</h2>
-            <div class="article-callout">
-                I don't have a clean answer to how to fully solve this. But I do know the question I keep coming back to: what are you actually measuring during your lab sessions — and does it tell you what you think it does?
-            </div>
+            <p>I don't have a clean answer to how to fully solve this. But I do know the question I keep coming back to: what are you actually measuring during your lab sessions — and does it tell you what you think it does?</p>
 
         </div>
 
