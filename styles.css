@@ -1555,3 +1555,31 @@ section:not(:last-of-type)::after {
     right: 1rem;
   }
 }
+
+/* ===== EVENT BANNER ===== */
+
+.event-banner-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2.25rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.event-banner-cta {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+@media (max-width: 680px) {
+  .event-banner-inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .event-banner-cta {
+    text-align: left;
+  }
+}
