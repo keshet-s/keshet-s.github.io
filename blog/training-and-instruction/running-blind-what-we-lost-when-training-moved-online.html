@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running Blind: What We Lost When Training Moved Online - Adaptly Blog</title>
+    <meta name="description" content="When training moved online, the obvious loss was engagement signals on a video call. The deeper loss was the exercise room — and the instructor visibility that only comes from being in it.">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Article-specific layout */
+        .article-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 80%, #1e3a5f 100%);
+            padding: 4rem 0 3.5rem;
+            color: white;
+        }
+
+        .article-hero .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .article-hero .breadcrumb a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .article-hero .breadcrumb a:hover {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .article-hero .breadcrumb svg {
+            flex-shrink: 0;
+        }
+
+        .article-hero .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #93C5FD;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-hero h1 {
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: white;
+            max-width: 720px;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-meta .author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+
+        .article-meta .separator {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-tags .tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+        }
+
+        /* Article body */
+        .article-body {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 4rem;
+            color: var(--primary-text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .article-body h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin: 2.5rem 0 0.9rem;
+            line-height: 1.3;
+        }
+
+        .article-body p {
+            margin-bottom: 1.4rem;
+            color: #374151;
+        }
+
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Closing question callout */
+        .article-callout {
+            background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(124,58,237,0.06));
+            border-left: 3px solid var(--primary-blue);
+            border-radius: 0 8px 8px 0;
+            padding: 1.25rem 1.5rem;
+            margin: 2.5rem 0;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: var(--primary-text);
+        }
+
+        /* Back to blog + share row */
+        .article-footer-nav {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .article-footer-nav .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+
+        .article-footer-nav .back-link:hover {
+            gap: 0.65rem;
+        }
+
+        .article-footer-nav .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .article-footer-nav .tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4B5563;
+            background: #F3F4F6;
+            border: 1px solid #E5E7EB;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        @media (max-width: 600px) {
+            .article-body {
+                padding: 2.5rem 1.25rem 3rem;
+                font-size: 1rem;
+            }
+            .article-body h2 {
+                font-size: 1.25rem;
+            }
+            .article-hero {
+                padding: 3rem 0 2.5rem;
+            }
+        }
+    </style>
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="../../css/cookie-consent-custom.css">
+</head>
+<body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <img src="../../logo.png" alt="Adaptly Logo" style="height: 50px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About Us</a></li>
+                <li><a href="../../designer-partnership.html">Partners</a></li>
+                <li><a href="../../blog.html" aria-current="page">Blog</a></li>
+                <li><a href="../../b2b-roundtable.html" style="color: var(--event-amber, #F59E0B); font-weight: 700;">March Roundtable</a></li>
+                <li><button type="button" onclick="openModal('waitlistModal')" class="nav-cta">Get Started</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+    <!-- Stop the Bottleneck Banner -->
+    <section aria-label="Featured event: Stop the Bottleneck" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); padding: 0;">
+        <div style="max-width: 1280px; margin: 0 auto; padding: 2.25rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;">
+            <div>
+                <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.35); color: #F59E0B; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 100px; margin-bottom: 0.9rem;">
+                    <span style="width: 6px; height: 6px; background: #F59E0B; border-radius: 50%; display: inline-block;"></span>
+                    Live Event &bull; 11 March
+                </div>
+                <h2 style="font-size: clamp(1.15rem, 3vw, 1.55rem); font-weight: 800; color: white; margin-bottom: 0.5rem; line-height: 1.25;">
+                    Stop the Bottleneck
+                </h2>
+                <p style="font-size: 0.9rem; color: #94A3B8; margin: 0; line-height: 1.6;">
+                    A private roundtable on reducing instructor dependency in lab-heavy cohorts - without sacrificing pass rates.
+                    <strong style="color: #CBD5E1;">Strictly limited to 12 seats.</strong>
+                </p>
+            </div>
+            <div style="flex-shrink: 0; text-align: right;">
+                <a href="../../b2b-roundtable.html"
+                   style="display: inline-flex; align-items: center; gap: 0.5rem; background: #F59E0B; color: #0F172A; font-weight: 700; font-size: 0.9rem; padding: 0.75rem 1.5rem; border-radius: 10px; text-decoration: none; white-space: nowrap; transition: background 0.2s;"
+                   onmouseover="this.style.background='#D97706'" onmouseout="this.style.background='#F59E0B'"
+                   aria-label="Learn more about the March Roundtable">
+                    Learn More
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <p style="font-size: 0.75rem; color: #475569; margin-top: 0.5rem; white-space: nowrap;">Wed 11 Mar &bull; 8PM GMT+2 / 1PM EST</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Hero -->
+    <header class="article-hero" aria-labelledby="article-title">
+        <div class="container">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <a href="../../blog.html">Blog</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                <span>Training &amp; Instruction</span>
+            </nav>
+
+            <!-- Category badge -->
+            <div class="category-badge" aria-label="Category: Training and Instruction">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h14"/></svg>
+                Training &amp; Instruction
+            </div>
+
+            <!-- Title -->
+            <h1 id="article-title">Running Blind: What We Lost When Training Moved Online</h1>
+
+            <!-- Metadata -->
+            <div class="article-meta">
+                <span class="author">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    Keshet Shiri
+                </span>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <time datetime="2026-02-24">February 24, 2026</time>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <span>5 min read</span>
+            </div>
+
+            <!-- Tags -->
+            <div class="article-tags" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Online Learning / Remote Labs</span>
+                <span class="tag" role="listitem">Instructor Visibility</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <article aria-labelledby="article-title">
+        <div class="article-body">
+
+            <h2>The Two Rooms Every Instructor Reads</h2>
+            <p>When you're running a training session in a physical classroom, you're doing two things at once without even thinking about it.</p>
+            <p>You're reading the lecture room - faces, body language, who's with you and who drifted off three slides ago. That feedback is useful. It tells you when to slow down, when to repeat, when to cut the theory and get to an example.</p>
+            <p>But the lecture room isn't where the real signal lives.</p>
+            <p>The real signal is in the exercise room. And that one only works because you're physically present in it.</p>
+
+            <h2>What Walking Between Desks Actually Does</h2>
+            <p>There's a version of instructor presence that looks passive - just moving around the room while students work. It isn't.</p>
+            <p>Walking between students during exercises was a trigger. Students asked questions they would never have raised their hand for in front of the group. Small things, embarrassing things, the kind of confusion that feels too basic to admit publicly - those surfaced naturally when you stopped next to someone's screen.</p>
+            <p>More importantly, you could see the approach. Not just whether someone finished an exercise, but how they were moving through it. The hesitation before a certain step. The way someone copied a block they didn't understand and kept going. The student who had the right answer but for completely the wrong reason.</p>
+            <p>That's the difference between knowing a student completed the work and knowing whether the skill actually transferred.</p>
+
+            <h2>The Loss That Doesn't Get Talked About Enough</h2>
+            <p>When training moved online - I only ran fully remote for a short time, during COVID, but it was enough to feel exactly what disappeared - the conversation focused on the obvious loss. You can't read faces on a video call. Engagement signals fade out. The lecture room gets harder to read.</p>
+            <p>That's real. But it's the surface loss.</p>
+            <p>The deeper loss is the exercise room. You can't walk between screens. You can't see the approach. You can't intercept someone mid-wrong-turn before they've built twenty minutes of work on a flawed assumption. That window - the one where a quiet observation or a well-timed question can redirect someone before they've dug in - simply doesn't exist.</p>
+            <p>And I'd argue this isn't only a remote training problem. Any programme that leans heavily on an LMS as its primary measurement of progress, even in physical training, starts to lose the same signal. Submission completed. Status green. Move on. The platform tells you one story. What's actually happening in the work may be another.</p>
+
+            <h2>The Cohort That Looked Fine</h2>
+            <p>I ran a cohort where everything looked good from the outside.</p>
+            <p>Submission quality was solid. Pace was on track. The LMS showed completion across the board. By every metric I had access to, progress was happening.</p>
+            <p>Then I ran one-on-one interviews, asked students to write code they'd already submitted in previous exercises. Simple tasks. Work they'd technically "completed."</p>
+            <p>Many couldn't do it.</p>
+            <p>They had used AI to complete the exercises. The LMS registered the submissions. Nobody flagged anything. The actual skill hadn't transferred, and I had no way of knowing until I deliberately manufactured a moment of visibility - sat with each student, live, and asked them to do the work in front of me.</p>
+            <p>That's exactly what the exercise room is supposed to provide by default.</p>
+            <p>What followed wasn't clean. We banned AI during exercises, extended the module, went back to basics, and introduced new exercises specifically for solo practice. All of it cost time, cohort momentum, and credibility. The rework was significant, not just for me, but for the students who had to unlearn habits they'd already settled into.</p>
+            <p>The problem wasn't that they used AI. The problem was that the signals I was reading - completion rates, submission quality, LMS status - looked like progress. They weren't. And I had no way to know until I stopped relying on the platform and created the visibility myself.</p>
+
+            <h2>The Signal Was Wrong</h2>
+            <p>In a physical lab session, I'd have had a chance to catch this earlier. Not because I'd have seen them using AI, but because I'd have seen the approach. The rhythm would have been off. The ownership of the work wouldn't have been there in the way it is when someone's actually working through a problem themselves.</p>
+            <p>The exercise room gives you that - but only if you're in it. Only if you're moving through it, watching, asking, creating the conditions where the real work has to happen in front of you.</p>
+            <p>Most LMS platforms give you nothing between "assigned" and "submitted." That gap - everything that happens in the middle, the actual process of learning - is invisible unless you deliberately build something to see it.</p>
+
+            <h2>What Are You Actually Measuring?</h2>
+            <div class="article-callout">
+                I don't have a clean answer to how to fully solve this. But I do know the question I keep coming back to: what are you actually measuring during your lab sessions — and does it tell you what you think it does?
+            </div>
+
+        </div>
+
+        <!-- Article footer: back link + tags -->
+        <div class="article-footer-nav">
+            <a href="../../blog.html" class="back-link" aria-label="Back to all blog posts">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Blog
+            </a>
+            <div class="tags-row" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Online Learning / Remote Labs</span>
+                <span class="tag" role="listitem">Instructor Visibility</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+        </div>
+    </article>
+
+    <!-- Newsletter Section -->
+    <section class="content-section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stay in the Loop</h2>
+                <p>Get notified when we publish new articles on training design, learning science, and what we're building</p>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Adaptly</h4>
+                    <p>Building better tools for professional training</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../../about.html">About</a></li>
+                        <li><a href="../../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="../../designer-partnership.html">Design Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../../cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="../../terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../../do-not-sell.html">Do Not Sell My Info</a></li>
+                        <li><a href="../../accessibility.html">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Upcoming Events</h4>
+                    <ul>
+                        <li>
+                            <a href="../../b2b-roundtable.html" style="font-weight: 600;">March Roundtable</a>
+                        </li>
+                        <li style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.25rem;">
+                            Wed 11 Mar &bull; 8PM GMT+2 / 1PM EST
+                        </li>
+                        <li style="font-size: 0.8rem; opacity: 0.7;">
+                            Scaling Certification Prep
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+                        <li><a href="mailto:hello@adaptlyhq.com" aria-label="Email hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Adaptly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle" aria-describedby="waitlistModalDesc">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="waitlistModalTitle">Join the Waitlist</h2>
+                <p id="waitlistModalDesc">Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')" aria-label="Close modal" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" title="Waitlist signup form"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lastFocusedElement = null;
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                lastFocusedElement = document.activeElement;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    setTimeout(() => closeButton.focus(), 100);
+                }
+                trapFocus(modal);
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                    lastFocusedElement = null;
+                }
+            }
+        }
+
+        function trapFocus(modal) {
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModal(activeModal.id);
+                }
+            }
+        });
+    </script>
+
+    <!-- Cookie Consent Scripts (deferred for performance) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="../../js/cookie-consent.js"></script>
+</body>
+</html>
