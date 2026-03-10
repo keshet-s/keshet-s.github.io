@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Mixed-Skill Cohorts Keep Underperforming - and What Pacing Has to Do With It - Adaptly Blog</title>
+    <meta name="description" content="Every cohort is a range. Almost every training programme responds the same way: pick a pace, accept it won't work for everyone, and move on. There's a better structural question to ask.">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Article-specific layout */
+        .article-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 80%, #1e3a5f 100%);
+            padding: 4rem 0 3.5rem;
+            color: white;
+        }
+
+        .article-hero .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .article-hero .breadcrumb a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .article-hero .breadcrumb a:hover {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .article-hero .breadcrumb svg {
+            flex-shrink: 0;
+        }
+
+        .article-hero .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #93C5FD;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-hero h1 {
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: white;
+            max-width: 720px;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-meta .author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+
+        .article-meta .separator {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-tags .tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+        }
+
+        /* Article body */
+        .article-body {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 4rem;
+            color: var(--primary-text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .article-body h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin: 2.5rem 0 0.9rem;
+            line-height: 1.3;
+        }
+
+        .article-body p {
+            margin-bottom: 1.4rem;
+            color: #374151;
+        }
+
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Fix: global nav{} styles bleed into the breadcrumb <nav> inside the dark hero.
+           Override back to transparent/static so no white bar appears. */
+        .article-hero nav.breadcrumb {
+            background: transparent;
+            box-shadow: none;
+            position: static;
+            z-index: auto;
+        }
+
+        /* Back to blog + share row */
+        .article-footer-nav {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .article-footer-nav .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+
+        .article-footer-nav .back-link:hover {
+            gap: 0.65rem;
+        }
+
+        .article-footer-nav .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .article-footer-nav .tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4B5563;
+            background: #F3F4F6;
+            border: 1px solid #E5E7EB;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        @media (max-width: 600px) {
+            .article-body {
+                padding: 2.5rem 1.25rem 3rem;
+                font-size: 1rem;
+            }
+            .article-body h2 {
+                font-size: 1.25rem;
+            }
+            .article-hero {
+                padding: 3rem 0 2.5rem;
+            }
+        }
+    </style>
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="../../css/cookie-consent-custom.css">
+</head>
+<body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <img src="../../logo.png" alt="Adaptly Logo" style="height: 50px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About Us</a></li>
+                <li><a href="../../designer-partnership.html">Partners</a></li>
+                <li><a href="../../blog.html" aria-current="page">Blog</a></li>
+                <li><a href="../../b2b-roundtable.html" style="color: var(--event-amber, #F59E0B); font-weight: 700;">Roundtable Event</a></li>
+                <li><button type="button" onclick="openModal('waitlistModal')" class="nav-cta">Get Started</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+    <!-- Article Hero -->
+    <header class="article-hero" aria-labelledby="article-title">
+        <div class="container">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <a href="../../blog.html">Blog</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                <span>Learning Design</span>
+            </nav>
+
+            <!-- Category badge -->
+            <div class="category-badge" aria-label="Category: Learning Design">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                Learning Design
+            </div>
+
+            <!-- Title -->
+            <h1 id="article-title">Why Mixed-Skill Cohorts Keep Underperforming - and What Pacing Has to Do With It</h1>
+
+            <!-- Metadata -->
+            <div class="article-meta">
+                <span class="author">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    Keshet Shiri
+                </span>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <time datetime="2026-03-10">March 10, 2026</time>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <span>8 min read</span>
+            </div>
+
+            <!-- Tags -->
+            <div class="article-tags" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Cohort Training</span>
+                <span class="tag" role="listitem">Pacing</span>
+                <span class="tag" role="listitem">Mixed-Skill Learning</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <article aria-labelledby="article-title">
+        <div class="article-body">
+
+            <h2>The Room Is Never Uniform</h2>
+            <p>Everyone who has run a training program knows this before the first session even starts: the cohort is not a single entity. It's a range. Some students arrive with an extensive practical experience and treat the early modules as a warm-up. Others are technically at the entry threshold but are genuinely building from scratch. And everyone in between fills out the middle.</p>
+            <p>That range is not the problem. The problem is what most programmes do about it - which is, ultimately, the same thing: pick a pace, accept it won't work for everyone, and move on.</p>
+
+            <h2>When the Feedback Becomes Background Noise</h2>
+            <p>Ask any instructor who has run a mixed-skill cohort long enough and you'll hear the same two pieces of feedback, reliably, from opposite ends of the room.</p>
+            <p>The stronger students say the pace is too slow. They disengage during lectures. They finish exercises early and sit idle. Over time, they may even stop investing fully because the curriculum isn't asking them to.</p>
+            <p>The weaker students say the pace is too fast. They can't consolidate one topic before the next one arrives. They're practicing under time pressure, which is the worst condition for building genuine skill.</p>
+            <p>Both pieces of feedback are so consistently predictable that instructors stop reacting to them. In a large cohort with a normal distribution of ability, there's no realistic response available within the current model. So the feedback gets absorbed as background noise; Not because instructors don't care, but because the structure doesn't give them anything to do with it.</p>
+            <p>That normalisation is worth naming clearly. It isn't a motivation problem. It's a model problem.</p>
+
+            <h2>Two Students, Two Programmes, Same Structural Failure</h2>
+            <p>I've seen both ends of this spectrum play out in programmes I've run; not in the same cohort, but the contrast is sharp enough to be worth putting side by side.</p>
+            <p>In one programme, a student finished the exercises for the next topic before the rest of the class had completed the third exercise of the current one - before that next topic's lecture had even been delivered. He had run ahead of the curriculum himself. And at some point, knowing he was well ahead, he eased off. The urgency disappeared. A student with real ability stopped being challenged because the model had no mechanism to stretch him.</p>
+            <p>In a separate programme, a student was consistently two full topics behind the entire class throughout the course. The gap was severe enough that the team seriously discussed whether he should drop out - not because of ability, but because the schedule had no structural room to accommodate the pace he actually needed to learn properly.</p>
+            <p>Same cohort model. Opposite problems. One pace served neither of them.</p>
+
+            <h2>What Pre-Assessment Actually Solves</h2>
+            <p>The instinct is to fix this at intake. Screen better, filter harder, start with a more uniform group.</p>
+            <p>I've seen two approaches to this, and both are instructive about what pre-assessment can and can't do.</p>
+            <p>Short pre-assessment interviews can flag students who might need extra attention early, technically or motivationally. They're useful as a rough filter. But they're too brief to give you an accurate picture of actual skill level. You're identifying outliers at best, not mapping the range.</p>
+            <p>Formal entry tests narrow the spread more meaningfully, students below a minimum threshold don't make it through. But students who pass the same test still arrive with significantly different levels of practical experience. Clearing the bar doesn't mean standing at the same height. The heterogeneity survives even the most structured intake process.</p>
+            <p>Pre-assessment can compress the range. It can't close it.</p>
+
+            <h2>What Actually Worked - And Why It Doesn't Scale</h2>
+            <p>I've seen two approaches that genuinely addressed the pacing problem. Both required resources most programmes don't have.</p>
+            <p>The first was personalised exercise queues at a high trainer-to-student ratio. When coverage was good enough, trainers could build individual exercise queues - remedial practice and more time for weaker students, advanced exercises to keep stronger ones stretched. The core curriculum pace stayed fixed, but the exercise layer became individual. It worked. The constraint was that it required dedicated time allocation and only functioned at that ratio.</p>
+            <p>The second was level-split classes. With enough students and enough trainers, cohorts could be divided into three or four separate groups - each running lectures and exercises at a pace calibrated to their starting point. The gap within each class narrowed meaningfully. The constraint was that it only became viable at significant scale, with the trainer headcount to support multiple parallel tracks.</p>
+            <p>Both solutions work. The barrier isn't knowledge -  the solutions are well understood. The barrier is resource. Most training providers can't sustain the ratio or the headcount that makes either approach viable. Everything else is a managed compromise: design for the middle, absorb the feedback from both ends, accept some disengagement and some attrition as the cost of running at scale.</p>
+
+            <h2>The Question I Keep Coming Back To</h2>
+            <p>The pacing problem isn't unsolvable. The workarounds exist and they're proven. The barrier is that implementing what works has always required a level of human resource that most commercial programmes can't justify.</p>
+            <p>But that constraint is worth challenging directly. The exercise layer, the part of training that most directly drives skill transfer, is exactly where personalisation matters most. And it's the part of the model most amenable to rethinking.</p>
+            <p>What would it take to deliver a personalised exercise experience without needing a 1:4 ratio to make it work?</p>
+            <p>That's the question driving how I think about training design now.</p>
+
+        </div>
+
+        <!-- Article footer: back link + tags -->
+        <div class="article-footer-nav">
+            <a href="../../blog.html" class="back-link" aria-label="Back to all blog posts">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Blog
+            </a>
+            <div class="tags-row" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Cohort Training</span>
+                <span class="tag" role="listitem">Pacing</span>
+                <span class="tag" role="listitem">Mixed-Skill Learning</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+        </div>
+    </article>
+
+    <!-- Newsletter Section -->
+    <section class="content-section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stay in the Loop</h2>
+                <p>Get notified when we publish new articles on training design, learning science, and what we're building</p>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Adaptly</h4>
+                    <p>Building better tools for professional training</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../../about.html">About</a></li>
+                        <li><a href="../../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="../../designer-partnership.html">Design Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../../cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="../../terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../../do-not-sell.html">Do Not Sell My Info</a></li>
+                        <li><a href="../../accessibility.html">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Upcoming Events</h4>
+                    <ul>
+                        <li>
+                            <a href="../../b2b-roundtable.html" style="font-weight: 600;">Roundtable Event</a>
+                        </li>
+                        <li style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.25rem;">
+                            Wed 11 Mar &bull; 8PM GMT+2 / 1PM EST
+                        </li>
+                        <li style="font-size: 0.8rem; opacity: 0.7;">
+                            Scaling Certification Prep
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+                        <li><a href="mailto:hello@adaptlyhq.com" aria-label="Email hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Adaptly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle" aria-describedby="waitlistModalDesc">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="waitlistModalTitle">Join the Waitlist</h2>
+                <p id="waitlistModalDesc">Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')" aria-label="Close modal" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" title="Waitlist signup form"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lastFocusedElement = null;
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                lastFocusedElement = document.activeElement;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    setTimeout(() => closeButton.focus(), 100);
+                }
+                trapFocus(modal);
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                    lastFocusedElement = null;
+                }
+            }
+        }
+
+        function trapFocus(modal) {
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModal(activeModal.id);
+                }
+            }
+        });
+    </script>
+
+    <!-- Cookie Consent Scripts (deferred for performance) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="../../js/cookie-consent.js"></script>
+</body>
+</html>
