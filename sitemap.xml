@@ -4,31 +4,31 @@
   <!-- Main pages -->
   <url>
     <loc>https://adaptlyhq.com/</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://adaptlyhq.com/blog.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://adaptlyhq.com/about.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://adaptlyhq.com/designer-partnership.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://adaptlyhq.com/b2b-roundtable.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -36,36 +36,42 @@
   <!-- Legal / policy pages -->
   <url>
     <loc>https://adaptlyhq.com/accessibility.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://adaptlyhq.com/cookie-policy.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://adaptlyhq.com/terms-of-service.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://adaptlyhq.com/do-not-sell.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://adaptlyhq.com/privacy-policy.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <!-- Blog posts (auto-discovered) -->
+  <url>
+    <loc>https://adaptlyhq.com/blog/learning-design/the-4-moments-in-a-lab-session-where-an-intervention-actually-works.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://adaptlyhq.com/blog/learning-design/why-mixed-skill-cohorts-keep-underperforming.html</loc>
     <lastmod>2026-03-10</lastmod>
