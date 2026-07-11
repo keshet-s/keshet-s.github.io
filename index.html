@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
     <!-- Cookie Consent CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
     <link rel="stylesheet" href="css/cookie-consent-custom.css">
@@ -158,6 +159,55 @@
                         <span class="ladder-step">Solution</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 3b. THE PAYOFF: what stuck detection buys you ===== -->
+    <section class="payoff-section" aria-labelledby="payoff-heading">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">The payoff</p>
+                <h2 id="payoff-heading">Every lab hour works harder</h2>
+                <p class="section-lede">Catching the stuck moment isn't just about rescuing one student. It changes the economics of the whole session.</p>
+            </div>
+            <div class="payoff-grid">
+                <div class="payoff-card reveal">
+                    <div class="payoff-icon" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>Practice time stays on target</h3>
+                    <p>A student who burns 40 minutes on a broken config or a mistyped path isn't practising the skill the session was built around. Adaptly catches the detour early and steers the time back to what the lab was designed to teach.</p>
+                    <p class="payoff-result">&rarr; more of every session spent on the intended skills</p>
+                </div>
+                <div class="payoff-card reveal">
+                    <div class="payoff-icon" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                    </div>
+                    <h3>Instructors stop firefighting</h3>
+                    <p>The &ldquo;what does this error mean?&rdquo; queue is handled by graduated hints before it ever reaches a human. Instructors spend the session on judgment calls and teaching &mdash; the work that actually needs their expertise.</p>
+                    <p class="payoff-result">&rarr; troubleshooting load shifts from instructor to platform</p>
+                </div>
+                <div class="payoff-card reveal">
+                    <div class="payoff-icon" aria-hidden="true">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                            <polyline points="17 6 23 6 23 12"/>
+                        </svg>
+                    </div>
+                    <h3>Scale without diluting quality</h3>
+                    <p>When detection and first-line help are automatic, one instructor can genuinely support a larger cohort &mdash; and each student gets faster, more consistent coverage than walking the room ever delivered.</p>
+                    <p class="payoff-result">&rarr; bigger cohorts, better coverage per student</p>
+                </div>
+            </div>
+            <div class="payoff-banner reveal">
+                <p>More students per instructor. More practice per hour. <strong>Better training &mdash; not just cheaper training.</strong></p>
             </div>
         </div>
     </section>
@@ -405,8 +455,8 @@
         });
     </script>
 
-    <!-- Homepage animations: hero terminal demo + scroll reveals -->
-    <script defer src="js/home.js"></script>
+    <!-- Site animations: scroll reveals + hero terminal demo -->
+    <script defer src="js/site.js"></script>
 
     <!-- Cookie Consent Scripts (deferred for performance) -->
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
