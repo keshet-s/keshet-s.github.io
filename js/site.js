@@ -1,15 +1,52 @@
-/* Adaptly homepage: scroll reveals + hero terminal demo.
+/* Adaptly shared page animations: scroll reveals + homepage hero terminal demo.
    Respects prefers-reduced-motion by rendering final states statically. */
 (function () {
   'use strict';
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Scroll reveals ---------- */
-  var revealEls = document.querySelectorAll('.reveal');
-  if (reducedMotion || !('IntersectionObserver' in window)) {
-    revealEls.forEach(function (el) { el.classList.add('in-view'); });
-  } else {
+  /* ---------- Scroll reveals ----------
+     Elements can opt in with class="reveal"; common card/heading elements
+     across the site are tagged automatically so every page feels alive
+     without hand-editing markup. */
+  var AUTO_REVEAL_SELECTORS = [
+    '.section-header',
+    '.section-head',
+    '.feature-card',
+    '.blog-card',
+    '.problem-card',
+    '.solution-card',
+    '.step-card',
+    '.cta-choice',
+    '.founder-content',
+    '.stage-content',
+    '.benefit-item',
+    '.persona-card',
+    '.agenda-card',
+    '.constraint-card',
+    '.timeline-item',
+    '.change-item',
+    '.small-reason-item'
+  ];
+
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    document.querySelectorAll(AUTO_REVEAL_SELECTORS.join(',')).forEach(function (el) {
+      el.classList.add('reveal');
+    });
+
+    /* Stagger siblings that reveal together so grids cascade in */
+    var seenParents = [];
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      var parent = el.parentElement;
+      if (parent && seenParents.indexOf(parent) === -1) seenParents.push(parent);
+    });
+    seenParents.forEach(function (parent) {
+      var children = parent.querySelectorAll(':scope > .reveal');
+      children.forEach(function (el, i) {
+        el.style.transitionDelay = Math.min(i, 5) * 70 + 'ms';
+      });
+    });
+
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -17,8 +54,10 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-    revealEls.forEach(function (el) { io.observe(el); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in-view'); });
   }
 
   /* ---------- Hero terminal demo ---------- */

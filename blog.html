@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Adaptly</title>
     <meta name="description" content="Insights on training design, learning science, and building Adaptly — written by practitioners who've run the sessions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Blog listing: collapse card to single column on mobile */
@@ -37,7 +40,7 @@
                 <li><a href="designer-partnership.html">Partners</a></li>
                 <li><a href="blog.html" aria-current="page">Blog</a></li>
                 <li><a href="b2b-roundtable.html" style="color: var(--event-amber, #F59E0B); font-weight: 700;">Roundtable Event</a></li>
-                <li><button type="button" onclick="openModal('waitlistModal')" class="nav-cta">Get Started</button></li>
+                <li><a href="https://calendly.com/keshet-adaptlyhq/30min" target="_blank" rel="noopener noreferrer" class="nav-cta" aria-label="Book a demo (opens in new tab)">Book a Demo</a></li>
             </ul>
         </div>
     </nav>
@@ -49,7 +52,8 @@
     <section class="hero" style="min-height: 38vh; display: flex; align-items: center; padding: 4rem 0 3rem;" aria-labelledby="blog-hero-heading">
         <div class="container">
             <div style="max-width: 720px;">
-                <h1 id="blog-hero-heading" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.15;">The Adaptly <span class="highlight">Blog</span></h1>
+                <p class="hero-pill"><span class="pill-dot" aria-hidden="true"></span>Field notes from real cohorts</p>
+                <h1 id="blog-hero-heading" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.15; letter-spacing: -0.02em;">The Adaptly <span class="gradient-text">Blog</span></h1>
                 <p style="font-size: 1.125rem; opacity: 0.88; line-height: 1.7; max-width: 580px;">What good cybersecurity training actually looks like - and what gets in the way. Written by practitioners who've run the sessions</p>
             </div>
         </div>
@@ -428,6 +432,9 @@
             }
         });
     </script>
+
+    <!-- Site animations: scroll reveals -->
+    <script defer src="js/site.js"></script>
 
     <!-- Cookie Consent Scripts (deferred for performance) -->
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
