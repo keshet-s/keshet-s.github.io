@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adaptly - Adaptive Training Platform for Cybersecurity Programmes</title>
-    <meta name="description" content="Built for training providers running lab-heavy certification cohorts. Real-time instructor visibility, personalised student paths, and AI-powered support - without the 1:4 ratio.">
+    <title>Adaptly - Real-Time AI Tutoring for Hands-On Cybersecurity Labs</title>
+    <meta name="description" content="Adaptly watches what students actually do in hands-on labs - terminal commands, errors, idle time - detects who's stuck, and delivers graduated hints while instructors see everything in real time. Plugs into Moodle via LTI 1.3.">
+    <meta property="og:title" content="Adaptly - Real-Time AI Tutoring for Hands-On Cybersecurity Labs">
+    <meta property="og:description" content="Know which student is stuck while the lab is still running. Your labs, your LMS, our intelligence layer.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <!-- Cookie Consent CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
@@ -26,7 +32,7 @@
                 <li><a href="designer-partnership.html">Partners</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="b2b-roundtable.html" style="color: var(--event-amber, #F59E0B); font-weight: 700;">Roundtable Event</a></li>
-                <li><button type="button" onclick="openModal('waitlistModal')" class="nav-cta">Get Started</button></li>
+                <li><a href="https://calendly.com/keshet-adaptlyhq/30min" target="_blank" rel="noopener noreferrer" class="nav-cta" aria-label="Book a demo (opens in new tab)">Book a Demo</a></li>
             </ul>
         </div>
     </nav>
@@ -34,283 +40,199 @@
     <!-- Main Content -->
     <main id="main-content">
 
-    <!-- Hero Section -->
-    <section class="hero" aria-labelledby="hero-heading">
+    <!-- ===== 1. HERO: the stuck-detection promise ===== -->
+    <section class="home-hero" aria-labelledby="hero-heading">
         <div class="container">
-            <div class="hero-content hero-content-centered">
-                <div class="hero-logo">
-                    <img src="logo.png" alt="Adaptly Logo" style="max-width: 300px; width: 100%; height: auto;">
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="hero-pill"><span class="pill-dot" aria-hidden="true"></span>Now accepting design partners</p>
+                    <h1 id="hero-heading" class="hero-headline">Know which student is stuck — <span class="gradient-text">while the lab is still running.</span></h1>
+                    <p class="hero-lede">Real-time AI tutoring for hands-on cybersecurity training. Your labs, your LMS, our intelligence layer.</p>
+                    <div class="hero-cta-row">
+                        <a href="https://calendly.com/keshet-adaptlyhq/30min" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" aria-label="Book a demo (opens in new tab)">Book a Demo</a>
+                        <a href="#how-it-works" class="btn btn-ghost btn-lg">See how it works</a>
+                    </div>
+                    <ul class="hero-proof" aria-label="Key differentiators">
+                        <li>Watches the terminal, not just the flag</li>
+                        <li>Graduated hints, never spoilers first</li>
+                        <li>Every screen's activity, one dashboard</li>
+                    </ul>
                 </div>
-                <div class="hero-text">
-                    <h1 id="hero-heading">Cybersecurity training that scales without losing the instructor's eye</h1>
-                    <p class="hero-subtitle">
-                        Built for training providers running lab-heavy certification cohorts. Adaptly gives instructors real visibility into what's happening during exercises - and gives students the support they need without requiring a 1:4 ratio.
-                    </p>
-                    <div class="hero-buttons">
-                        <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Join the Waitlist</button>
-                        <a href="designer-partnership.html" class="btn btn-secondary">Explore Partnership</a>
+                <div class="hero-visual-panel">
+                    <p class="sr-only">Illustration: a student's lab terminal shows repeated SSH connection failures and idle time. Adaptly flags the student as stuck, the AI Tutor offers a conceptual hint, and the instructor dashboard shows the flagged student in real time.</p>
+                    <div aria-hidden="true">
+                        <div class="terminal-window">
+                            <div class="terminal-titlebar">
+                                <span class="tdot tdot-r"></span><span class="tdot tdot-y"></span><span class="tdot tdot-g"></span>
+                                <span class="terminal-title">student-07 &middot; lab: service-enumeration</span>
+                            </div>
+                            <pre class="terminal-body" id="heroTerminal"></pre>
+                        </div>
+                        <div class="stuck-flag" id="stuckFlag">
+                            <span class="stuck-icon">&#9888;</span> Stuck detected &mdash; 2 failed attempts, 4m idle
+                        </div>
+                        <div class="hint-card" id="hintCard">
+                            <p class="hint-level">AI Tutor &middot; Hint 1 of 3 &mdash; Concept</p>
+                            <p class="hint-text">Your scan shows port 22 <em>closed</em>. Which port did respond &mdash; and what does that suggest about the intended path in?</p>
+                        </div>
+                        <div class="instructor-chip" id="instructorChip">
+                            <span class="chip-dot"></span> Instructor dashboard &middot; Student 07 flagged &middot; hint 1 delivered
+                        </div>
+                    </div>
+                    <p class="hero-caption">We see the terminal, not just the flag.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 2. THE PROBLEM, practitioner voice + founder credibility ===== -->
+    <section class="problem2-section" aria-labelledby="problem-heading">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">The problem</p>
+                <h2 id="problem-heading">One instructor. Twelve terminals.<br>No idea who's drowning.</h2>
+                <p class="section-lede">In a hands-on lab, the students who ask for help are rarely the ones who need it most. The struggling ones go quiet &mdash; retrying the same command, staring at the same error &mdash; and you find out after the session ends, when the window to intervene has already closed.</p>
+            </div>
+            <div class="stat-tiles reveal">
+                <div class="stat-tile">
+                    <p class="stat-value">12+</p>
+                    <p class="stat-label">students per instructor in a typical cert cohort</p>
+                </div>
+                <div class="stat-tile">
+                    <p class="stat-value">0</p>
+                    <p class="stat-label">signal from the students who go quiet</p>
+                </div>
+                <div class="stat-tile">
+                    <p class="stat-value">Too late</p>
+                    <p class="stat-label">when "lab completed: no" finally tells you something was wrong</p>
+                </div>
+            </div>
+            <figure class="founder-card reveal">
+                <img src="profile_image.png" alt="Keshet Shiri, founder of Adaptly" class="founder-avatar">
+                <blockquote>
+                    <p>&ldquo;I directed cybersecurity training for seven years &mdash; military units first, then commercial certification programmes. Every cohort, the same blind spot: I could see who finished the lab, never who was silently stuck inside it. Adaptly is the tool I kept wishing existed.&rdquo;</p>
+                </blockquote>
+                <figcaption>
+                    <span class="founder-name">Keshet Shiri</span>
+                    <span class="founder-role">Founder, Adaptly &middot; <a href="about.html" class="text-link">More about Keshet &rarr;</a></span>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- ===== 3. HOW IT WORKS, 3 steps ===== -->
+    <section class="hiw-section" id="how-it-works" aria-labelledby="hiw-heading">
+        <div class="container">
+            <div class="section-head reveal">
+                <p class="eyebrow">How it works</p>
+                <h2 id="hiw-heading">From silent struggle to timely help, in three steps</h2>
+            </div>
+            <div class="hiw-grid">
+                <div class="hiw-card reveal">
+                    <div class="hiw-num">1</div>
+                    <h3>The agent watches the work</h3>
+                    <p>A lightweight desktop agent reads the signal in the work itself: commands run, errors hit, time gone idle. No screen recordings to scrub through &mdash; just live activity from every lab machine.</p>
+                    <div class="hiw-tags">
+                        <span class="hiw-tag">terminal commands</span>
+                        <span class="hiw-tag">error output</span>
+                        <span class="hiw-tag">idle time</span>
+                    </div>
+                </div>
+                <div class="hiw-card reveal">
+                    <div class="hiw-num">2</div>
+                    <h3>Stuck detection fires</h3>
+                    <p>Repeated failures. A long idle right after an error. Circling the same dead end. The moment a student crosses the stuck threshold, they're flagged &mdash; in real time, not in the post-lab report.</p>
+                    <div class="hiw-tags">
+                        <span class="hiw-tag hiw-tag-amber">&#9888; flagged in seconds</span>
+                    </div>
+                </div>
+                <div class="hiw-card reveal">
+                    <div class="hiw-num">3</div>
+                    <h3>Hints escalate. You see everything.</h3>
+                    <p>The AI Tutor opens with a conceptual nudge and only escalates if the student stays stuck &mdash; while the instructor dashboard shows every flag, every hint, every screen's activity.</p>
+                    <div class="hint-ladder" aria-label="Hint escalation: concept, then strategy, then solution">
+                        <span class="ladder-step">Concept</span>
+                        <span class="ladder-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="ladder-step">Strategy</span>
+                        <span class="ladder-arrow" aria-hidden="true">&rarr;</span>
+                        <span class="ladder-step">Solution</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="problem-section">
+    <!-- ===== 4. FITS YOUR STACK ===== -->
+    <section class="stack-section" aria-labelledby="stack-heading">
         <div class="container">
-            <div class="section-header">
-                <h2>The Training Problem</h2>
-            </div>
-            <div class="problem-grid">
-                <!-- Problem 1 -->
-                <div class="problem-card">
-                    <div class="feature-icon blue">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Eye icon representing visibility">
-                            <title>Visibility</title>
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                            <line x1="12" y1="1" x2="12" y2="3"/>
-                            <line x1="12" y1="21" x2="12" y2="23"/>
-                        </svg>
-                    </div>
-                    <div class="problem-card-content">
-                        <h3>Limited Visibility Into What's Working</h3>
-                        <p>You discover problems after learners fail, not before. Completion rates don't tell you if anyone actually learned anything.</p>
-                    </div>
+            <div class="stack-grid">
+                <div class="stack-copy reveal">
+                    <p class="eyebrow">Integration</p>
+                    <h2 id="stack-heading">Plugs into the stack you already run</h2>
+                    <p class="section-lede-left">Adaptly doesn't replace your LMS or your lab environments &mdash; it adds the layer that's missing between them. The instructor dashboard drops into Moodle via LTI 1.3, and the agent runs alongside the tooling your students already use.</p>
+                    <ul class="stack-points">
+                        <li><strong>Moodle via LTI 1.3</strong> &mdash; the dashboard lives where your instructors already work</li>
+                        <li><strong>Your existing labs</strong> &mdash; the agent observes; it doesn't ask you to migrate exercises</li>
+                        <li><strong>No workflow replacement</strong> &mdash; keep your curriculum, grading, and enrolment as they are</li>
+                    </ul>
                 </div>
-                <!-- Problem 2 -->
-                <div class="problem-card">
-                    <div class="feature-icon purple">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="People icon representing learners">
-                            <title>People</title>
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/>
-                        </svg>
+                <div class="stack-diagram reveal" aria-hidden="true">
+                    <div class="stack-node">
+                        <p class="stack-node-title">Your lab environment</p>
+                        <p class="stack-node-sub">hands-on exercises, as-is</p>
                     </div>
-                    <div class="problem-card-content">
-                        <h3>Everyone Gets the Same Experience</h3>
-                        <p>Beginners struggle. Experts get bored. Traditional platforms can't adapt to how different people learn.</p>
+                    <div class="stack-connector"></div>
+                    <div class="stack-node stack-node-core">
+                        <p class="stack-node-title">Adaptly intelligence layer</p>
+                        <p class="stack-node-sub">agent &middot; stuck detection &middot; graduated hints</p>
                     </div>
-                </div>
-                <!-- Problem 3 - Labs -->
-                <div class="problem-card">
-                    <div class="feature-icon blue">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Computer icon representing hands-on exercises">
-                            <title>Computer</title>
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                            <line x1="8" y1="21" x2="16" y2="21"/>
-                            <line x1="12" y1="17" x2="12" y2="21"/>
-                        </svg>
-                    </div>
-                    <div class="problem-card-content">
-                        <h3>Students Get Stuck in Hands-On Exercises</h3>
-                        <p>During hands-on labs, instructors have almost no visibility into what's actually happening. By the time a student flags they're stuck, the productive window for intervention has already closed.</p>
-                    </div>
-                </div>
-                <!-- Problem 4 -->
-                <div class="problem-card">
-                    <div class="feature-icon purple">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Clock icon representing time">
-                            <title>Time</title>
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
-                    <div class="problem-card-content">
-                        <h3>Creating Courses Takes Too Long</h3>
-                        <p>Updating and expanding course content is a constant drain - and it always gets deprioritised when a cohort is running</p>
+                    <div class="stack-connector"></div>
+                    <div class="stack-node">
+                        <p class="stack-node-title">Your Moodle</p>
+                        <p class="stack-node-sub">instructor dashboard via LTI 1.3</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solution Section -->
-    <section class="solution-section">
+    <!-- ===== 5. WHO IT'S FOR ===== -->
+    <section class="fit-section" aria-labelledby="fit-heading">
         <div class="container">
-            <div class="section-header">
-                <h2>What We're Building</h2>
-                <p>An integrated platform that makes training more efficient to create and more effective to deliver - with two core capabilities working together.</p>
-                <p>Built specifically for cybersecurity training and certification programmes - CISSP, CEH, Security+, OSCP, and similar lab-heavy technical curricula.</p>
+            <div class="section-head reveal">
+                <p class="eyebrow">Who it's for</p>
+                <h2 id="fit-heading">Built for certification training providers</h2>
+                <p class="section-lede">Teams running instructor-led, lab-heavy cohorts for <strong>CISSP</strong>, <strong>CEH</strong>, <strong>Security+</strong> and similar programmes &mdash; 12 to 75 students at a time, more screens than any instructor can watch.</p>
             </div>
-            <div class="solution-grid">
-                <div class="solution-card">
-                    <div class="feature-icon blue">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Layers icon representing adaptive learning">
-                            <title>Adaptive Learning</title>
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <div class="solution-card-content">
-                        <h3>Adaptive Learning Paths</h3>
-                        <p class="capability-subtitle">Personalization that scales without burning out your team</p>
-                        <ul class="capability-features">
-                            <li><strong>Efficient content creation:</strong> Transform expertise into structured courses faster with AI-assisted tools</li>
-                            <li><strong>Personalized progression:</strong> Learning paths that adapt to each student's skills, pace, and background</li>
-                            <li><strong>Skills-based assessment:</strong> Track what students actually know, not just what they completed</li>
-                        </ul>
-                        <p class="capability-outcome">
-                            <em>Outcome: Scale quality training without proportionally scaling instructors</em>
-                        </p>
-                    </div>
+            <div class="fit-grid reveal">
+                <div class="cert-chips" aria-label="Certification programmes Adaptly is built for">
+                    <span class="cert-chip">CISSP</span>
+                    <span class="cert-chip">CEH</span>
+                    <span class="cert-chip">Security+</span>
+                    <span class="cert-chip cert-chip-muted">+ similar lab-heavy curricula</span>
                 </div>
-                <div class="solution-card">
-                    <div class="feature-icon purple">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Chat bubble icon representing student support">
-                            <title>Student Support</title>
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                    </div>
-                    <div class="solution-card-content">
-                        <h3>Real-Time Student Support</h3>
-                        <p class="capability-subtitle">Catch students before they get stuck, not after they give up</p>
-                        <ul class="capability-features">
-                            <li><strong>Live exercise monitoring:</strong> See what each student is doing during hands-on labs in real-time</li>
-                            <li><strong>Proactive intervention:</strong> AI assistant detects when students go off-track and provides guidance before frustration sets in</li>
-                            <li><strong>Instructor visibility:</strong> Dashboard showing who needs help and when human intervention is needed</li>
-                        </ul>
-                        <p class="capability-outcome">
-                            <em>Outcome: Improve completion rates while reducing instructor workload</em>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="solution-footer">
-                <p><strong>Better Together:</strong> When adaptive learning paths meet real-time support, you get a training platform that knows each student's journey AND catches them when they struggle.</p>
+                <ul class="fit-checklist">
+                    <li>You run instructor-led cohorts with hands-on labs at the core</li>
+                    <li>Cohort sizes of 12&ndash;75 &mdash; too many screens for walking the room</li>
+                    <li>You use Moodle or another LTI-compatible LMS</li>
+                    <li>You feel the gap between &ldquo;lab completed&rdquo; and &ldquo;student actually learned&rdquo;</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works-section">
+    <!-- ===== 6. DESIGN PARTNER CTA ===== -->
+    <section class="partner-cta-section" aria-labelledby="partner-heading">
         <div class="container">
-            <div class="section-header">
-                <h2>How It Works</h2>
-            </div>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">Step 1</div>
-                    <div class="feature-icon blue">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Book icon representing expertise">
-                            <title>Your Expertise</title>
-                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-                        </svg>
-                    </div>
-                    <div class="step-card-content">
-                        <h3>Your Content</h3>
-                        <p>Bring your existing materials. AI-assisted tools help you structure them into adaptive courses without rebuilding from scratch</p>
-                    </div>
+            <div class="partner-panel reveal">
+                <p class="partner-eyebrow">Design partner programme</p>
+                <h2 id="partner-heading">We're early. That's the offer.</h2>
+                <p class="partner-lede">Adaptly is pre-case-study and in active development. We're taking a <strong>limited number of design partners</strong>: you get the AI Tutor in your real cohorts and a direct line to the founder &mdash; your feedback shapes how stuck detection and hint behaviour work. Preferred pricing locks in before public launch.</p>
+                <div class="partner-cta-row">
+                    <a href="https://calendly.com/keshet-adaptlyhq/30min" target="_blank" rel="noopener noreferrer" class="btn btn-inverse btn-lg" aria-label="Book a demo (opens in new tab)">Book a Demo</a>
+                    <button type="button" onclick="openModal('partnerModal')" class="btn btn-outline-light btn-lg">Apply as a Design Partner</button>
                 </div>
-                <div class="step-card">
-                    <div class="step-number">Step 2</div>
-                    <div class="feature-icon purple">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Layers icon representing personalized paths">
-                            <title>Personalized Paths</title>
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <div class="step-card-content">
-                        <h3>Personalized Paths</h3>
-                        <p>Each student gets a learning path adapted to their background, pace, and progress. No more one-size-fits-all.</p>
-                    </div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">Step 3</div>
-                    <div class="feature-icon blue">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Chat bubble icon representing supported practice">
-                            <title>Supported Practice</title>
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                    </div>
-                    <div class="step-card-content">
-                        <h3>Supported Practice</h3>
-                        <p>During hands-on exercises, students get real-time guidance when they go off-track - before frustration sets in.</p>
-                    </div>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">Step 4</div>
-                    <div class="feature-icon purple">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Eye icon representing continuous improvement">
-                            <title>Continuous Improvement</title>
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                            <circle cx="12" cy="12" r="3"/>
-                        </svg>
-                    </div>
-                    <div class="step-card-content">
-                        <h3>Continuous Improvement</h3>
-                        <p>You see what's happening during every session - not after students fail, but while there's still time to act.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Founder Credibility Section -->
-    <section class="founder-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Built by Someone Who's Done the Work</h2>
-            </div>
-            <div class="founder-content">
-                <div class="founder-text">
-                    <div style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.03), rgba(124, 58, 237, 0.03)); border-left: 4px solid var(--primary-blue); padding: 2.5rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);">
-                        <p class="founder-intro" style="font-size: 1.375rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1.75rem; letter-spacing: 0.025em;">Keshet Shiri, Founder</p>
-                        <p style="font-size: 1.125rem; line-height: 1.9; color: var(--primary-text); margin-bottom: 1.5rem; letter-spacing: 0.01em;">Keshet Shiri spent years developing and directing cybersecurity training programmes across high-stakes technical environments - from elite military units to private training providers running programmes for defence and civilian audiences in Singapore and beyond.</p>
-                        <p style="font-size: 1.125rem; line-height: 1.9; color: var(--primary-text); margin-bottom: 1.5rem; letter-spacing: 0.01em;">Across all of it, the same problems kept surfacing: limited visibility into what was actually happening during hands-on labs, mixed-skill cohorts that no single pace could serve well, and skilled instructors spending most of their time on work that didn't require their skill.</p>
-                        <p style="font-size: 1.125rem; line-height: 1.9; font-weight: 600; color: var(--primary-text); margin-bottom: 1.5rem; letter-spacing: 0.01em; padding: 1.25rem; background-color: rgba(255, 255, 255, 0.7); border-radius: 8px;">Adaptly exists because better tools didn't.</p>
-                        <p style="margin-top: 2rem;"><a href="about.html" class="text-link" style="font-size: 1.0625rem; font-weight: 600;">Learn more about our approach →</a></p>
-                    </div>
-                </div>
-                <div class="founder-photo">
-                    <img src="profile_image.png" alt="Keshet Shiri" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Current Stage Section -->
-    <section class="stage-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Where We Are</h2>
-            </div>
-            <div class="stage-content">
-                <p class="stage-description">We're building this WITH training companies, not in isolation.</p>
-                <p class="stage-description">We're at early stage and looking for the right training providers to build this with.</p>
-                <p class="stage-description">Design partners work directly with us during development - shaping what gets built, testing it with real cohorts, and getting preferred pricing before public launch. We're looking for providers who run lab-heavy cybersecurity training and certification programmes and feel the visibility and scaling problems we've described.</p>
-                <p class="stage-description">If that's you - we'd like to talk.</p>
-                <div class="stage-ctas">
-                    <button type="button" onclick="openModal('partnerModal')" class="btn btn-primary">Partner with Us</button>
-                    <button type="button" onclick="openModal('waitlistModal')" class="btn btn-secondary">Join the Waitlist</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="final-cta-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get Involved</h2>
-            </div>
-            <div class="cta-choices">
-                <div class="cta-choice">
-                    <h3>For Training Companies</h3>
-                    <p>Help shape the platform as you use it with your learners.</p>
-                    <button type="button" onclick="openModal('partnerModal')" class="btn btn-primary">Partner with Us</button>
-                </div>
-                <div class="cta-choice">
-                    <h3>For Everyone Else</h3>
-                    <p>Sign up for updates as we build.</p>
-                    <button type="button" onclick="openModal('waitlistModal')" class="btn btn-secondary">Follow us</button>
-                    <p style="margin-top: 1rem;">
-                        <a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" class="text-link" aria-label="LinkedIn (opens in new tab)">LinkedIn <span aria-hidden="true">→</span></a>
-                    </p>
-                </div>
+                <p class="partner-tertiary">Just want updates as we build? <button type="button" class="link-button" onclick="openModal('waitlistModal')">Join the waitlist</button> or follow us on <a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a>.</p>
             </div>
         </div>
     </section>
@@ -323,7 +245,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Adaptly</h4>
-                    <p>Building better tools for professional training</p>
+                    <p>Real-time AI tutoring for hands-on cybersecurity training</p>
                 </div>
                 <div class="footer-section">
                     <h4>Company</h4>
@@ -388,8 +310,8 @@
     <div id="partnerModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="partnerModalTitle" aria-describedby="partnerModalDesc">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="partnerModalTitle">Partner with Us</h2>
-                <p id="partnerModalDesc">We're building a better platform for professional training. Tell us about your training challenges and let's explore if we're a good fit.</p>
+                <h2 id="partnerModalTitle">Apply as a Design Partner</h2>
+                <p id="partnerModalDesc">Tell us about your cohorts and labs. If we're a fit, you'll shape the product with us.</p>
                 <button class="modal-close" onclick="closeModal('partnerModal')" aria-label="Close modal" type="button">&times;</button>
             </div>
             <div class="modal-body">
@@ -482,6 +404,9 @@
             }
         });
     </script>
+
+    <!-- Homepage animations: hero terminal demo + scroll reveals -->
+    <script defer src="js/home.js"></script>
 
     <!-- Cookie Consent Scripts (deferred for performance) -->
     <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
