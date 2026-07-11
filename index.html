@@ -12,7 +12,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+    <noscript><style>
+        .reveal, .reveal * { opacity: 1 !important; transform: none !important; }
+        .sc-track, .sc-branch, .sc-ret { stroke-dashoffset: 0 !important; }
+    </style></noscript>
     <!-- Cookie Consent CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
     <link rel="stylesheet" href="css/cookie-consent-custom.css">
@@ -108,6 +111,22 @@
                     <p class="stat-label">when "lab completed: no" finally tells you something was wrong</p>
                 </div>
             </div>
+            <div class="qlog reveal">
+                <div class="terminal-window">
+                    <div class="terminal-titlebar">
+                        <span class="tdot tdot-r"></span><span class="tdot tdot-y"></span><span class="tdot tdot-g"></span>
+                        <span class="terminal-title">instructor &middot; live session &middot; questions</span>
+                    </div>
+                    <div class="qlog-body">
+                        <div class="qrow"><span class="q-ts">21:04</span><span class="q-sid">student_03</span><span class="q-msg">&ldquo;why is my chmod failing on /etc/shadow?&rdquo;</span></div>
+                        <div class="qrow"><span class="q-ts">21:09</span><span class="q-sid">student_11</span><span class="q-msg">&ldquo;chmod says operation not permitted??&rdquo;</span></div>
+                        <div class="qrow"><span class="q-ts">21:15</span><span class="q-sid">student_07</span><span class="q-msg">&ldquo;same chmod error again&hellip; help?&rdquo;</span></div>
+                        <div class="qrow q-hot"><span class="q-ts">21:28</span><span class="q-sid">student_02</span><span class="q-msg">&ldquo;chmod not working, stuck for 20 min&rdquo;</span></div>
+                        <div class="q-tally">same root cause &middot; 4 of 4</div>
+                    </div>
+                </div>
+                <p class="qlog-caption">The same question, over and over &mdash; and those are only the students who asked.</p>
+            </div>
             <figure class="founder-card reveal">
                 <img src="profile_image.png" alt="Keshet Shiri, founder of Adaptly" class="founder-avatar">
                 <blockquote>
@@ -143,8 +162,18 @@
                     <div class="hiw-num">2</div>
                     <h3>Stuck detection fires</h3>
                     <p>Repeated failures. A long idle right after an error. Circling the same dead end. The moment a student crosses the stuck threshold, they're flagged &mdash; in real time, not in the post-lab report.</p>
+                    <div class="hiw-minigrid" aria-hidden="true">
+                        <div class="mini-cell"><span class="mini-id">S01</span><svg viewBox="0 0 80 26" preserveAspectRatio="none"><polyline fill="none" stroke-width="2" points="0,14 10,10 20,16 30,8 40,12 50,7 60,13 70,9 80,12"/></svg></div>
+                        <div class="mini-cell"><span class="mini-id">S02</span><svg viewBox="0 0 80 26" preserveAspectRatio="none"><polyline fill="none" stroke-width="2" points="0,10 10,15 20,9 30,13 40,17 50,11 60,15 70,10 80,14"/></svg></div>
+                        <div class="mini-cell"><span class="mini-id">S03</span><svg viewBox="0 0 80 26" preserveAspectRatio="none"><polyline fill="none" stroke-width="2" points="0,16 10,12 20,18 30,10 40,14 50,9 60,12 70,15 80,8"/></svg></div>
+                        <div class="mini-cell"><span class="mini-id">S04</span><svg viewBox="0 0 80 26" preserveAspectRatio="none"><polyline fill="none" stroke-width="2" points="0,9 10,13 20,7 30,12 40,8 50,14 60,10 70,13 80,11"/></svg></div>
+                        <div class="mini-cell"><span class="mini-id">S05</span><svg viewBox="0 0 80 26" preserveAspectRatio="none"><polyline fill="none" stroke-width="2" points="0,12 10,8 20,14 30,9 40,15 50,10 60,16 70,11 80,13"/></svg></div>
+                        <div class="mini-cell stuck"><span class="mini-id">S06</span><svg viewBox="0 0 80 26" preserveAspectRatio="none"><polyline fill="none" stroke-width="2" points="0,10 10,12 20,12 30,18 40,18 50,18 60,18 70,18 80,18"/></svg></div>
+                        <div class="mini-cell"><span class="mini-id">S07</span><svg viewBox="0 0 80 26" preserveAspectRatio="none"><polyline fill="none" stroke-width="2" points="0,13 10,9 20,15 30,11 40,7 50,13 60,9 70,14 80,10"/></svg></div>
+                        <div class="mini-cell"><span class="mini-id">S08</span><svg viewBox="0 0 80 26" preserveAspectRatio="none"><polyline fill="none" stroke-width="2" points="0,8 10,14 20,10 30,16 40,12 50,8 60,14 70,10 80,15"/></svg></div>
+                    </div>
                     <div class="hiw-tags">
-                        <span class="hiw-tag hiw-tag-amber">&#9888; flagged in seconds</span>
+                        <span class="hiw-tag hiw-tag-amber">&#9888; S06 flagged &mdash; flatlined after an error, 4m idle</span>
                     </div>
                 </div>
                 <div class="hiw-card reveal">
@@ -182,6 +211,17 @@
                     </div>
                     <h3>Practice time stays on target</h3>
                     <p>A student who burns 40 minutes on a broken config or a mistyped path isn't practising the skill the session was built around. Adaptly catches the detour early and steers the time back to what the lab was designed to teach.</p>
+                    <svg class="scope-svg" viewBox="0 0 300 96" aria-hidden="true">
+                        <path class="sc-track" d="M8 64 H292"/>
+                        <path class="sc-branch" d="M118 64 C 148 58, 168 32, 200 20"/>
+                        <path class="sc-ret" d="M200 20 C 222 28, 238 50, 252 64"/>
+                        <circle class="sc-node" cx="44" cy="64" r="4"/>
+                        <circle class="sc-node" cx="118" cy="64" r="4"/>
+                        <circle class="sc-node" cx="188" cy="64" r="4"/>
+                        <circle class="sc-node" cx="252" cy="64" r="4"/>
+                        <text class="sc-lbl" x="132" y="12">off-scope &middot; redirected</text>
+                        <text class="sc-obj" x="8" y="88">session objective: privilege escalation</text>
+                    </svg>
                     <p class="payoff-result">&rarr; more of every session spent on the intended skills</p>
                 </div>
                 <div class="payoff-card reveal">
@@ -192,6 +232,11 @@
                     </div>
                     <h3>Instructors stop firefighting</h3>
                     <p>The &ldquo;what does this error mean?&rdquo; queue is handled by graduated hints before it ever reaches a human. Instructors spend the session on judgment calls and teaching &mdash; the work that actually needs their expertise.</p>
+                    <div class="mini-feed" aria-hidden="true">
+                        <div class="mf-row"><span class="mf-who"><b>student_04</b><small>stuck on file permissions</small></span><span class="mf-res">AI &middot; resolved &middot; hint L1</span></div>
+                        <div class="mf-row"><span class="mf-who"><b>student_16</b><small>repeat error &middot; nmap syntax</small></span><span class="mf-res">AI &middot; resolved &middot; hint L2</span></div>
+                        <div class="mf-row mf-hot"><span class="mf-who"><b>student_02</b><small>conceptual gap &middot; sudo policy</small></span><span class="mf-res">escalated &rarr; instructor</span></div>
+                    </div>
                     <p class="payoff-result">&rarr; troubleshooting load shifts from instructor to platform</p>
                 </div>
                 <div class="payoff-card reveal">
@@ -203,6 +248,12 @@
                     </div>
                     <h3>Scale without diluting quality</h3>
                     <p>When detection and first-line help are automatic, one instructor can genuinely support a larger cohort &mdash; and each student gets faster, more consistent coverage than walking the room ever delivered.</p>
+                    <div class="scale-strip" aria-hidden="true">
+                        <span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span>
+                        <span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span>
+                        <span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span><span class="ss-cell"></span>
+                    </div>
+                    <p class="scale-caption" aria-hidden="true">1 instructor &middot; 24 students &middot; full visibility</p>
                     <p class="payoff-result">&rarr; bigger cohorts, better coverage per student</p>
                 </div>
             </div>
