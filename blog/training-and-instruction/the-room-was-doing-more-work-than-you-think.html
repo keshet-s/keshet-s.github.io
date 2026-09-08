@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Room Was Doing More Work Than You Think - Adaptly Blog</title>
+    <meta name="description" content="A physical training room quietly supplies a safety net no LMS was ever built to provide. Moving a cohort online doesn't just remove that net - the dashboard just stops telling you it's gone.">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Article-specific layout */
+        .article-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 80%, #1e3a5f 100%);
+            padding: 4rem 0 3.5rem;
+            color: white;
+        }
+
+        .article-hero .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .article-hero .breadcrumb a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .article-hero .breadcrumb a:hover {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .article-hero .breadcrumb svg {
+            flex-shrink: 0;
+        }
+
+        .article-hero .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #93C5FD;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-hero h1 {
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: white;
+            max-width: 720px;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-meta .author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+
+        .article-meta .separator {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-tags .tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+        }
+
+        /* Article body */
+        .article-body {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 4rem;
+            color: var(--primary-text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .article-body h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin: 2.5rem 0 0.9rem;
+            line-height: 1.3;
+        }
+
+        .article-body p {
+            margin-bottom: 1.4rem;
+            color: #374151;
+        }
+
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Fix: global nav{} styles bleed into the breadcrumb <nav> inside the dark hero.
+           Override back to transparent/static so no white bar appears. */
+        .article-hero nav.breadcrumb {
+            background: transparent;
+            box-shadow: none;
+            position: static;
+            z-index: auto;
+        }
+
+        /* Back to blog + share row */
+        .article-footer-nav {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .article-footer-nav .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+
+        .article-footer-nav .back-link:hover {
+            gap: 0.65rem;
+        }
+
+        .article-footer-nav .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .article-footer-nav .tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4B5563;
+            background: #F3F4F6;
+            border: 1px solid #E5E7EB;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        @media (max-width: 600px) {
+            .article-body {
+                padding: 2.5rem 1.25rem 3rem;
+                font-size: 1rem;
+            }
+            .article-body h2 {
+                font-size: 1.25rem;
+            }
+            .article-hero {
+                padding: 3rem 0 2.5rem;
+            }
+        }
+    </style>
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="../../css/cookie-consent-custom.css">
+</head>
+<body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <img src="../../logo.png" alt="Adaptly Logo" style="height: 50px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About Us</a></li>
+                <li><a href="../../designer-partnership.html">Partners</a></li>
+                <li><a href="../../blog.html" aria-current="page">Blog</a></li>
+                <li><a href="../../b2b-roundtable.html" style="color: var(--event-amber, #F59E0B); font-weight: 700;">Roundtable Event</a></li>
+                <li><button type="button" onclick="openModal('waitlistModal')" class="nav-cta">Get Started</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+    <!-- Article Hero -->
+    <header class="article-hero" aria-labelledby="article-title">
+        <div class="container">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <a href="../../blog.html">Blog</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                <span>Training &amp; Instruction</span>
+            </nav>
+
+            <!-- Category badge -->
+            <div class="category-badge" aria-label="Category: Training and Instruction">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h14"/></svg>
+                Training &amp; Instruction
+            </div>
+
+            <!-- Title -->
+            <h1 id="article-title">The Room Was Doing More Work Than You Think</h1>
+
+            <!-- Metadata -->
+            <div class="article-meta">
+                <span class="author">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    Keshet Shiri
+                </span>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <time datetime="2026-09-08">September 8, 2026</time>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <span>4 min read</span>
+            </div>
+
+            <!-- Tags -->
+            <div class="article-tags" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Remote Training</span>
+                <span class="tag" role="listitem">Instructor Visibility</span>
+                <span class="tag" role="listitem">LMS Limitations</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <article aria-labelledby="article-title">
+        <div class="article-body">
+
+            <p>If you run hands-on cybersecurity programmes - CISSP, CEH, Security+, anything with a lab queue - you already know the LMS never told you the whole story. This is a piece about the part of that story you probably stopped being able to read the first time a cohort went remote, and why nothing on the dashboard warned you it was gone.</p>
+
+            <h2>The crude safety net a physical room supplies</h2>
+            <p>A cohort in one room has a safety net. It's א, but it works. An instructor can walk a row of screens and catch the student who has stopped typing. Not the student who submitted wrong - the one who is stuck, staring at a terminal, ten minutes into a silence that no field on the LMS is recording.</p>
+            <p>That glance is doing real work. It reads posture. It reads the difference between someone thinking and someone lost. It reads the student who is too far along to ask for help and too embarrassed to admit it. None of that is a metric. It never was. It's an informal signal the room happens to broadcast for free, and it quietly compensates for everything the LMS was never built to see.</p>
+            <p>We tend not to notice the net because it's always been there. You don't count on a signal you've never had to name.</p>
+
+            <h2>Move the cohort online and the net disappears</h2>
+            <p>Here's the part that catches people. When the same cohort goes remote, that signal is gone - but the dashboard looks identical.</p>
+            <p>Completion still ticks up. Submissions still arrive on time. The exercise queue clears at roughly the pace it always did. Every number a Programme Director looks at to feel the room is fine keeps reporting fine. Nothing on the screen changed, so nothing feels lost.</p>
+            <p>The visibility gap didn't just survive the move online. It got wider. In the room, the LMS was blind and the instructor's eyes filled the gap. Online, the LMS is still blind and the eyes are gone. You've removed the one thing that was compensating and kept the one thing that never worked, and the interface gives you no indication either way.</p>
+            <p>That's the trap. A worse situation that reports the same as the old one.</p>
+
+            <h2>Completion was never designed to carry this weight</h2>
+            <p>It's worth being blunt about why. No completion metric was ever built to replace what a physical room supplies. Completion tracks whether a submission arrived. It says nothing about the twenty minutes before it arrived - whether the student worked it out, copied a walkthrough, or guessed until the checker went green.</p>
+            <p>In a room, an instructor closes that gap by watching the process. Remote, the process is invisible again, and the platform is still only reporting the outcome. A correct submission built on a flawed process is a future problem wearing a good grade, and now it has nowhere to be caught.</p>
+            <p>This lands hardest in mixed-skill cohorts, which in this field is most of them. The strong students never needed the room's safety net. The ones who did - the beginners, the career-changers, the person one exercise behind and hiding it - were exactly the students that informal glance was reaching. Take it away and they don't show up as struggling. They show up as complete.</p>
+
+            <h2>Instructor dependency, seen from the other side</h2>
+            <p>There's a second thing hiding in here. If the room's safety net is really an instructor's attention stretched across a row of screens, then that safety net was always tied to one person's capacity.</p>
+            <p>It scales with headcount and nothing else. It works at a small instructor-to-student ratio and frays as the ratio widens. And it's the first thing to break when you grow a cohort or run more of them in parallel. So the visibility that felt free was never free - it was rented against instructor time, and going remote is just the moment the bill comes due in a form no report shows you.</p>
+            <p>That reframes instructor dependency from a staffing problem into a design problem. If your only source of process visibility is a human watching screens, you can't grow past the point where that human can watch. Remote delivery doesn't create that ceiling. It just removes the disguise.</p>
+
+            <h2>The honest question</h2>
+            <p>A longer piece I'm working on looks at which signals a physical room quietly supplies - posture, silence, the pause before someone asks for help - and why no completion metric was ever built to replace them.</p>
+            <p>Before that, I'm more interested in your version of it than mine. What did you stop being able to see the first time you ran a cohort remotely? Not what the dashboard showed you - what you noticed was missing once the room was gone.</p>
+            <p>I'm building Adaptly around exactly this gap, at early stage and looking for a small number of founding design partners to figure it out with. Adaptly exists because better tools didn't. If any of this matches what you've run, I'd rather compare notes than pitch - let's talk.</p>
+
+        </div>
+
+        <!-- Article footer: back link + tags -->
+        <div class="article-footer-nav">
+            <a href="../../blog.html" class="back-link" aria-label="Back to all blog posts">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Blog
+            </a>
+            <div class="tags-row" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Remote Training</span>
+                <span class="tag" role="listitem">Instructor Visibility</span>
+                <span class="tag" role="listitem">LMS Limitations</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+        </div>
+    </article>
+
+    <!-- Newsletter Section -->
+    <section class="content-section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stay in the Loop</h2>
+                <p>Get notified when we publish new articles on training design, learning science, and what we're building</p>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Adaptly</h4>
+                    <p>Building better tools for professional training</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../../about.html">About</a></li>
+                        <li><a href="../../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="../../designer-partnership.html">Design Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../../cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="../../terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../../do-not-sell.html">Do Not Sell My Info</a></li>
+                        <li><a href="../../accessibility.html">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Upcoming Events</h4>
+                    <ul>
+                        <li>
+                            <a href="../../b2b-roundtable.html" style="font-weight: 600;">Roundtable Event</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+                        <li><a href="mailto:hello@adaptlyhq.com" aria-label="Email hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Adaptly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle" aria-describedby="waitlistModalDesc">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="waitlistModalTitle">Join the Waitlist</h2>
+                <p id="waitlistModalDesc">Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')" aria-label="Close modal" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" title="Waitlist signup form"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lastFocusedElement = null;
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                lastFocusedElement = document.activeElement;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    setTimeout(() => closeButton.focus(), 100);
+                }
+                trapFocus(modal);
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                    lastFocusedElement = null;
+                }
+            }
+        }
+
+        function trapFocus(modal) {
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModal(activeModal.id);
+                }
+            }
+        });
+    </script>
+
+    <!-- Cookie Consent Scripts (deferred for performance) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="../../js/cookie-consent.js"></script>
+</body>
+</html>
