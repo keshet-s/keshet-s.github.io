@@ -67,6 +67,12 @@
 
   <!-- Blog posts (auto-discovered) -->
   <url>
+    <loc>https://adaptlyhq.com/blog/learning-design/doubling-the-cohort-means-doubling-the-headcount.html</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://adaptlyhq.com/blog/learning-design/the-4-moments-in-a-lab-session-where-an-intervention-actually-works.html</loc>
     <lastmod>2026-03-18</lastmod>
     <changefreq>yearly</changefreq>
