@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doubling the Cohort Means Doubling the Headcount - Adaptly Blog</title>
+    <meta name="description" content="If you run a hands-on cybersecurity training programme, you already know where growth stops. It stops at the support model.">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Article-specific layout */
+        .article-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 80%, #1e3a5f 100%);
+            padding: 4rem 0 3.5rem;
+            color: white;
+        }
+
+        .article-hero .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .article-hero .breadcrumb a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .article-hero .breadcrumb a:hover {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .article-hero .breadcrumb svg {
+            flex-shrink: 0;
+        }
+
+        .article-hero .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #93C5FD;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-hero h1 {
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: white;
+            max-width: 720px;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-meta .author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+
+        .article-meta .separator {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-tags .tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+        }
+
+        /* Article body */
+        .article-body {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 4rem;
+            color: var(--primary-text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .article-body h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin: 2.5rem 0 0.9rem;
+            line-height: 1.3;
+        }
+
+        .article-body p {
+            margin-bottom: 1.4rem;
+            color: #374151;
+        }
+
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Fix: global nav{} styles bleed into the breadcrumb <nav> inside the dark hero.
+           Override back to transparent/static so no white bar appears. */
+        .article-hero nav.breadcrumb {
+            background: transparent;
+            box-shadow: none;
+            position: static;
+            z-index: auto;
+        }
+
+        /* Back to blog + share row */
+        .article-footer-nav {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .article-footer-nav .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+
+        .article-footer-nav .back-link:hover {
+            gap: 0.65rem;
+        }
+
+        .article-footer-nav .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .article-footer-nav .tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4B5563;
+            background: #F3F4F6;
+            border: 1px solid #E5E7EB;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        @media (max-width: 600px) {
+            .article-body {
+                padding: 2.5rem 1.25rem 3rem;
+                font-size: 1rem;
+            }
+            .article-body h2 {
+                font-size: 1.25rem;
+            }
+            .article-hero {
+                padding: 3rem 0 2.5rem;
+            }
+        }
+    </style>
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="../../css/cookie-consent-custom.css">
+</head>
+<body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <img src="../../logo.png" alt="Adaptly Logo" style="height: 50px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About Us</a></li>
+                <li><a href="../../designer-partnership.html">Partners</a></li>
+                <li><a href="../../blog.html" aria-current="page">Blog</a></li>
+                <li><a href="../../b2b-roundtable.html" style="color: var(--event-amber, #F59E0B); font-weight: 700;">Roundtable Event</a></li>
+                <li><button type="button" onclick="openModal('waitlistModal')" class="nav-cta">Get Started</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+    <!-- Article Hero -->
+    <header class="article-hero" aria-labelledby="article-title">
+        <div class="container">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <a href="../../blog.html">Blog</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                <span>Learning Design</span>
+            </nav>
+
+            <!-- Category badge -->
+            <div class="category-badge" aria-label="Category: Learning Design">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                Learning Design
+            </div>
+
+            <!-- Title -->
+            <h1 id="article-title">Doubling the Cohort Means Doubling the Headcount</h1>
+
+            <!-- Metadata -->
+            <div class="article-meta">
+                <span class="author">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    Keshet Shiri
+                </span>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <time datetime="2026-04-07">April 7, 2026</time>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <span>7 min read</span>
+            </div>
+
+            <!-- Tags -->
+            <div class="article-tags" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Instructor Ratio</span>
+                <span class="tag" role="listitem">Scaling Cohorts</span>
+                <span class="tag" role="listitem">Training Economics</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <article aria-labelledby="article-title">
+        <div class="article-body">
+
+            <p>If you run a hands-on cybersecurity training programme, you already know where growth stops. It stops at the support model.</p>
+            <p>Take on twice the trainees and you need something close to twice the instructors to hold the same quality. The margin doesn't improve with scale. It just gets harder to staff. And the thing your reputation is built on - skilled instructors watching people work through real labs - is exactly the thing you can't cheaply reproduce.</p>
+            <p>This is written for the people who feel that directly: founders, Programme Directors, Heads of Training running cohort-based technical programmes. Not corporate L&amp;D. The lab-heavy, certification-track world, where the quality of instruction during hands-on work is the whole product.</p>
+
+            <h2>The ratio is the business</h2>
+            <p>In the programmes I've been part of, the instructor-to-student ratio ran from about 1:4-5 at the tight end up to roughly 1:14-15 at the looser end. Cohorts sized 12, 24, and 55. Those numbers weren't arbitrary.</p>
+            <p>The ratio is a design decision that carries the quality of the whole programme. Tighten it and the training gets better - instructors catch people mid-mistake, they see the flawed process behind a correct answer, they intervene before a bad habit sets. Loosen it to save money and the labs quietly get worse, because nobody is close enough to notice who's stuck and who's coasting.</p>
+            <p>So the ratio isn't a cost you tune. It's the promise you're selling.</p>
+
+            <h2>Why this behaves like a ceiling, not a cost curve</h2>
+            <p>Most businesses get cheaper to run per unit as they grow. You spread fixed costs across more customers and the margin improves.</p>
+            <p>Hands-on training doesn't work that way, and it's worth being honest about why.</p>
+            <p>Your main cost is not fixed. It's the instructor, and the instructor is the product. There's no economy of scale hiding in a lab session. Twenty-four trainees need roughly double the live attention of twelve. Fifty-five need more again. The support model scales linearly with headcount, which means the margin per seat stays flat while the operational difficulty climbs.</p>
+            <p>And it doesn't climb gently. The people who can actually deliver a lab-heavy CISSP, CEH, or Security+ programme are rare, and they were rare before you needed to hire the next three. You're not buying a commodity input. You're competing for the same small pool of skilled practitioners that everyone else in this space is competing for. Doubling the cohort assumes you can double that hire on demand. Most of the time you can't.</p>
+            <p>That's the wall. Growth runs straight into the support model, and the support model is made of people you can't reproduce cheaply.</p>
+
+            <h2>The part that makes it worse</h2>
+            <p>Here's the detail that turns a hard problem into a structural one.</p>
+            <p>A large share of what those scarce instructors do all day doesn't actually require their scarcity. Answering the same setup question for the fifth trainee. Explaining why an environment won't connect. Walking someone through a step three other people also got stuck on an hour ago.</p>
+            <p>The problem isn't that instructors are busy. It's a model that forces skilled people to spend most of their time on tasks that don't require their skill. When you scale the cohort, you scale the repetitive work first - and the deep, judgement-heavy work that only an experienced instructor can do gets squeezed to the edges of the day.</p>
+            <p>So you're not just paying for more instructors as you grow. You're paying more to have expensive people do increasingly ordinary work.</p>
+
+            <h2>The visibility problem sits underneath all of it</h2>
+            <p>There's a quieter reason the ratio can't safely be loosened. Most of what matters in a lab session is invisible to the people running the programme.</p>
+            <p>Your LMS tells you what was submitted. It tells you completion rates and green checkmarks. It doesn't tell you who spent ninety minutes fighting a problem versus who copied a working answer and moved on. A correct submission built on a flawed process is a future problem wearing a good grade.</p>
+            <p>The instructor in the room is your visibility layer. That's a real reason the tight ratio exists: it's the only way anyone knows what's actually happening during the exercise, not just what landed at the end. Loosen the ratio to grow, and you don't only lose intervention. You lose sight of the learning entirely. Completion rates hold up. Whether skill transferred is anyone's guess.</p>
+            <p>Which is why "just hire cheaper instructors and run bigger cohorts" isn't a strategy. It trades away the exact thing your reputation rests on, and you often can't see the damage until a cohort graduates weaker than the last one.</p>
+
+            <h2>The honest question</h2>
+            <p>So the maths is stubborn. To grow the cohort while holding quality, you need more of a scarce, expensive resource - and a chunk of that resource's time is spent on work that doesn't need their expertise at all.</p>
+            <p>The full piece works through why the trainer ratio behaves like a ceiling rather than a cost you can grow out of. The open question is the one worth sitting with: if the ratio is fixed by the support model, and the support model is made of people you can't cheaply reproduce, what part of the instructor's day is actually load-bearing - and what part is just the model wasting them?</p>
+            <p>That's a question I keep coming back to, and it's a large part of why I'm building Adaptly. We're at early stage and looking for the right training providers to build this with - founding design partners who've run these programmes and felt this wall themselves. Not customers. Partners who shape what gets built. If that's a conversation you'd find useful, let's talk.</p>
+
+        </div>
+
+        <!-- Article footer: back link + tags -->
+        <div class="article-footer-nav">
+            <a href="../../blog.html" class="back-link" aria-label="Back to all blog posts">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Blog
+            </a>
+            <div class="tags-row" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Instructor Ratio</span>
+                <span class="tag" role="listitem">Scaling Cohorts</span>
+                <span class="tag" role="listitem">Training Economics</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+        </div>
+    </article>
+
+    <!-- Newsletter Section -->
+    <section class="content-section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stay in the Loop</h2>
+                <p>Get notified when we publish new articles on training design, learning science, and what we're building</p>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Adaptly</h4>
+                    <p>Building better tools for professional training</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../../about.html">About</a></li>
+                        <li><a href="../../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="../../designer-partnership.html">Design Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../../cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="../../terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../../do-not-sell.html">Do Not Sell My Info</a></li>
+                        <li><a href="../../accessibility.html">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Upcoming Events</h4>
+                    <ul>
+                        <li>
+                            <a href="../../b2b-roundtable.html" style="font-weight: 600;">Roundtable Event</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+                        <li><a href="mailto:hello@adaptlyhq.com" aria-label="Email hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Adaptly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle" aria-describedby="waitlistModalDesc">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="waitlistModalTitle">Join the Waitlist</h2>
+                <p id="waitlistModalDesc">Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')" aria-label="Close modal" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" title="Waitlist signup form"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lastFocusedElement = null;
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                lastFocusedElement = document.activeElement;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    setTimeout(() => closeButton.focus(), 100);
+                }
+                trapFocus(modal);
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                    lastFocusedElement = null;
+                }
+            }
+        }
+
+        function trapFocus(modal) {
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModal(activeModal.id);
+                }
+            }
+        });
+    </script>
+
+    <!-- Cookie Consent Scripts (deferred for performance) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="../../js/cookie-consent.js"></script>
+</body>
+</html>
