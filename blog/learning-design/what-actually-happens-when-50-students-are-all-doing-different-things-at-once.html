@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What actually happens when 50 students are all doing different things at once - Adaptly Blog</title>
+    <meta name="description" content="The lab is where visibility starts to break down. Parallel work outruns serial attention, and one instructor can only witness one thing at a time.">
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Article-specific layout */
+        .article-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 80%, #1e3a5f 100%);
+            padding: 4rem 0 3.5rem;
+            color: white;
+        }
+
+        .article-hero .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .article-hero .breadcrumb a {
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .article-hero .breadcrumb a:hover {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .article-hero .breadcrumb svg {
+            flex-shrink: 0;
+        }
+
+        .article-hero .category-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #93C5FD;
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid rgba(37, 99, 235, 0.4);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .article-hero h1 {
+            font-size: clamp(1.75rem, 5vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: white;
+            max-width: 720px;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem 1.25rem;
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.75rem;
+        }
+
+        .article-meta .author {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+
+        .article-meta .separator {
+            color: rgba(255,255,255,0.3);
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .article-tags .tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            padding: 0.25rem 0.7rem;
+            border-radius: 100px;
+        }
+
+        /* Article body */
+        .article-body {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3.5rem 2rem 4rem;
+            color: var(--primary-text);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .article-body h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin: 2.5rem 0 0.9rem;
+            line-height: 1.3;
+        }
+
+        .article-body h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin: 1.75rem 0 0.75rem;
+            line-height: 1.3;
+        }
+
+        .article-body p {
+            margin-bottom: 1.4rem;
+            color: #374151;
+        }
+
+        .article-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Fix: global nav{} styles bleed into the breadcrumb <nav> inside the dark hero.
+           Override back to transparent/static so no white bar appears. */
+        .article-hero nav.breadcrumb {
+            background: transparent;
+            box-shadow: none;
+            position: static;
+            z-index: auto;
+        }
+
+        /* Back to blog + share row */
+        .article-footer-nav {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .article-footer-nav .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+
+        .article-footer-nav .back-link:hover {
+            gap: 0.65rem;
+        }
+
+        .article-footer-nav .tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .article-footer-nav .tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #4B5563;
+            background: #F3F4F6;
+            border: 1px solid #E5E7EB;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        @media (max-width: 600px) {
+            .article-body {
+                padding: 2.5rem 1.25rem 3rem;
+                font-size: 1rem;
+            }
+            .article-body h2 {
+                font-size: 1.25rem;
+            }
+            .article-body h3 {
+                font-size: 1.05rem;
+            }
+            .article-hero {
+                padding: 3rem 0 2.5rem;
+            }
+        }
+    </style>
+    <!-- Cookie Consent CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css">
+    <link rel="stylesheet" href="../../css/cookie-consent-custom.css">
+</head>
+<body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <img src="../../logo.png" alt="Adaptly Logo" style="height: 50px;">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../about.html">About Us</a></li>
+                <li><a href="../../designer-partnership.html">Partners</a></li>
+                <li><a href="../../blog.html" aria-current="page">Blog</a></li>
+                <li><a href="../../b2b-roundtable.html" style="color: var(--event-amber, #F59E0B); font-weight: 700;">Roundtable Event</a></li>
+                <li><button type="button" onclick="openModal('waitlistModal')" class="nav-cta">Get Started</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+    <!-- Article Hero -->
+    <header class="article-hero" aria-labelledby="article-title">
+        <div class="container">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <a href="../../blog.html">Blog</a>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+                <span>Learning Design</span>
+            </nav>
+
+            <!-- Category badge -->
+            <div class="category-badge" aria-label="Category: Learning Design">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                Learning Design
+            </div>
+
+            <!-- Title -->
+            <h1 id="article-title">What actually happens when 50 students are all doing different things at once</h1>
+
+            <!-- Metadata -->
+            <div class="article-meta">
+                <span class="author">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                    Keshet Shiri
+                </span>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <time datetime="2026-10-05">October 5, 2026</time>
+                <span class="separator" aria-hidden="true">&bull;</span>
+                <span>6 min read</span>
+            </div>
+
+            <!-- Tags -->
+            <div class="article-tags" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Instructor Ratio</span>
+                <span class="tag" role="listitem">Mixed-Skill Cohorts</span>
+                <span class="tag" role="listitem">LMS Limitations</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Article Body -->
+    <article aria-labelledby="article-title">
+        <div class="article-body">
+
+            <p>The lab is where visibility starts to break down.</p>
+            <p>If you run cohort-based cybersecurity training, you already know the difference between a lecture and a lab. Both require a lot from the instructor, and neither guarantees that everyone is following. But they create very different visibility challenges.</p>
+            <p>In a lecture, the group is generally working through the same material at roughly the same time. You can listen to questions, read reactions, notice where people seem confused, and adjust what you're doing based on what you see and hear.</p>
+            <p>A lab is different. The moment students start working with their hands, they scatter. One is three exercises ahead and bored. Another is still stuck on setup and hasn't run a single command. A third has a working answer built on a method that will fall apart next week, but right now their screen says green.</p>
+            <p>This is the part I want to name plainly, because I think it gets misdiagnosed. The problem isn't effort. A good instructor in that room is working hard. The problem is that parallel work outruns serial attention. Twenty or fifty people are all doing different things at the same time, and one person can only witness one thing at a time.</p>
+
+            <h2>Being present is not the same as seeing</h2>
+            <p>An instructor can be fully present in a lab and still only catch a thin slice of what's actually happening across the room.</p>
+            <p>Walk over to help the student who raised their hand, and for those few minutes you're blind to the other forty screens. Someone quietly gives up in the corner. Someone else brute-forces a task in a way that gets the right output and teaches them nothing. You'll never see either, because you were busy being useful somewhere else.</p>
+            <p>This scales badly, and the numbers make it obvious. Across the programmes I've been part of, instructor-to-student ratios ran anywhere from about 1:4 up to 1:14 or 1:15, in cohorts of 12, 24, and 55. At 1:4 you can keep up. At 1:15 in a room of 55, you are not observing a lab. You are triaging one.</p>
+
+            <h3>Mixed-skill cohorts make the gap wider</h3>
+            <p>Now add the range of people you're actually teaching. Some cohorts I worked with had rigorous, aptitude-based admission. Others were beginner courses for people with no technical background at all, moving into cybersecurity from somewhere else entirely. Same lab, same clock, wildly different starting points.</p>
+            <p>A single pace can only ever fit one part of that group. Set it for the strongest students and the beginners drown quietly. Set it for the beginners and the strongest ones coast, disengage, and leave with less than they could have. Most of the time you're splitting the difference and serving neither well. The scatter isn't a discipline problem. It's the honest result of one pace meeting many levels.</p>
+
+            <h2>The LMS shows you the finish, not the run</h2>
+            <p>Here's where it gets worse. The one tool that's supposed to give you visibility mostly shows you the wrong thing.</p>
+            <p>An LMS records submissions. It tells you a task was completed, a status went green, a completion rate ticked up. What it doesn't show you is the run: how the student got there, where they stalled, what they tried, whether they understood the exercise or pattern-matched their way past it.</p>
+            <p>A correct submission built on a flawed process is a future problem wearing a good grade. Completion rates measure that something arrived. They don't measure whether the skill actually transferred. So you end up with a dashboard that looks healthy and a room where the most important things are invisible to the person running it.</p>
+
+            <h2>This is a design question, not a staffing one</h2>
+            <p>The instinct is to treat all of this as a capacity problem. Hire more instructors, shrink the ratio, add TAs. That helps, but it also caps your growth on the availability of scarce, expensive, skilled people, and it puts your best instructors on repetitive work that doesn't need their skill.</p>
+            <p>I'd argue it's really a design question. We built a model where visibility into a lab depends entirely on one human being able to watch everything at once. That was never realistic, even at small ratios. Parallel work has always outrun serial attention. We just accepted the blind spot because there wasn't another option.</p>
+
+            <h2>The honest question</h2>
+            <p>When your students scatter across a lab and you can only stand in one place, what are you not seeing? And how much of your programme's real quality lives in that blind spot?</p>
+
+        </div>
+
+        <!-- Article footer: back link + tags -->
+        <div class="article-footer-nav">
+            <a href="../../blog.html" class="back-link" aria-label="Back to all blog posts">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to Blog
+            </a>
+            <div class="tags-row" role="list" aria-label="Article tags">
+                <span class="tag" role="listitem">Instructor Ratio</span>
+                <span class="tag" role="listitem">Mixed-Skill Cohorts</span>
+                <span class="tag" role="listitem">LMS Limitations</span>
+                <span class="tag" role="listitem">Cybersecurity Training</span>
+            </div>
+        </div>
+    </article>
+
+    <!-- Newsletter Section -->
+    <section class="content-section" style="background-color: var(--background-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Stay in the Loop</h2>
+                <p>Get notified when we publish new articles on training design, learning science, and what we're building</p>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <button type="button" onclick="openModal('waitlistModal')" class="btn btn-primary">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Adaptly</h4>
+                    <p>Building better tools for professional training</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../../about.html">About</a></li>
+                        <li><a href="../../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="../../designer-partnership.html">Design Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../../cookie-policy.html">Cookie Policy</a></li>
+                        <li><a href="../../terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../../do-not-sell.html">Do Not Sell My Info</a></li>
+                        <li><a href="../../accessibility.html">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Upcoming Events</h4>
+                    <ul>
+                        <li>
+                            <a href="../../b2b-roundtable.html" style="font-weight: 600;">Roundtable Event</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="https://www.linkedin.com/company/adaptlyhq" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+                        <li><a href="mailto:hello@adaptlyhq.com" aria-label="Email hello@adaptlyhq.com">hello@adaptlyhq.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Adaptly. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="waitlistModalTitle" aria-describedby="waitlistModalDesc">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="waitlistModalTitle">Join the Waitlist</h2>
+                <p id="waitlistModalDesc">Be the first to know when we launch</p>
+                <button class="modal-close" onclick="closeModal('waitlistModal')" aria-label="Close modal" type="button">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://preview.mailerlite.io/forms/1863674/168510528537233226/share" title="Waitlist signup form"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lastFocusedElement = null;
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                lastFocusedElement = document.activeElement;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                const closeButton = modal.querySelector('.modal-close');
+                if (closeButton) {
+                    setTimeout(() => closeButton.focus(), 100);
+                }
+                trapFocus(modal);
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                    lastFocusedElement = null;
+                }
+            }
+        }
+
+        function trapFocus(modal) {
+            const focusableElements = modal.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
+            );
+            const firstFocusable = focusableElements[0];
+            const lastFocusable = focusableElements[focusableElements.length - 1];
+
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    if (e.shiftKey) {
+                        if (document.activeElement === firstFocusable) {
+                            e.preventDefault();
+                            lastFocusable.focus();
+                        }
+                    } else {
+                        if (document.activeElement === lastFocusable) {
+                            e.preventDefault();
+                            firstFocusable.focus();
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    closeModal(activeModal.id);
+                }
+            }
+        });
+    </script>
+
+    <!-- Cookie Consent Scripts (deferred for performance) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"></script>
+    <script defer src="../../js/cookie-consent.js"></script>
+</body>
+</html>
